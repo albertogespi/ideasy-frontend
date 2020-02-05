@@ -20,9 +20,9 @@ export function closeProject(projectId) {
 	return axios.post(`${process.env.REACT_APP_BACKEND_URL}/project/${projectId}`);
 }
 
-export function updateNote(project) {
+export function updateProject(projectData) {
 	return axios.put(
-		`${process.env.REACT_APP_BACKEND_URL}/project/${project.id}`,
-		project,
+		`${process.env.REACT_APP_BACKEND_URL}/project/${projectData.id}`,
+		projectData,
 	);
 }

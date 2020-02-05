@@ -22,9 +22,9 @@ export function getOrgProjects(userId) {
 	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/projects/${userId}`);
 }
 
-export function createProject(project) {
+export function createProject(projectData) {
 	return axios.post(
 		`${process.env.REACT_APP_BACKEND_URL}/projects/new`,
-		project,
+		projectData,
 	);
 }
