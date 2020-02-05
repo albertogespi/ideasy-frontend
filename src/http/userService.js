@@ -1,21 +1,30 @@
 import axios from "axios";
 
 export function getUser() {
-  return axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`);
+	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`);
 }
 
-export function updateContact() {
-  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/contact`);
+export function updateContact(userData) {
+	return axios.post(
+		`${process.env.REACT_APP_BACKEND_URL}/users/contact`,
+		userData,
+	);
 }
 
-export function updateName() {
-  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/name`);
+export function updateName(userData) {
+	return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/name`, userData);
 }
 
-export function updatePassword() {
-  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/password`);
+export function updatePassword(userData) {
+	return axios.post(
+		`${process.env.REACT_APP_BACKEND_URL}/users/password`,
+		userData,
+	);
 }
 
-export function uploadAvatar() {
-  return axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/avatar`);
+export function uploadAvatar(userData) {
+	return axios.post(
+		`${process.env.REACT_APP_BACKEND_URL}/users/avatar`,
+		userData,
+	);
 }
