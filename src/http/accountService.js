@@ -2,7 +2,7 @@ import axios from "axios";
 
 const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
-let token = (storedUser && storedUser.token) || null;
+let token = (storedUser && storedUser.accessToken) || null;
 
 axios.interceptors.request.use(
   function(config) {
@@ -26,7 +26,7 @@ axios.interceptors.response.use(
   function(response) {
     if (response.data.accessToken) {
       localStorage.setItem("currentUser", JSON.stringify(reponse.data));
-      token = response.data.token;
+      token = response.data.accessToken;
     }
     return response;
   },
