@@ -3,18 +3,21 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 //import './App.css';
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
+import { AuthProvider } from "./context/authContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/register">
-          <Register />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-      </Switch>
+      <AuthProvider>
+        <Switch>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
