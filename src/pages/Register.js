@@ -15,6 +15,7 @@ export function Register() {
     return createAccount(formData)
       .then(() => {
         setRedirect(true);
+        history.push("/");
       })
       .catch(error => {
         if (error.response.status === 409) {

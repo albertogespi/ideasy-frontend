@@ -25,7 +25,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   function(response) {
     if (response.data.accessToken) {
-      localStorage.setItem("currentUser", JSON.stringify(reponse.data));
+      localStorage.setItem("currentUser", JSON.stringify(response.data));
       token = response.data.accessToken;
     }
     return response;
