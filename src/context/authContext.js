@@ -6,13 +6,11 @@ const AuthContext = React.createContext();
 const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
 export function AuthProvider({ children }) {
-  const [role, setRole] = useState(jwt_decode(storedUser.accessToken));
+  const [jwt, setJwt] = useState(jwt_decode(storedUser.accessToken));
   const [currentUser, setCurrentUser] = useState(storedUser);
 
   return (
-    <AuthContext.Provider
-      value={{ role, setRole, currentUser, setCurrentUser }}
-    >
+    <AuthContext.Provider value={{ jwt, setJwt, currentUser, setCurrentUser }}>
       {children}
     </AuthContext.Provider>
   );

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { createAccount } from "../http/accountService";
-import { useAuth } from "../context/authContext";
 
 export function Register() {
   const { register, errors, formState, handleSubmit, setError } = useForm({
