@@ -32,10 +32,13 @@ export function Register() {
       <h3>REGÍSTRATE</h3>
       <form onSubmit={handleSubmit(handleRegister)} noValidate>
         <div>
-          <input type="radio" id="org" name="role"></input>
-          <label for="org">Organización</label>
-          <input type="radio" id="dev" name="role"></input>
-          <label for="dev">Desarrollador</label>
+          <p>Selecciona tu perfil</p>
+          <section>
+            <input type="radio" id="org" name="role"></input>
+            <label for="org">Organización</label>
+            <input type="radio" id="dev" name="role"></input>
+            <label for="dev">Desarrollador</label>
+          </section>
         </div>
         <div>
           <label for="name">Nombre</label>
