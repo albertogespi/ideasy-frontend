@@ -3,19 +3,21 @@ import { Search } from "./Search";
 
 export function Header() {
 	return (
-		<header>
+		<header className='main-header'>
 			<Search />
 			<div>
-				<a
-					href='google.es'
-					id='logo-home'
-					aria-label='Portal de Ideas. Click para ir a inicio.'
-				>
-					Portal de Ideas
-				</a>
+				<h1>
+					<a
+						href='google.es'
+						id='logo-home'
+						aria-label='Portal de Ideas. Click para ir a inicio.'
+					>
+						Portal de Ideas
+					</a>
+				</h1>
 			</div>
 			<nav role='navigation'>
-				<ul>
+				<ul className='nav-row'>
 					<li>
 						<a href='user' id='my-projects' title='Ir a mis proyectos'>
 							<img

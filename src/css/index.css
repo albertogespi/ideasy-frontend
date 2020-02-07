@@ -1,0 +1,50 @@
+@import "./utils.css";
+@import "./forms.css";
+@import "./header.css";
+@import "./register.css";
+@import "./theme.css";
+
+html {
+	box-sizing: border-box;
+	height: 100%;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+}
+
+body,
+#root {
+	font-family: var(--font-primary);
+	height: 100%;
+	background-color: rgb(3, 2, 77);
+
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+/* -- BASICS -- */
+h1 {
+	font-size: var(--font-xxl);
+}
+
+ul li {
+	list-style: none;
+}
+
+a {
+	font-size: var(--space-md);
+	text-decoration: none;
+	text-align: center;
+}
+
+button {
+	padding: 0.5rem;
+	font-size: var(--font-sm);
+}

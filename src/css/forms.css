@@ -1,0 +1,50 @@
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	margin-bottom: 1rem;
+}
+
+form legend {
+	display: block;
+	text-align: center;
+	background-color: white;
+	height: 1rem;
+	font-size: var(--font-sm);
+}
+
+fieldset {
+	width: 400px;
+	border-top: 1rem solid white;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+
+	margin: 0.5rem 0;
+	padding: 0 0.5rem;
+}
+
+fieldset ul {
+	padding: 0.5rem 0 0.5rem 1.5rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+fieldset ul li {
+	padding-bottom: 0.5rem;
+}
+
+fieldset label {
+	display: inline-block;
+	width: 110px;
+	text-align: center;
+	font-size: var(--font-m);
+}
+
+fieldset input {
+	font-size: var(--font-sm);
+}
