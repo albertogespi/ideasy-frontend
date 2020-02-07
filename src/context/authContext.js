@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import jwt_decode from "jwt-decode";
+//import jwt_decode from "jwt-decode";
 
 const AuthContext = React.createContext();
 
-const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+//const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
 export function AuthProvider({ children }) {
-  const [jwt, setJwt] = useState(jwt_decode(storedUser.accessToken));
-  const [currentUser, setCurrentUser] = useState(storedUser);
+  const [jwt, setJwt] = useState();
+  const [currentUser, setCurrentUser] = useState();
 
   return (
     <AuthContext.Provider value={{ jwt, setJwt, currentUser, setCurrentUser }}>

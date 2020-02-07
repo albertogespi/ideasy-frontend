@@ -22,8 +22,8 @@ export function Login() {
   const handleLogin = formData => {
     return login(formData)
       .then(response => {
-        //setJwt(jwt_decode(response.data.accessToken));
-        //setCurrentUser(response.data);
+        setJwt(jwt_decode(response.data.accessToken));
+        setCurrentUser(response.data);
         history.push("/");
       })
       .catch(error => {
