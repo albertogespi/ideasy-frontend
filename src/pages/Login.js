@@ -34,7 +34,7 @@ export function Login() {
 
   return (
     <main>
-      <h3>Inicia Sesión</h3>
+      <h3>INICIA SESIÓN</h3>
       <form onSubmit={handleSubmit(handleLogin)} noValidate>
         <div>
           <label for="email">Email</label>
