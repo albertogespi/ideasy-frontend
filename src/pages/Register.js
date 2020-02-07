@@ -95,9 +95,6 @@ export function Register() {
           <button type="submit" disabled={formState.isSubmitting}>
             Crear
           </button>
-          <div>
-            <Link to="/login">Ya tengo una cuenta, quiero iniciar sesión</Link>
-          </div>
         </div>
       </form>
     </main>

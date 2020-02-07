@@ -76,9 +76,6 @@ export function Login() {
           <button type="submit" disabled={formState.isSubmitting}>
             Acceder
           </button>
-          <div>
-            <Link to="/register">Aún no tengo una cuenta</Link>
-          </div>
         </div>
       </form>
     </main>
