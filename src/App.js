@@ -8,16 +8,14 @@ import { AuthProvider } from "./context/authContext";
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <Switch>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-        </Switch>
-      </AuthProvider>
+      <Switch>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }
