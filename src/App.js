@@ -1,15 +1,20 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 //import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import { AuthProvider } from "./context/authContext";
+import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import { AuthProvider } from "./context/authContext";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/register-login">
             <Register />
             <Login />
