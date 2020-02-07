@@ -10,8 +10,10 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Switch>
-          <Route path="/register-login">
+          <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/login">
             <Login />
           </Route>
         </Switch>
