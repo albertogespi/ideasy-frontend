@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+import { Header } from "../components/Header";
 import { getUser } from "../http/userService";
 
 export function MyProfile() {
@@ -10,6 +11,7 @@ export function MyProfile() {
 
   return (
     <main>
+      <Header />
       <section>
         <img src={user.avatar_url} alt="" name="profile photo"></img>
         <p>{user.name}</p>
@@ -52,8 +54,13 @@ export function MyProfile() {
           <button>Cambiar contraseña</button>
         </div>
         <div>
-          <label for="avatar">Imagen</label>
-          <input type="file">Selecionar imagen</input>
+          <label for="avatar">Cambiar Imagen</label>
+          <input
+            type="file"
+            id="avatar"
+            name="avatar"
+            accept="image/png, image/jpeg, image/jpg"
+          ></input>
         </div>
         <div>
           <h6>Datos de contacto</h6>
