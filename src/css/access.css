@@ -1,0 +1,30 @@
+.accessWindow {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	min-height: 100%;
+	background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background-size: cover;
+}
+
+.accessWindow section {
+	background-color: var(--color-highlighted-section);
+}
+
+.accessWindow section header {
+	padding: 1.5rem 0 1rem 0;
+}
+
+.accessWindow fieldset#roles {
+	background-color: var(--color-highlighted-textarea);
+}
+
+.accessWindow fieldset#roles ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	padding: 1rem;
+}

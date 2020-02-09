@@ -1,11 +1,14 @@
 .main-header {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	background-color: grey;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));
+	padding: 1rem 0;
 }
 
 .main-header div {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 }

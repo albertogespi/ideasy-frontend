@@ -1,5 +1,7 @@
 :root {
 	/* colors */
+	--color-highlighted-section: rgb(150, 235, 222);
+	--color-highlighted-textarea: rgb(180, 0, 111);
 
 	/* fonts */
 	--font-primary: Arial, sans-serif;

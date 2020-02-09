@@ -1,8 +1,10 @@
 @import "./utils.css";
 @import "./forms.css";
 @import "./header.css";
-@import "./register.css";
+@import "./access.css";
 @import "./theme.css";
+@import "./filters.css";
+@import "./home.css";
 
 html {
 	box-sizing: border-box;
@@ -21,17 +23,21 @@ html {
 body,
 #root {
 	font-family: var(--font-primary);
-	height: 100%;
-	background-color: rgb(3, 2, 77);
+	height: 100vh;
+	background-color: black;
 
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
+	display: grid;
+	grid-template-rows: auto 1fr;
 }
 
 /* -- BASICS -- */
 h1 {
 	font-size: var(--font-xxl);
+}
+
+p {
+	font-size: var(--font-m);
+	padding: 0.5rem 0;
 }
 
 ul li {
@@ -42,9 +48,11 @@ a {
 	font-size: var(--space-md);
 	text-decoration: none;
 	text-align: center;
+	color: black;
 }
 
 button {
+	margin: 0 0.5rem;
 	padding: 0.5rem;
 	font-size: var(--font-sm);
 }
