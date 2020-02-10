@@ -59,7 +59,7 @@ export function AccessWindow() {
   const [isOrg, setIsOrg] = useState(false);
 
   return (
-    <body>
+    <section className="container">
       <Header isAccessWindow={true} isLoged={false} />
       <main className="accessWindow">
         <section className="centered-container">
@@ -196,6 +196,6 @@ export function AccessWindow() {
           </form>
         </section>
       </main>
-    </body>
+    </section>
   );
 }
