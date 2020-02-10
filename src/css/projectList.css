@@ -8,7 +8,7 @@
 
 .project-miniature {
 	display: grid;
-	grid-template-columns: auto 1fr auto;
+	grid-template-columns: 7rem auto 10rem;
 	border: 2px solid black;
 	background-color: cadetblue;
 }
@@ -16,7 +16,6 @@
 .project-miniature > :first-child {
 	align-items: center;
 	justify-content: space-between;
-	width: 110px;
 }
 
 .project-miniature > div {
@@ -35,6 +34,7 @@
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
+	margin: 0;
 }
 
 #main-content {
@@ -52,5 +52,5 @@ a#org-name {
 }
 
 #icon {
-	margin-right: 0.2rem;
+	margin-right: 0.5rem;
 }

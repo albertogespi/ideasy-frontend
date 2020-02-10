@@ -35,7 +35,7 @@ export function ProjectList({ projects }) {
 											alt=''
 											id='icon'
 										/>
-										<p>{project.created_at}</p>
+										<p>{project.created_at.split("T")[0]}</p>
 									</li>
 									<li>
 										<img
