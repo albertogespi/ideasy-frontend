@@ -22,9 +22,8 @@ export function Filters() {
 						{categories.map((cat, index) => (
 							<li>
 								<button
-									class='btn active'
 									id={currentSelected === index ? "is-selected" : ""}
-									onclick={() => {
+									onClick={() => {
 										setSelected(index);
 									}}
 								>
@@ -38,19 +37,13 @@ export function Filters() {
 					<p>Complejidad</p>
 					<ul>
 						<li>
-							<button class='btn' onclick="filterSelection('easy')">
-								Fácil
-							</button>
+							<button>Fácil</button>
 						</li>
 						<li>
-							<button class='btn' onclick="filterSelection('medium')">
-								Media
-							</button>
+							<button>Media</button>
 						</li>
 						<li>
-							<button class='btn' onclick="filterSelection('hard')">
-								Difícil
-							</button>
+							<button>Difícil</button>
 						</li>
 					</ul>
 				</section>

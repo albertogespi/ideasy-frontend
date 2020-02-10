@@ -12,7 +12,7 @@ export function Home() {
 	console.log(projects);
 
 	return (
-		<body>
+		<section className='container'>
 			<Header isAccessWindow={false} isLoged={false} />
 			<main className='home'>
 				<Filters />
@@ -20,6 +20,6 @@ export function Home() {
 					<ProjectList projects={projects} />
 				</section>
 			</main>
-		</body>
+		</section>
 	);
 }

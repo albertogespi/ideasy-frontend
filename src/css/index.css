@@ -22,7 +22,8 @@ html {
 }
 
 body,
-#root {
+#root,
+.container {
 	font-family: var(--font-primary);
 	height: 100vh;
 	background-color: black;

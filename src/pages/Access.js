@@ -23,15 +23,7 @@ export function AccessWindow() {
 
 	// Handle functions //
 	const handleRegister = (formData) => {
-		return createAccount(formData)
-			.then(() => {
-				history.push("/");
-			})
-			.catch((error) => {
-				if (error.response.status === 409) {
-					setError("email", "conflicto", "El email introducido ya existe");
-				}
-			});
+		createAccount(formData);
 	};
 
 	const handleLogin = (formData) => {
@@ -58,7 +50,7 @@ export function AccessWindow() {
 	const [isOrg, setIsOrg] = useState(false);
 
 	return (
-		<body>
+		<section className='container'>
 			<Header isAccessWindow={true} isLoged={false} />
 			<main className='accessWindow'>
 				<section className='centered-container'>
@@ -88,8 +80,8 @@ export function AccessWindow() {
 											id='dev'
 											type='radio'
 											name='role'
-											value='Desarrollador'
-											checked={!isOrg}
+											value='dev'
+											defaultChecked
 											aria-checked={!isOrg}
 											onClick={() => setIsOrg(false)}
 										></input>
@@ -100,9 +92,8 @@ export function AccessWindow() {
 											id='org'
 											type='radio'
 											name='role'
-											value='Organización'
+											value='org'
 											aria-checked={isOrg}
-											checked={isOrg}
 											onClick={() => setIsOrg(true)}
 										></input>
 										<label for='org'>Organización</label>
@@ -187,6 +178,6 @@ export function AccessWindow() {
 					</form>
 				</section>
 			</main>
-		</body>
+		</section>
 	);
 }

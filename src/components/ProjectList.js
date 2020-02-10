@@ -10,7 +10,7 @@ export function ProjectList({ projects }) {
 						<section className='project-miniature'>
 							<div>
 								<a href='google.es' id='my-profile' title='Ir a mi perfil'>
-									<div class='profile-photo'>
+									<div className='profile-photo'>
 										<img src={project.user_avatar_url} alt='' name='profile photo' />
 									</div>
 								</a>
