@@ -5,6 +5,7 @@
 @import "./theme.css";
 @import "./filters.css";
 @import "./home.css";
+@import "./projectList.css";
 
 html {
 	box-sizing: border-box;
@@ -35,9 +36,18 @@ h1 {
 	font-size: var(--font-xxl);
 }
 
+h2 {
+	margin: 0.5rem 0;
+}
+
 p {
 	font-size: var(--font-m);
 	padding: 0.5rem 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
 }
 
 ul li {

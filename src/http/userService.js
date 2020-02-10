@@ -1,6 +1,10 @@
 import axios from "axios";
 
-export function getUser() {
+export function getUser(userId) {
+	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/${userId}`);
+}
+
+export function getProfile() {
 	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`);
 }
 
