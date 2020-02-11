@@ -6,6 +6,7 @@
 @import "./filters.css";
 @import "./home.css";
 @import "./projectList.css";
+@import "./myProfile.css";
 
 html {
 	box-sizing: border-box;
@@ -26,7 +27,7 @@ body,
 .container {
 	font-family: var(--font-primary);
 	height: 100vh;
-	background-color: black;
+	background-color: white;
 
 	display: grid;
 	grid-template-rows: auto 1fr;

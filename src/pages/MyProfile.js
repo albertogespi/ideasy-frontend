@@ -5,82 +5,118 @@ import { Header } from "../components/Header";
 import { getUser } from "../http/userService";
 
 export function MyProfile() {
-  const user = getUser().then(response => {
-    return response.data;
-  });
+	const { formState, handleSubmit } = useForm({
+		mode: "onBlur",
+	});
 
-  return (
-    <main>
-      <Header />
-      <section>
-        <img src={user.avatar_url} alt="" name="profile photo"></img>
-        <p>{user.name}</p>
-      </section>
-      <section>
-        <div>
-          <label for="name">Nombre</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder={user.name}
-          ></input>
-          <button>Cambiar nombre</button>
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder={user.email}
-          ></input>
-        </div>
-        <div>
-          <label for="password">Contraseña actual</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Introduzca contraseña actual para cambiarla"
-          ></input>
-          <label for="new-password">Nueva contraseña</label>
-          <input
-            type="password"
-            id="new-password"
-            name="new-password"
-            placeholder="Introduzca su nueva contraseña"
-          ></input>
-          <button>Cambiar contraseña</button>
-        </div>
-        <div>
-          <label for="avatar">Cambiar Imagen</label>
-          <input
-            type="file"
-            id="avatar"
-            name="avatar"
-            accept="image/png, image/jpeg, image/jpg"
-          ></input>
-        </div>
-        <div>
-          <h6>Datos de contacto</h6>
-          <label for="contact-email">Correo</label>
-          <input
-            type="email"
-            id="contact-email"
-            name="contact-email"
-            placeholder="Introduzca email de contacto"
-          ></input>
-          <label for="contact-web">Página web</label>
-          <input
-            type="url"
-            id="contact-web"
-            name="contact-web"
-            placeholder="Introduzca su página web, perfil de Linkedin..."
-          ></input>
-          <button>Cambiar datos de contacto</button>
-        </div>
-      </section>
-    </main>
-  );
+	const user = getUser().then((response) => {
+		return response.data;
+	});
+
+	let isOrgProfile = user.role === "org";
+
+	const handleUpdate = (formData) => {};
+
+	return (
+		<section className='container, myProfile'>
+			<Header />
+			<section className='centered-container'>
+				<div className='profile-photo'>
+					<img src={user.avatar_url} alt='' name='profile photo'></img>
+				</div>
+				<h1>{user.name}</h1>
+			</section>
+			<section className='centered-container'>
+				<form onSubmit={handleSubmit(handleUpdate)}>
+					<fieldset>
+						<legend>Datos personales</legend>
+						<ul>
+							<li>
+								<label for='name'>Nombre</label>
+								<input
+									type='text'
+									id='name'
+									name='name'
+									placeholder={user.name}
+								></input>
+							</li>
+							{!isOrgProfile && (
+								<li>
+									<label for='surname'>Apellidos</label>
+									<input
+										type='text'
+										id='surname'
+										name='surname'
+										placeholder={user.surname}
+									></input>
+								</li>
+							)}
+							<li>
+								<label for='email'>Email</label>
+								<input
+									type='email'
+									id='email'
+									name='email'
+									placeholder={user.email}
+								></input>
+							</li>
+							<li>
+								<label for='password'>Contraseña actual</label>
+								<input
+									type='password'
+									id='password'
+									name='password'
+									placeholder='Introduzca contraseña actual para cambiarla'
+								></input>
+							</li>
+							<li>
+								<label for='new-password'>Nueva contraseña</label>
+								<input
+									type='password'
+									id='new-password'
+									name='new-password'
+									placeholder='Introduzca su nueva contraseña'
+								></input>
+							</li>
+							<li>
+								<label for='avatar'>Cambiar Imagen</label>
+								<input
+									type='file'
+									id='avatar'
+									name='avatar'
+									accept='image/png, image/jpeg, image/jpg'
+								></input>
+							</li>
+						</ul>
+					</fieldset>
+					<fieldset>
+						<legend>Datos de contacto</legend>
+						<ul>
+							<li>
+								<label for='contact-email'>Correo</label>
+								<input
+									type='email'
+									id='contact-email'
+									name='contact-email'
+									placeholder='Introduzca email de contacto'
+								></input>
+							</li>
+							<li>
+								<label for='contact-web'>Página web</label>
+								<input
+									type='url'
+									id='contact-web'
+									name='contact-web'
+									placeholder='Introduzca su página web, perfil de Linkedin...'
+								></input>
+							</li>
+						</ul>
+					</fieldset>
+					<button type='submit' disabled={formState.isSubmitting}>
+						Cambiar datos de contacto
+					</button>
+				</form>
+			</section>
+		</section>
+	);
 }

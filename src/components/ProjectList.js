@@ -6,7 +6,7 @@ export function ProjectList({ projects }) {
 		<section className='projectList'>
 			<ul>
 				{projects.map((project, index) => (
-					<li>
+					<li key={index}>
 						<section className='project-miniature'>
 							<div>
 								<a href='google.es' id='my-profile' title='Ir a mi perfil'>

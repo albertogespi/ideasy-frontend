@@ -1,0 +1,12 @@
+.myProfile .profile-photo {
+	width: 150px;
+	height: 150px;
+}
+
+.myProfile > section {
+	padding: 2rem;
+}
+
+.myProfile form fieldset {
+	width: 600px;
+}
