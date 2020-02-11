@@ -26,6 +26,9 @@ export function AccessWindow() {
     console.log(formData);
     return createAccount(formData)
       .then(() => {
+        alert(
+          `Bienvenido a nuestro Portal de Ideas ${formData.name}, tu cuenta se ha creado con éxito`
+        );
         history.push("/");
       })
       .catch(error => {
@@ -41,6 +44,8 @@ export function AccessWindow() {
         setJwt(jwt_decode(response.data.accessToken));
         setCurrentUser(response.data);
         history.push("/");
+        console.log(response.data);
+        alert(`Sesión iniciada`);
       })
       .catch(error => {
         setValue("password", "");
@@ -136,7 +141,12 @@ export function AccessWindow() {
                   {!isOrg && (
                     <li>
                       <label for="surname">Apellidos</label>
-                      <input id="surname" type="text" name="surname"></input>
+                      <input
+                        id="surname"
+                        type="text"
+                        name="surname"
+                        ref={register}
+                      ></input>
                     </li>
                   )}
                 </ul>
