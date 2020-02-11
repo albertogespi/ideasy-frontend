@@ -1,18 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-export function Filters() {
-	const [currentSelected, setSelected] = useState(0);
-
-	const categories = [
-		"Todos",
-		"Blog",
-		"e-Commerce",
-		"e-Learning",
-		"Corporativa",
-		"Noticias",
-		"Wikis",
-	];
-
+export function Filters({
+	categories,
+	complexities,
+	selectedCategory,
+	setSelectedCategory,
+	selectedComplexity,
+	setSelectedComplexity,
+}) {
 	return (
 		<section className='filters'>
 			<nav>
@@ -22,9 +17,9 @@ export function Filters() {
 						{categories.map((cat, index) => (
 							<li key={index}>
 								<button
-									id={currentSelected === index ? "is-selected" : ""}
+									id={selectedCategory === index ? "is-selected" : ""}
 									onClick={() => {
-										setSelected(index);
+										setSelectedCategory(index);
 									}}
 								>
 									{cat}
@@ -36,15 +31,18 @@ export function Filters() {
 				<section id='complexity'>
 					<p>Complejidad</p>
 					<ul>
-						<li>
-							<button>Fácil</button>
-						</li>
-						<li>
-							<button>Media</button>
-						</li>
-						<li>
-							<button>Difícil</button>
-						</li>
+						{complexities.map((comp, index) => (
+							<li key={index}>
+								<button
+									id={selectedComplexity === index ? "is-selected" : ""}
+									onClick={() => {
+										setSelectedComplexity(index);
+									}}
+								>
+									{comp}
+								</button>
+							</li>
+						))}
 					</ul>
 				</section>
 			</nav>
