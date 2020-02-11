@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export function getHomeProjects() {
-	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/home`);
+export function getHomeProjects(queryValues) {
+	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/home${queryValues}`);
 }
 
 export function getProjectsOrdered(projectId) {
