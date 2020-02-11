@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { Header } from "../components/Header";
-import { getUser, updateProfile, uploadAvatar } from "../http/userService";
+import { getProfile, updateProfile, uploadAvatar } from "../http/userService";
 
 export function MyProfile() {
   const {
@@ -16,7 +16,7 @@ export function MyProfile() {
     mode: "onBlur"
   });
 
-  const user = getUser().then(response => {
+  const user = getProfile().then(response => {
     return response.data;
   });
 
@@ -36,6 +36,7 @@ export function MyProfile() {
     return uploadAvatar(formData)
       .then(response => {
         alert("Foto de perfil actualizada");
+        console.log(`todo bien`);
       })
       .catch(error => {
         console.log(error);
@@ -49,7 +50,7 @@ export function MyProfile() {
         <div className="profile-photo">
           <img src={user.avatar_url} alt="" name="profile photo"></img>
         </div>
-        <form onSubmit={handleSubmit(handleUploadAvatar)}>
+        {/* <form onSubmit={handleSubmit(handleUploadAvatar)}>
           <label for="avatar">Cambiar Imagen</label>
           <input
             type="file"
@@ -58,7 +59,7 @@ export function MyProfile() {
             accept="image/png, image/jpeg, image/jpg"
             ref={register}
           ></input>
-        </form>
+        </form> */}
         <h1>{user.name}</h1>
       </section>
       <section className="centered-container">
@@ -114,7 +115,7 @@ export function MyProfile() {
                 <input
                   type="password"
                   id="new-password"
-                  name="new-password"
+                  name="newPassword"
                   placeholder="Introduzca su nueva contraseña"
                   ref={register({
                     minLength: {
@@ -135,7 +136,7 @@ export function MyProfile() {
                 <input
                   type="email"
                   id="contact-email"
-                  name="contact-email"
+                  name="contactEmail"
                   placeholder={user.email}
                   ref={register}
                 ></input>
@@ -145,7 +146,7 @@ export function MyProfile() {
                 <input
                   type="url"
                   id="contact-web"
-                  name="contact-web"
+                  name="contactWeb"
                   placeholder="Introduzca su página web, perfil de Linkedin..."
                   ref={register}
                 ></input>
