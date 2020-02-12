@@ -51,7 +51,7 @@ export function Home() {
 
 	return (
 		<section className='container'>
-			<Header isAccessWindow={false} isLoged={false} />
+			<Header isAccessWindow={false} />
 			<main className='home'>
 				<Filters
 					categories={categories}
