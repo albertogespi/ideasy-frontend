@@ -10,15 +10,15 @@ export function Header({ isAccessWindow }) {
 		<header className='main-header'>
 			{!isAccessWindow && <Search />}
 			<div>
-				<h1>
-					<a
-						href='google.es'
-						id='logo-home'
-						aria-label='Portal de Ideas. Click para ir a inicio.'
-					>
-						Portal de Ideas
-					</a>
-				</h1>
+				<button
+					id='logo-home'
+					aria-label='Portal de Ideas. Click para ir a inicio.'
+					onClick={() => {
+						window.location.href = "/";
+					}}
+				>
+					Portal de Ideas
+				</button>
 			</div>
 			{!isAccessWindow && isAuth && (
 				<nav role='navigation'>
