@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import jwt_decode from "jwt-decode";
 
 import { useAuth } from "../context/authContext";
 
@@ -20,7 +21,8 @@ export function MyProfile() {
 
   const storedUser = JSON.parse(localStorage.getItem("profileUser"));
 
-  const { currentUser } = useAuth();
+  const { currentUser, jwt } = useAuth();
+  console.log(jwt.role);
   const [user, setUser] = useState(storedUser || currentUser);
   console.log(user);
   console.log(currentUser);
@@ -50,7 +52,7 @@ export function MyProfile() {
       });
   };
 
-  let isOrgProfile = currentUser.role === "org";
+  let isOrgProfile = jwt.role === "org";
 
   return (
     <section className="container, myProfile">
