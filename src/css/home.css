@@ -2,10 +2,3 @@
 	display: grid;
 	grid-template-columns: 20rem auto;
 }
-
-.content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}

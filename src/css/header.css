@@ -24,8 +24,23 @@
 	padding: 0 1rem 0 1rem;
 }
 
-.nav-row li a {
+.nav-row li button {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	height: 100px;
+	width: 125px;
+	margin: 2px solid black;
+	background-color: transparent;
+}
+
+.nav-row p {
+	padding-bottom: 0;
+	font-size: var(--font-sm);
+}
+
+.nav-row img {
+	height: 40px;
+	width: 40px;
 }

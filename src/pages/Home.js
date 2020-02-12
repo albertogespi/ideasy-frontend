@@ -61,9 +61,7 @@ export function Home() {
 					selectedComplexity={selectedComplexity}
 					setSelectedComplexity={setSelectedComplexity}
 				/>
-				<section className='content'>
-					<ProjectList projects={projects} />
-				</section>
+				<ProjectList projects={projects} />
 			</main>
 		</section>
 	);

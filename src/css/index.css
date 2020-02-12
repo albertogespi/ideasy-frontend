@@ -23,14 +23,18 @@ html {
 }
 
 body,
-#root,
-.container {
+#root {
 	font-family: var(--font-primary);
 	height: 100vh;
 	background-color: white;
+	overflow: hidden;
+}
 
+.container {
 	display: grid;
 	grid-template-rows: auto 1fr;
+	height: 100%;
+	overflow: scroll;
 }
 
 /* -- BASICS -- */

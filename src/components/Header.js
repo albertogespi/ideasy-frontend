@@ -29,7 +29,7 @@ export function Header({ isAccessWindow }) {
 									src='https://img.icons8.com/ios/50/000000/summary-list.png'
 									alt=''
 								/>
-								Mis Proyectos
+								<p>Mis Proyectos</p>
 							</button>
 						</li>
 						<li>
@@ -54,10 +54,7 @@ export function Header({ isAccessWindow }) {
 									localStorage.removeItem("currentUser");
 								}}
 							>
-								<img
-									src='https://img.icons8.com/ios/50/000000/summary-list.png'
-									alt=''
-								/>
+								<img src='https://img.icons8.com/ios/50/000000/export.png' alt='' />
 								<p>Cerrar sesión</p>
 							</button>
 						</li>
