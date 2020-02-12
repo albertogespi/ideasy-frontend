@@ -20,7 +20,7 @@ export function MyProfile() {
 
   const storedUser = JSON.parse(localStorage.getItem("profileUser"));
 
-  const { currentUser, setCurrentUser, role, setRole } = useAuth();
+  const { currentUser } = useAuth();
   const [user, setUser] = useState(storedUser || currentUser);
   console.log(user);
   console.log(currentUser);
