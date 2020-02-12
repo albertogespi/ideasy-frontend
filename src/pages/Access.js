@@ -43,6 +43,7 @@ export function AccessWindow() {
       .then(response => {
         setRole(jwt_decode(response.data.accessToken));
         setCurrentUser(response.data);
+        localStorage.removeItem("profileUser");
         history.push("/");
         console.log(response.data);
 
