@@ -1,11 +1,11 @@
 import React from "react";
-//import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { AuthProvider } from "./context/authContext";
 import { Home } from "./pages/Home";
 import { MyProfile } from "./pages/MyProfile";
 import { AccessWindow } from "./pages/Access";
+import { NewProject } from "./pages/NewProject";
 
 function App() {
 	return (
@@ -20,6 +20,9 @@ function App() {
 					</Route>
 					<Route path='/my-profile'>
 						<MyProfile />
+					</Route>
+					<Route path='/new-project'>
+						<NewProject />
 					</Route>
 				</Switch>
 			</AuthProvider>
