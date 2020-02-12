@@ -19,7 +19,7 @@ export function AccessWindow() {
     mode: "onBlur"
   });
   const history = useHistory();
-  const { jwt, setJwt, setCurrentUser, currentUser } = useAuth();
+  const { setIsAuth, setJwt, setCurrentUser } = useAuth();
 
   // Handle functions //
   const handleRegister = formData => {
@@ -41,6 +41,7 @@ export function AccessWindow() {
   const handleLogin = formData => {
     return login(formData)
       .then(response => {
+        setIsAuth(true);
         setJwt(jwt_decode(response.data.accessToken));
         setCurrentUser(response.data);
         localStorage.removeItem("profileUser");
