@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
+import { useAuth } from "../context/authContext";
+
 import { Header } from "../components/Header";
-import { getUser, updateProfile, uploadAvatar } from "../http/userService";
+import { getProfile, updateProfile, uploadAvatar } from "../http/userService";
 
 export function MyProfile() {
   const {
@@ -16,15 +18,20 @@ export function MyProfile() {
     mode: "onBlur"
   });
 
-  const user = getUser().then(response => {
-    return response.data;
-  });
+  const storedUser = JSON.parse(localStorage.getItem("profileUser"));
 
-  let isOrgProfile = user.role === "org";
+  const { currentUser, setCurrentUser, role, setRole } = useAuth();
+  const [user, setUser] = useState(storedUser || currentUser);
+  console.log(user);
+  console.log(currentUser);
 
   const handleUpdate = formData => {
     return updateProfile(formData)
       .then(response => {
+        getProfile().then(response => {
+          setUser(response.data);
+          localStorage.setItem("profileUser", JSON.stringify(response.data));
+        });
         alert("Perfil actualizado");
       })
       .catch(error => {
@@ -36,20 +43,23 @@ export function MyProfile() {
     return uploadAvatar(formData)
       .then(response => {
         alert("Foto de perfil actualizada");
+        console.log(`todo bien`);
       })
       .catch(error => {
         console.log(error);
       });
   };
 
+  let isOrgProfile = currentUser.role === "org";
+
   return (
     <section className="container, myProfile">
       <Header />
       <section className="centered-container">
         <div className="profile-photo">
-          <img src={user.avatar_url} alt="" name="profile photo"></img>
+          <img src={user.avatarUrl} alt="" name="profile photo"></img>
         </div>
-        <form onSubmit={handleSubmit(handleUploadAvatar)}>
+        {/* <form name="form2" onSubmit={handleSubmit(handleUploadAvatar)}>
           <label for="avatar">Cambiar Imagen</label>
           <input
             type="file"
@@ -58,11 +68,11 @@ export function MyProfile() {
             accept="image/png, image/jpeg, image/jpg"
             ref={register}
           ></input>
-        </form>
+        </form> */}
         <h1>{user.name}</h1>
       </section>
       <section className="centered-container">
-        <form onSubmit={handleSubmit(handleUpdate)}>
+        <form name="form1" onSubmit={handleSubmit(handleUpdate)}>
           <fieldset>
             <legend>Datos personales</legend>
             <ul>
@@ -72,7 +82,7 @@ export function MyProfile() {
                   type="text"
                   id="name"
                   name="name"
-                  placeholder={user.name}
+                  defaultValue={user.name}
                   ref={register}
                 ></input>
               </li>
@@ -83,7 +93,7 @@ export function MyProfile() {
                     type="text"
                     id="surname"
                     name="surname"
-                    placeholder={user.surname}
+                    defaultValue={user.surname === "NULL" ? "" : user.surname}
                     ref={register}
                   ></input>
                 </li>
@@ -94,7 +104,7 @@ export function MyProfile() {
                   type="email"
                   id="email"
                   name="email"
-                  placeholder={user.email}
+                  value={user.email}
                 ></input>
               </li>
               <li>
@@ -114,7 +124,7 @@ export function MyProfile() {
                 <input
                   type="password"
                   id="new-password"
-                  name="new-password"
+                  name="newPassword"
                   placeholder="Introduzca su nueva contraseña"
                   ref={register({
                     minLength: {
@@ -135,8 +145,8 @@ export function MyProfile() {
                 <input
                   type="email"
                   id="contact-email"
-                  name="contact-email"
-                  placeholder={user.email}
+                  name="contactEmail"
+                  defaultValue={user.contactEmail || user.email}
                   ref={register}
                 ></input>
               </li>
@@ -145,7 +155,10 @@ export function MyProfile() {
                 <input
                   type="url"
                   id="contact-web"
-                  name="contact-web"
+                  name="contactWeb"
+                  defaultValue={
+                    user.contactWeb === "NULL" ? "" : user.contactWeb
+                  }
                   placeholder="Introduzca su página web, perfil de Linkedin..."
                   ref={register}
                 ></input>
