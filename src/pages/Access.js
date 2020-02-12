@@ -19,7 +19,7 @@ export function AccessWindow() {
 		mode: "onBlur",
 	});
 	const history = useHistory();
-	const { role, setRole, setCurrentUser, currentUser } = useAuth();
+	const { setIsAuth, setJwt, setCurrentUser } = useAuth();
 
 	// Handle functions //
 	const handleRegister = (formData) => {
@@ -41,11 +41,10 @@ export function AccessWindow() {
 	const handleLogin = (formData) => {
 		return login(formData)
 			.then((response) => {
-				console.log("1");
-				setRole(jwt_decode(response.data.accessToken));
-				console.log("2");
+				setIsAuth(true);
+				setJwt(jwt_decode(response.data.accessToken));
 				setCurrentUser(response.data);
-				console.log("3");
+				localStorage.removeItem("profileUser");
 				history.push("/");
 				console.log(response.data);
 
@@ -184,8 +183,8 @@ export function AccessWindow() {
 										ref={register({
 											required: "La contraseña es obligatoria",
 											minLength: {
-												message: "La contraseña debe tener como mínimo 6 caracteres",
-												value: 6,
+												message: "La contraseña debe tener como mínimo 3 caracteres",
+												value: 3,
 											},
 										})}
 										name='password'
