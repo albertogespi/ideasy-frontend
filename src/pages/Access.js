@@ -46,7 +46,6 @@ export function AccessWindow() {
 				setCurrentUser(response.data);
 				localStorage.removeItem("profileUser");
 				history.push("/");
-				console.log(response.data);
 
 				alert(`Sesión iniciada`);
 			})
