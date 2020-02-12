@@ -29,7 +29,7 @@ export function Header({ isAccessWindow }) {
 									src='https://img.icons8.com/ios/50/000000/summary-list.png'
 									alt=''
 								/>
-								<p>Mis Proyectos</p>
+								Mis Proyectos
 							</button>
 						</li>
 						<li>
@@ -52,9 +52,13 @@ export function Header({ isAccessWindow }) {
 								title='Click para cerrar sesión'
 								onClick={() => {
 									localStorage.removeItem("currentUser");
+									window.location.href = "/";
 								}}
 							>
-								<img src='https://img.icons8.com/ios/50/000000/export.png' alt='' />
+								<img
+									src='https://img.icons8.com/ios/50/000000/summary-list.png'
+									alt=''
+								/>
 								<p>Cerrar sesión</p>
 							</button>
 						</li>

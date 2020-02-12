@@ -8,6 +8,7 @@ import { ProjectList } from "../components/ProjectList";
 import { getHomeProjects } from "../http/homeService";
 
 export function Home() {
+	console.log(localStorage.getItem("currentUser"));
 	const categories = [
 		"Todas",
 		"Blog",
