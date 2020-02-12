@@ -7,7 +7,10 @@ const storedUser = JSON.parse(localStorage.getItem("currentUser"));
 
 export function AuthProvider({ children }) {
   const [isAuth, setIsAuth] = useState(storedUser !== null);
-  const [jwt, setJwt] = useState(jwt_decode(storedUser.accessToken));
+  const [jwt, setJwt] = useState(
+    storedUser ? jwt_decode(storedUser.accessToken) : null
+  );
+
   const [currentUser, setCurrentUser] = useState(storedUser);
 
   return (

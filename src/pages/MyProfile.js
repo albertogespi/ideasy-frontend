@@ -22,7 +22,7 @@ export function MyProfile() {
   const storedUser = JSON.parse(localStorage.getItem("profileUser"));
 
   const { currentUser, jwt } = useAuth();
-  console.log(jwt.role);
+
   const [user, setUser] = useState(storedUser || currentUser);
   console.log(user);
   console.log(currentUser);
