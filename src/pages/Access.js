@@ -186,8 +186,8 @@ export function AccessWindow() {
                       required: "La contraseña es obligatoria",
                       minLength: {
                         message:
-                          "La contraseña debe tener como mínimo 6 caracteres",
-                        value: 6
+                          "La contraseña debe tener como mínimo 3 caracteres",
+                        value: 3
                       }
                     })}
                     name="password"
