@@ -1,13 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import jwt_decode from "jwt-decode";
 
 import { useAuth } from "../context/authContext";
 
 import { Header } from "../components/Header";
+import { FileUpload } from "../components/FileUpload";
 import { getProfile, updateProfile, uploadAvatar } from "../http/userService";
 
 export function MyProfile() {
+  //esta parte gestiona cambiar el avatar
+
+  const [file, setFile] = useState();
+
+  const handleChange = e => {
+    console.log(e.target.files);
+    setFile(e.target.files);
+  };
+
+  const handleUpload = () => {
+    if (!file) {
+      console.log("no hay ná");
+      return;
+    }
+
+    const data = new FormData();
+    data.append("avatar", file[0]);
+    console.log(file[0]);
+    console.log(data);
+
+    uploadAvatar(data)
+      .then(response => {
+        console.log(response.data);
+        setFile(null);
+        getProfile().then(response => {
+          setUser(response.data);
+          localStorage.setItem("profileUser", JSON.stringify(response.data));
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  //a partir de aquí se gestiona cambiar los datos de perfil
+
   const {
     register,
     errors,
@@ -41,17 +78,6 @@ export function MyProfile() {
       });
   };
 
-  const handleUploadAvatar = formData => {
-    return uploadAvatar(formData)
-      .then(response => {
-        alert("Foto de perfil actualizada");
-        console.log(`todo bien`);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
   let isOrgProfile = jwt.role === "org";
 
   return (
@@ -61,17 +87,15 @@ export function MyProfile() {
         <div className="profile-photo">
           <img src={user.avatarUrl} alt="" name="profile photo"></img>
         </div>
-        {/* <form name="form2" onSubmit={handleSubmit(handleUploadAvatar)}>
-          <label for="avatar">Cambiar Imagen</label>
-          <input
-            type="file"
-            id="avatar"
-            name="avatar"
-            accept="image/png, image/jpeg, image/jpg"
-            ref={register}
-          ></input>
-        </form> */}
         <h1>{user.name}</h1>
+
+        <main>
+          <input type="file" onChange={handleChange} />
+
+          <button type="button" onClick={handleUpload}>
+            Cambiar Foto
+          </button>
+        </main>
       </section>
       <section className="centered-container">
         <form name="form1" onSubmit={handleSubmit(handleUpdate)}>
