@@ -1,11 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import jwt_decode from "jwt-decode";
-
 import { useAuth } from "../context/authContext";
-
 import { Header } from "../components/Header";
-import { FileUpload } from "../components/FileUpload";
 import { getProfile, updateProfile, uploadAvatar } from "../http/userService";
 
 export function MyProfile() {
@@ -20,7 +16,6 @@ export function MyProfile() {
 
   const handleUpload = () => {
     if (!file) {
-      console.log("no hay ná");
       return;
     }
 
@@ -31,7 +26,6 @@ export function MyProfile() {
 
     uploadAvatar(data)
       .then(response => {
-        console.log(response.data);
         setFile(null);
         getProfile().then(response => {
           setUser(response.data);
@@ -61,8 +55,6 @@ export function MyProfile() {
   const { currentUser, jwt } = useAuth();
 
   const [user, setUser] = useState(storedUser || currentUser);
-  console.log(user);
-  console.log(currentUser);
 
   const handleUpdate = formData => {
     return updateProfile(formData)
@@ -71,7 +63,6 @@ export function MyProfile() {
           setUser(response.data);
           localStorage.setItem("profileUser", JSON.stringify(response.data));
         });
-        alert("Perfil actualizado");
       })
       .catch(error => {
         console.log(error);
@@ -89,13 +80,13 @@ export function MyProfile() {
         </div>
         <h1>{user.name}</h1>
 
-        <main>
+        <div>
           <input type="file" onChange={handleChange} />
 
           <button type="button" onClick={handleUpload}>
             Cambiar Foto
           </button>
-        </main>
+        </div>
       </section>
       <section className="centered-container">
         <form name="form1" onSubmit={handleSubmit(handleUpdate)}>
