@@ -26,7 +26,7 @@ export function Header({ isAccessWindow }) {
 						<li>
 							<button id='my-projects' title='Ir a mis proyectos'>
 								<img
-									id='icon'
+									className='icon'
 									src='https://img.icons8.com/ios/50/000000/summary-list.png'
 									alt=''
 								/>
@@ -36,7 +36,7 @@ export function Header({ isAccessWindow }) {
 						<li>
 							<Link to='/my-profile'>
 								<button id='my-profile' title='Ir a mi perfil'>
-									<div className='profile-photo' id='icon'>
+									<div className='profile-photo '>
 										<img src={currentUser.avatarUrl} alt='' name='profile photo' />
 									</div>
 									<p>Mi perfil</p>
@@ -53,7 +53,7 @@ export function Header({ isAccessWindow }) {
 								}}
 							>
 								<img
-									id='icon'
+									className='icon'
 									src='https://img.icons8.com/ios/50/000000/export.png'
 									alt=''
 								/>

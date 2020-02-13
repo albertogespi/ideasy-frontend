@@ -40,8 +40,3 @@
 	padding-bottom: 0;
 	font-size: var(--font-sm);
 }
-
-.nav-row #icon {
-	height: 40px;
-	width: 40px;
-}

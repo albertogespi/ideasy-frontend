@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { MyProfile } from "./pages/MyProfile";
 import { AccessWindow } from "./pages/Access";
 import { NewProject } from "./pages/NewProject";
+import { Project } from "./pages/Project";
 
 function App() {
 	return (
@@ -23,6 +24,9 @@ function App() {
 					</Route>
 					<Route path='/new-project'>
 						<NewProject />
+					</Route>
+					<Route path='/project/:projectId'>
+						<Project />
 					</Route>
 				</Switch>
 			</AuthProvider>
