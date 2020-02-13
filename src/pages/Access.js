@@ -23,13 +23,13 @@ export function AccessWindow() {
 
 	// Handle functions //
 	const handleRegister = (formData) => {
-		console.log(formData);
 		return createAccount(formData)
 			.then((response) => {
 				alert(
 					`Bienvenido a nuestro Portal de Ideas ${formData.name}, tu cuenta se ha creado con éxito`,
 				);
-				handleLogin(response.data);
+				const { email, password } = formData;
+				handleLogin({ email, password });
 			})
 			.catch((error) => {
 				if (error.response.status === 409) {
@@ -67,7 +67,7 @@ export function AccessWindow() {
 
 	return (
 		<section className='container'>
-			<Header isAccessWindow={true} isLoged={false} />
+			<Header isAccessWindow={true} />
 			<main className='accessWindow'>
 				<section className='centered-container'>
 					<header>

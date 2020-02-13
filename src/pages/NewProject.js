@@ -3,15 +3,11 @@ import { useForm } from "react-hook-form";
 import { Header } from "../components/Header";
 import { createProject } from "../http/projectsService";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../context/authContext";
 
 export function NewProject() {
 	const { register, formState, handleSubmit, setError, setValue } = useForm({
 		mode: "onBlur",
 	});
-
-	const { currentUser } = useAuth();
-	console.log(currentUser);
 
 	const history = useHistory();
 

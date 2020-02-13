@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
 export function Header({ isAccessWindow }) {
-	const { isAuth } = useAuth();
+	const { currentUser, isAuth } = useAuth();
 
 	return (
 		<header className='main-header'>
@@ -26,21 +26,18 @@ export function Header({ isAccessWindow }) {
 						<li>
 							<button id='my-projects' title='Ir a mis proyectos'>
 								<img
+									id='icon'
 									src='https://img.icons8.com/ios/50/000000/summary-list.png'
 									alt=''
 								/>
-								Mis Proyectos
+								<p>Mis Proyectos</p>
 							</button>
 						</li>
 						<li>
 							<Link to='/my-profile'>
 								<button id='my-profile' title='Ir a mi perfil'>
-									<div class='profile-photo'>
-										<img
-											src='https://res.cloudinary.com/dryaup5lw/image/upload/v1580902958/26e0a06c-1a2f-4590-84b8-387432fad7e4.jpg'
-											alt=''
-											name='profile photo'
-										/>
+									<div className='profile-photo' id='icon'>
+										<img src={currentUser.avatarUrl} alt='' name='profile photo' />
 									</div>
 									<p>Mi perfil</p>
 								</button>
@@ -56,7 +53,8 @@ export function Header({ isAccessWindow }) {
 								}}
 							>
 								<img
-									src='https://img.icons8.com/ios/50/000000/summary-list.png'
+									id='icon'
+									src='https://img.icons8.com/ios/50/000000/export.png'
 									alt=''
 								/>
 								<p>Cerrar sesión</p>
