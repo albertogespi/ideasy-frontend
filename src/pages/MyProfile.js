@@ -8,10 +8,12 @@ export function MyProfile() {
   //esta parte gestiona cambiar el avatar
 
   const [file, setFile] = useState();
+  const [isEmpty, setIsEmpty] = useState(true);
 
   const handleChange = e => {
     console.log(e.target.files);
     setFile(e.target.files);
+    setIsEmpty(false);
   };
 
   const handleUpload = () => {
@@ -62,6 +64,7 @@ export function MyProfile() {
         getProfile().then(response => {
           setUser(response.data);
           localStorage.setItem("profileUser", JSON.stringify(response.data));
+          window.location.reload();
         });
       })
       .catch(error => {
@@ -78,20 +81,31 @@ export function MyProfile() {
         <div className="profile-photo">
           <img src={user.avatarUrl} alt="" name="profile photo"></img>
         </div>
-        <h1>{user.name}</h1>
+        <h1 className="profile-name">{user.name}</h1>
 
         <div>
-          <input type="file" onChange={handleChange} />
+          <label for="input-file" id="select-file">
+            Seleccionar foto
+          </label>
+          <input type="file" id="input-file" onChange={handleChange} />
 
-          <button type="button" onClick={handleUpload}>
-            Cambiar Foto
+          <button
+            className="form"
+            type="button"
+            disabled={isEmpty}
+            onClick={handleUpload}
+          >
+            Cambiar foto
           </button>
         </div>
       </section>
       <section className="centered-container">
         <form name="form1" onSubmit={handleSubmit(handleUpdate)}>
           <fieldset>
-            <legend>Datos personales</legend>
+            <div className="form-title">
+              <legend>Identificación y acceso</legend>
+            </div>
+
             <ul>
               <li>
                 <label for="name">Nombre</label>
@@ -122,6 +136,7 @@ export function MyProfile() {
                   id="email"
                   name="email"
                   value={user.email}
+                  readOnly
                 ></input>
               </li>
               <li>
@@ -130,11 +145,17 @@ export function MyProfile() {
                   type="password"
                   id="password"
                   name="password"
-                  placeholder="Introduzca contraseña actual para modificar su perfil"
+                  placeholder="Introduzca contraseña actual"
                   ref={register({
-                    required: "La contraseña es obligatoria"
+                    required:
+                      "La contraseña es obligatoria para modificar sus datos"
                   })}
                 ></input>
+                {errors.password && (
+                  <span className="errorMessage">
+                    {errors.password.message}
+                  </span>
+                )}
               </li>
               <li>
                 <label for="new-password">Nueva contraseña</label>
@@ -142,7 +163,7 @@ export function MyProfile() {
                   type="password"
                   id="new-password"
                   name="newPassword"
-                  placeholder="Introduzca su nueva contraseña"
+                  placeholder="Introduzca nueva contraseña"
                   ref={register({
                     minLength: {
                       message:
@@ -151,11 +172,18 @@ export function MyProfile() {
                     }
                   })}
                 ></input>
+                {errors.newPassword && (
+                  <span className="errorMessage">
+                    {errors.newPassword.message}
+                  </span>
+                )}
               </li>
             </ul>
           </fieldset>
           <fieldset>
-            <legend>Datos de contacto</legend>
+            <div className="form-title">
+              <legend>Datos de contacto</legend>
+            </div>
             <ul>
               <li>
                 <label for="contact-email">Correo</label>
@@ -182,7 +210,11 @@ export function MyProfile() {
               </li>
             </ul>
           </fieldset>
-          <button type="submit" disabled={formState.isSubmitting}>
+          <button
+            className="form"
+            type="submit"
+            disabled={formState.isSubmitting}
+          >
             Modificar mis datos
           </button>
         </form>

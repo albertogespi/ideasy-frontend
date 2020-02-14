@@ -1,42 +1,42 @@
 .main-header {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));
-	padding: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));
+  padding: 1rem 0;
 }
 
 .main-header div {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-row {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .nav-row li {
-	padding: 0 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
 }
 
 .nav-row li button,
 #logo-home {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100px;
-	width: 125px;
-	margin: 2px solid black;
-	background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 125px;
+  margin: 2px solid black;
+  background-color: transparent;
 }
 
 .nav-row p {
-	padding-bottom: 0;
-	font-size: var(--font-sm);
+  padding-bottom: 0;
+  font-size: var(--font-sm);
 }

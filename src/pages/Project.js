@@ -12,39 +12,39 @@ import { OrgProject } from "../components/OrgProject";
 import { DevProject } from "../components/DevProject";
 
 export function Project() {
-	const {
-		register,
-		errors,
-		formState,
-		handleSubmit,
-		setError,
-		setValue,
-	} = useForm({
-		mode: "onBlur",
-	});
+  const {
+    register,
+    errors,
+    formState,
+    handleSubmit,
+    setError,
+    setValue
+  } = useForm({
+    mode: "onBlur"
+  });
 
-	const { currentUser, jwt } = useAuth();
+  const { currentUser, jwt } = useAuth();
 
-	const projectId = window.location.href.split("/")[4];
+  const projectId = window.location.href.split("/")[4];
 
-	console.log(projectId);
+  console.log(projectId);
 
-	let isOrgProfile = jwt.role === "org";
+  let isOrgProfile = jwt.role === "org";
 
-	const [isFollower, setIsFollower] = useState();
+  const [isFollower, setIsFollower] = useState();
 
 	const [usersFollowing, setUsersFollowing] = useState([]);
 	const [project, setProject] = useState(undefined);
 	const [documents, setDocuments] = useState(undefined);
 
-	useEffect(() => {
-		getUsersFollowingProject(projectId).then((response) => {
-			setUsersFollowing(response.data);
-		});
+  useEffect(() => {
+    getUsersFollowingProject(projectId).then(response => {
+      setUsersFollowing(response.data);
+    });
 
-		getProject(projectId).then((response) => setProject(response.data));
-		getDocuments(projectId).then((response) => setDocuments(response.data));
-	}, []);
+    getProject(projectId).then(response => setProject(response.data));
+    getDocuments(projectId).then(response => setDocuments(response.data));
+  }, []);
 
 	const handleFollow = () => {
 		followProject(projectId);

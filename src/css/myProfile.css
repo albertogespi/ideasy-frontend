@@ -1,12 +1,41 @@
 .myProfile .centered-container .profile-photo {
-	width: 150px;
-	height: 150px;
+  width: 150px;
+  height: 150px;
 }
 
 .myProfile > section {
-	padding: 2rem;
+  padding: 1rem;
 }
 
 .myProfile form fieldset {
-	width: 600px;
+  width: 600px;
+  text-align: center;
+}
+
+.myProfile input {
+  font-size: 1.2rem;
+  height: 2rem;
+  width: 250px;
+}
+h1.profile-name {
+  margin-bottom: 2rem;
+}
+
+input#input-file {
+  display: none;
+}
+label#select-file {
+  font-size: 1.2rem;
+  display: inline-block;
+  cursor: pointer;
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+label#select-file:hover {
+  background-color: lightsteelblue;
 }
