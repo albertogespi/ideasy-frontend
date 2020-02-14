@@ -28,7 +28,7 @@ export function Project() {
 	const [isFollower, setIsFollower] = useState();
 
 	const [usersFollowing, setUsersFollowing] = useState([]);
-	const [project, setProject] = useState([]);
+	const [project, setProject] = useState(undefined);
 	const [documents, setDocuments] = useState([]);
 
 	useEffect(() => {
@@ -41,7 +41,14 @@ export function Project() {
 	}, []);
 
 	console.log(usersFollowing);
-	console.log(project);
+	console.log({ project });
+
+	if (project === undefined) {
+		return <p>Internet va lento, espere</p>;
+	}
+	if (project === null) {
+		return <p>Nada para ver, no existe, no se</p>;
+	}
 
 	return (
 		<section className='container'>
@@ -91,7 +98,7 @@ export function Project() {
 												alt=''
 												id='icon'
 											/>
-											<p>{project.createdAt.split("T")[0]}</p>
+											<p>{project.created_at.split("T")[0]}</p>
 										</li>
 										<li>
 											<img
