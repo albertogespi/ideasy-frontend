@@ -8,10 +8,12 @@ export function MyProfile() {
   //esta parte gestiona cambiar el avatar
 
   const [file, setFile] = useState();
+  const [isEmpty, setIsEmpty] = useState(true);
 
   const handleChange = e => {
     console.log(e.target.files);
     setFile(e.target.files);
+    setIsEmpty(false);
   };
 
   const handleUpload = () => {
@@ -55,15 +57,14 @@ export function MyProfile() {
   const { currentUser, jwt } = useAuth();
 
   const [user, setUser] = useState(storedUser || currentUser);
-  const [reset, setReset] = useState(false);
 
   const handleUpdate = formData => {
     return updateProfile(formData)
       .then(response => {
         getProfile().then(response => {
           setUser(response.data);
-          setReset(true);
           localStorage.setItem("profileUser", JSON.stringify(response.data));
+          window.location.reload();
         });
       })
       .catch(error => {
@@ -80,13 +81,21 @@ export function MyProfile() {
         <div className="profile-photo">
           <img src={user.avatarUrl} alt="" name="profile photo"></img>
         </div>
-        <h1>{user.name}</h1>
+        <h1 className="profile-name">{user.name}</h1>
 
         <div>
-          <input type="file" onChange={handleChange} />
+          <label for="input-file" id="select-file">
+            Seleccionar foto
+          </label>
+          <input type="file" id="input-file" onChange={handleChange} />
 
-          <button type="button" onClick={handleUpload}>
-            Cambiar Foto
+          <button
+            className="form"
+            type="button"
+            disabled={isEmpty}
+            onClick={handleUpload}
+          >
+            Cambiar foto
           </button>
         </div>
       </section>
@@ -94,7 +103,7 @@ export function MyProfile() {
         <form name="form1" onSubmit={handleSubmit(handleUpdate)}>
           <fieldset>
             <div className="form-title">
-              <p>Datos personales</p>
+              <legend>Identificación y acceso</legend>
             </div>
 
             <ul>
@@ -127,6 +136,7 @@ export function MyProfile() {
                   id="email"
                   name="email"
                   value={user.email}
+                  readOnly
                 ></input>
               </li>
               <li>
@@ -135,11 +145,17 @@ export function MyProfile() {
                   type="password"
                   id="password"
                   name="password"
-                  placeholder="Introduzca contraseña actual para modificar su perfil"
+                  placeholder="Introduzca contraseña actual"
                   ref={register({
-                    required: "La contraseña es obligatoria"
+                    required:
+                      "La contraseña es obligatoria para modificar sus datos"
                   })}
                 ></input>
+                {errors.password && (
+                  <span className="errorMessage">
+                    {errors.password.message}
+                  </span>
+                )}
               </li>
               <li>
                 <label for="new-password">Nueva contraseña</label>
@@ -147,7 +163,7 @@ export function MyProfile() {
                   type="password"
                   id="new-password"
                   name="newPassword"
-                  placeholder="Introduzca su nueva contraseña"
+                  placeholder="Introduzca nueva contraseña"
                   ref={register({
                     minLength: {
                       message:
@@ -156,12 +172,17 @@ export function MyProfile() {
                     }
                   })}
                 ></input>
+                {errors.newPassword && (
+                  <span className="errorMessage">
+                    {errors.newPassword.message}
+                  </span>
+                )}
               </li>
             </ul>
           </fieldset>
           <fieldset>
             <div className="form-title">
-              <p>Datos de contacto</p>
+              <legend>Datos de contacto</legend>
             </div>
             <ul>
               <li>
@@ -189,7 +210,11 @@ export function MyProfile() {
               </li>
             </ul>
           </fieldset>
-          <button type="submit" disabled={formState.isSubmitting}>
+          <button
+            className="form"
+            type="submit"
+            disabled={formState.isSubmitting}
+          >
             Modificar mis datos
           </button>
         </form>

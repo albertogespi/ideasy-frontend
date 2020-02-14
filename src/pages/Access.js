@@ -67,14 +67,14 @@ export function AccessWindow() {
     <section className="container">
       <Header isAccessWindow={true} />
       <main className="accessWindow">
-        <section className="centered-container">
+        <section className="centered-container" id="access-form">
           <header>
             <h1>{isRegisterWindow ? "REGÍSTRATE" : "ACCEDE"}</h1>
           </header>
-          <div className="centered-container">
+          <div className="centered-container" id="access">
             <p>¿{isRegisterWindow ? "Ya" : "No"} tienes una cuenta?</p>
             <button onClick={changeWindow}>
-              {isRegisterWindow ? "ACCEDER A MI CUENTA" : "CREAR UNA CUENTA"}
+              {isRegisterWindow ? "ACCEDER A MI CUENTA" : "REGISTRARME"}
             </button>
           </div>
           <form
@@ -87,7 +87,7 @@ export function AccessWindow() {
           >
             {isRegisterWindow && (
               <fieldset id="roles">
-                <legend>Tipo de usuario</legend>
+                <legend>Selecciona tu rol</legend>
                 <ul>
                   <li>
                     <input
@@ -97,9 +97,7 @@ export function AccessWindow() {
                       defaultChecked
                       name="role"
                       onClick={() => setIsOrg(false)}
-                      ref={register({
-                        required: "El role es obligatorio"
-                      })}
+                      ref={register}
                     ></input>
                     <label for="dev">Desarrollador</label>
                   </li>
@@ -110,9 +108,7 @@ export function AccessWindow() {
                       value="org"
                       name="role"
                       onClick={() => setIsOrg(true)}
-                      ref={register({
-                        required: "El role es obligatorio"
-                      })}
+                      ref={register}
                     ></input>
                     <label for="org">Organización</label>
                   </li>
@@ -121,13 +117,15 @@ export function AccessWindow() {
             )}
             {isRegisterWindow && (
               <fieldset>
-                <legend>Datos personales</legend>
+                <legend>Identificación</legend>
                 <ul>
                   <li>
-                    <label for="name">Nombre</label>
                     <input
                       id="name"
                       type="text"
+                      placeholder={
+                        isOrg ? "Nombre de la organización" : "Nombre"
+                      }
                       ref={register({ required: "El nombre es obligatorio" })}
                       name="name"
                       aria-required="true"
@@ -140,10 +138,10 @@ export function AccessWindow() {
                   </li>
                   {!isOrg && (
                     <li>
-                      <label for="surname">Apellidos</label>
                       <input
                         id="surname"
                         type="text"
+                        placeholder="Apellidos"
                         name="surname"
                         ref={register}
                       ></input>
@@ -156,10 +154,10 @@ export function AccessWindow() {
               <legend>Datos de acceso</legend>
               <ul>
                 <li>
-                  <label for="email">Email</label>
                   <input
                     id="email"
                     type="email"
+                    placeholder="Email"
                     ref={register({
                       required: "El email es obligatorio",
                       pattern: {
@@ -175,10 +173,10 @@ export function AccessWindow() {
                   )}
                 </li>
                 <li>
-                  <label for="password">Contraseña</label>
                   <input
                     id="password"
                     type="password"
+                    placeholder="Contraseña"
                     ref={register({
                       required: "La contraseña es obligatoria",
                       minLength: {
@@ -199,7 +197,11 @@ export function AccessWindow() {
               </ul>
             </fieldset>
             <div>
-              <button type="submit" disabled={formState.isSubmitting}>
+              <button
+                className="form"
+                type="submit"
+                disabled={formState.isSubmitting}
+              >
                 {isRegisterWindow ? "CREAR CUENTA" : "ACCEDER"}
               </button>
             </div>

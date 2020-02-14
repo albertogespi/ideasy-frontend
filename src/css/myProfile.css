@@ -4,7 +4,7 @@
 }
 
 .myProfile > section {
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .myProfile form fieldset {
@@ -13,10 +13,29 @@
 }
 
 .myProfile input {
-  height: 1.5rem;
-  width: 200px;
+  font-size: 1.2rem;
+  height: 2rem;
+  width: 250px;
+}
+h1.profile-name {
+  margin-bottom: 2rem;
 }
 
-.form-title p {
-  font-size: 1.5rem;
+input#input-file {
+  display: none;
+}
+label#select-file {
+  font-size: 1.2rem;
+  display: inline-block;
+  cursor: pointer;
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+label#select-file:hover {
+  background-color: lightsteelblue;
 }

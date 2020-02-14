@@ -1,37 +1,66 @@
-.accessWindow {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-	min-height: 100%;
-	background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-	background-size: cover;
+section#access-form {
+  border-radius: 2%;
+}
+
+#roles {
+  margin-top: 1.2rem;
+}
+
+.accessWindow {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  min-height: 100%;
+  background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
 }
 
 .accessWindow section {
-	background-color: var(--color-highlighted-section);
+  background-color: lightsteelblue;
 }
 
 .accessWindow section header {
-	padding: 1.5rem 0 1rem 0;
+  padding: 1.5rem 0 1rem 0;
 }
 
 .accessWindow fieldset#roles {
-	background-color: var(--color-highlighted-textarea);
+  background-color: lightsteelblue;
 }
 
 .accessWindow fieldset#roles ul {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
-	padding: 1rem;
+  padding: 1rem;
+}
+
+.accessWindow input {
+  height: 2rem;
+  width: 250px;
+  border: none;
+  padding: 0.5rem;
 }
 
 input#dev,
 input#org {
-	margin-right: 0.5rem;
-	height: 1rem;
-	width: 1rem;
+  margin-right: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+.errorMessage {
+  color: red;
+  display: block;
+}
+
+div#access {
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
 }
