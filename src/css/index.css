@@ -7,6 +7,7 @@
 @import "./home.css";
 @import "./projectList.css";
 @import "./myProfile.css";
+@import "./project.css";
 
 html {
 	box-sizing: border-box;
@@ -49,6 +50,7 @@ h2 {
 p {
 	font-size: var(--font-m);
 	padding: 0.5rem 0;
+	word-wrap: break-word;
 }
 
 ul {

@@ -49,3 +49,7 @@ fieldset label {
 fieldset input {
 	font-size: var(--font-sm);
 }
+
+textarea {
+	resize: none;
+}

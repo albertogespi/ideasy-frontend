@@ -11,19 +11,16 @@ export function ProjectList({ projects }) {
 						<section className='project-miniature'>
 							<div>
 								<Link to='/'>
-									<button id='profile' title='Ir a mi perfil'>
+									<button id='profile' title='Ir al perfil de la asociación'>
 										<div className='profile-photo'>
 											<img src={project.user_avatar_url} alt='' name='profile photo' />
 										</div>
+										<p id='org-name'>{project.user_name}</p>
 									</button>
 								</Link>
-								<p>{project.category}</p>
 							</div>
 							<div id='main-content'>
-								<Link to='/'>
-									<button id='org-name'>{project.user_name}</button>
-								</Link>
-
+								<p>{project.category}</p>
 								<Link to={`/project/${project.project_id}`}>
 									<div>
 										<div id='project-data'>

@@ -1,0 +1,152 @@
+.project {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.project ul {
+	display: flex;
+	flex-direction: column;
+}
+
+.project > ul > li:first-child {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+.project form {
+	align-items: stretch;
+}
+
+.project fieldset {
+	padding: 0;
+}
+
+.project ul {
+	padding: 0;
+}
+
+.project section#top {
+	display: flex;
+	flex-direction: row;
+}
+
+.project label {
+	margin-bottom: 0.5rem;
+	text-align: start;
+}
+
+#top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#top #visible-info {
+	display: flex;
+	flex-direction: column;
+	max-width: 600px;
+}
+
+#top #visible-info ul li {
+	display: flex;
+	flex-direction: column;
+	margin: 0.5rem 0;
+}
+
+#top #visible-info textarea#description {
+	height: 5rem;
+}
+
+#top #project-info {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+#top #project-info ul {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+#top #project-info ul li {
+	width: 225px;
+	text-align: start;
+}
+
+.project section#middle {
+	display: flex;
+	flex-direction: column;
+}
+
+#middle {
+	max-width: 900px;
+}
+
+#middle fieldset {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+#middle #details {
+	width: 100%;
+	height: 10rem;
+}
+
+#middle p {
+	margin-bottom: 1rem;
+}
+
+#bottom {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.contributions {
+	border: 1px solid black;
+	min-height: 4rem;
+	margin-bottom: 1rem;
+}
+
+#contrib-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0 1rem;
+}
+
+.project button {
+	display: flex;
+	flex-direction: row;
+}
+
+.project button p {
+	margin-left: 0.3rem;
+}
+
+#contrib-row a {
+	margin-right: 0.5rem;
+}
+
+.followers {
+	border: 1px solid black;
+	min-height: 4rem;
+	margin-bottom: 1rem;
+}
+
+.project > ul > li:nth-child(3) form {
+	display: flex;
+	flex-direction: column;
+}
+
+.project > ul > li:nth-child(3) form fieldset {
+	width: 100%;
+}
