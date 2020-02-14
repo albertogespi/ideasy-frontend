@@ -1,12 +1,22 @@
 .myProfile .centered-container .profile-photo {
-	width: 150px;
-	height: 150px;
+  width: 150px;
+  height: 150px;
 }
 
 .myProfile > section {
-	padding: 2rem;
+  padding: 1.5rem;
 }
 
 .myProfile form fieldset {
-	width: 600px;
+  width: 600px;
+  text-align: center;
+}
+
+.myProfile input {
+  height: 1.5rem;
+  width: 200px;
+}
+
+.form-title p {
+  font-size: 1.5rem;
 }

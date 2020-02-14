@@ -55,12 +55,14 @@ export function MyProfile() {
   const { currentUser, jwt } = useAuth();
 
   const [user, setUser] = useState(storedUser || currentUser);
+  const [reset, setReset] = useState(false);
 
   const handleUpdate = formData => {
     return updateProfile(formData)
       .then(response => {
         getProfile().then(response => {
           setUser(response.data);
+          setReset(true);
           localStorage.setItem("profileUser", JSON.stringify(response.data));
         });
       })
@@ -91,7 +93,10 @@ export function MyProfile() {
       <section className="centered-container">
         <form name="form1" onSubmit={handleSubmit(handleUpdate)}>
           <fieldset>
-            <legend>Datos personales</legend>
+            <div className="form-title">
+              <p>Datos personales</p>
+            </div>
+
             <ul>
               <li>
                 <label for="name">Nombre</label>
@@ -155,7 +160,9 @@ export function MyProfile() {
             </ul>
           </fieldset>
           <fieldset>
-            <legend>Datos de contacto</legend>
+            <div className="form-title">
+              <p>Datos de contacto</p>
+            </div>
             <ul>
               <li>
                 <label for="contact-email">Correo</label>
