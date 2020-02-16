@@ -1,4 +1,10 @@
 .home {
-	display: grid;
-	grid-template-columns: 20rem auto;
+  display: grid;
+  grid-template-columns: 20rem auto;
+}
+
+section.home-image {
+  min-height: 450px;
+  background-image: url("../images/lamps.jpg");
+  background-size: cover;
 }

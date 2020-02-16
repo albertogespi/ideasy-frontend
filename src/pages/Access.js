@@ -73,7 +73,7 @@ export function AccessWindow() {
           </header>
           <div className="centered-container" id="access">
             <p>¿{isRegisterWindow ? "Ya" : "No"} tienes una cuenta?</p>
-            <button onClick={changeWindow}>
+            <button className="gray" onClick={changeWindow}>
               {isRegisterWindow ? "ACCEDER A MI CUENTA" : "REGISTRARME"}
             </button>
           </div>
