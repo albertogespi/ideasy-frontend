@@ -14,14 +14,7 @@ export function OrgProject({ project }) {
 
 	const complexities = ["Fácil", "Medio", "Difícil"];
 
-	const {
-		register,
-		errors,
-		formState,
-		handleSubmit,
-		setError,
-		setValue,
-	} = useForm({
+	const { register, formState, handleSubmit } = useForm({
 		mode: "onBlur",
 	});
 

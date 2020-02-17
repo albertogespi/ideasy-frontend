@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export function ProjectList({ projects }) {
-	console.log({ projects });
 	return (
 		<section className='projectList'>
 			<ul>
