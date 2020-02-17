@@ -7,6 +7,7 @@ import { MyProfile } from "./pages/MyProfile";
 import { AccessWindow } from "./pages/Access";
 import { NewProject } from "./pages/NewProject";
 import { Project } from "./pages/Project";
+import { MyProjects } from "./pages/MyProjects";
 
 function App() {
 	return (
@@ -18,6 +19,9 @@ function App() {
 					</Route>
 					<Route path='/access'>
 						<AccessWindow />
+					</Route>
+					<Route path='/my-projects/:userId'>
+						<MyProjects />
 					</Route>
 					<Route path='/my-profile'>
 						<MyProfile />

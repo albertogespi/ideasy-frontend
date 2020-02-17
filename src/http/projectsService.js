@@ -1,14 +1,15 @@
 import axios from "axios";
 
-export function getContributedProjects(userId) {
+export function getContributedProjects(userId, queryValues) {
+	console.log(userId, queryValues);
 	return axios.get(
-		`${process.env.REACT_APP_BACKEND_URL}/projects/contributed/${userId}`,
+		`${process.env.REACT_APP_BACKEND_URL}/projects/contributed/${userId}${queryValues}`,
 	);
 }
 
-export function getFollowedProjects(userId) {
+export function getFollowedProjects(userId, queryValues) {
 	return axios.get(
-		`${process.env.REACT_APP_BACKEND_URL}/projects/followed/${userId}`,
+		`${process.env.REACT_APP_BACKEND_URL}/projects/followed/${userId}${queryValues}`,
 	);
 }
 
@@ -18,8 +19,10 @@ export function getAvgRatings(userId) {
 	);
 }
 
-export function getOrgProjects(userId) {
-	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/projects/${userId}`);
+export function getOrgProjects(userId, queryValues) {
+	return axios.get(
+		`${process.env.REACT_APP_BACKEND_URL}/projects/${userId}${queryValues}`,
+	);
 }
 
 export function createProject(projectData) {

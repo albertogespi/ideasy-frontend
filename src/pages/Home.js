@@ -8,7 +8,6 @@ import { ProjectList } from "../components/ProjectList";
 import { getHomeProjects } from "../http/homeService";
 
 export function Home() {
-	console.log(localStorage.getItem("currentUser"));
 	const categories = [
 		"Todas",
 		"Blog",
@@ -47,7 +46,6 @@ export function Home() {
 	useEffect(() => {
 		updateQuery();
 		getHomeProjects(historyQuery).then((response) => setProjects(response.data));
-		console.log(projects);
 	}, [selectedCategory, selectedComplexity]);
 
 	return (
