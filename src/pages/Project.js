@@ -11,6 +11,10 @@ import { Header } from "../components/Header";
 import { OrgProject } from "../components/OrgProject";
 import { DevProject } from "../components/DevProject";
 
+const DEVELOPER_VIEW = 2;
+const OWNER_VIEW = 1;
+const ONLY_READ_VIEW = 0;
+
 export function Project() {
 	const { register } = useForm({
 		mode: "onBlur",
@@ -32,16 +36,16 @@ export function Project() {
 		if (project !== undefined) {
 			if (isAuth) {
 				if (jwt.role === "dev") {
-					setTypeOfProfile(2);
+					setTypeOfProfile(DEVELOPER_VIEW);
 				} else {
 					if (jwt.userId === project.user_id) {
-						setTypeOfProfile(1);
+						setTypeOfProfile(OWNER_VIEW);
 					} else {
-						setTypeOfProfile(0); // 0 = not registered person or org watching other org projects
+						setTypeOfProfile(ONLY_READ_VIEW); // 0 = not registered person or org watching other org projects
 					}
 				}
 			} else {
-				setTypeOfProfile(0);
+				setTypeOfProfile(ONLY_READ_VIEW);
 			}
 		}
 	}, [project]);
@@ -104,11 +108,11 @@ export function Project() {
 							<button id='org-name'>{project.user_name}</button>
 						</li>
 						<li>
-							{typeOfProfile === 1 && <OrgProject project={project} />}
-							{typeOfProfile !== 1 && <DevProject project={project} />}
+							{typeOfProfile === OWNER_VIEW && <OrgProject project={project} />}
+							{typeOfProfile !== OWNER_VIEW && <DevProject project={project} />}
 						</li>
 						<li>
-							{typeOfProfile === 2 && (
+							{typeOfProfile === DEVELOPER_VIEW && (
 								<form>
 									<fieldset>
 										<legend>Tus contribuciones</legend>
@@ -131,7 +135,7 @@ export function Project() {
 									</fieldset>
 								</form>
 							)}
-							{typeOfProfile === 1 && (
+							{typeOfProfile === OWNER_VIEW && (
 								<section>
 									<p>Contribuciones</p>
 									<section className='contributions'>
@@ -165,12 +169,12 @@ export function Project() {
 							</section>
 						</li>
 						<li id='bottom'>
-							{typeOfProfile === 2 && (
+							{typeOfProfile === DEVELOPER_VIEW && (
 								<button onClick={handleFollow}>
 									{isFollower ? "Dejar de seguir proyecto" : "Seguir proyecto"}
 								</button>
 							)}
-							{typeOfProfile === 1 && <button>Cerrar proyecto</button>}
+							{typeOfProfile === OWNER_VIEW && <button>Cerrar proyecto</button>}
 						</li>
 					</ul>
 				</section>
