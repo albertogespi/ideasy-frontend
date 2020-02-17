@@ -78,7 +78,7 @@ export function NewProject() {
                   })}
                 >
                   <option>Selecciona...</option>
-                  <option value="Blog">Blogs</option>
+                  <option value="Blog">Blog</option>
                   <option value="e-Commerce">e-Commerce</option>
                   <option value="e-Learning">e-Learning</option>
                   <option value="Corporativa">Corporativa</option>

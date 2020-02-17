@@ -10,7 +10,7 @@ export function ProjectList({ projects }) {
           <li key={index}>
             <section className="project-miniature">
               <div>
-                <Link to="/">
+                <Link to={`/user/${project.user_id}`}>
                   <button id="profile" title="Ir al perfil de la asociación">
                     <div className="profile-photo">
                       <img
