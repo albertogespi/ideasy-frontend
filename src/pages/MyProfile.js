@@ -9,7 +9,6 @@ export function MyProfile() {
 
   const [file, setFile] = useState();
   const [isEmpty, setIsEmpty] = useState(true);
-  const [updated, setUpdated] = useState(false);
 
   const handleChange = e => {
     console.log(e.target.files);
@@ -32,8 +31,8 @@ export function MyProfile() {
         setFile(null);
         getProfile().then(response => {
           setUser(response.data);
-          setUpdated(true);
           localStorage.setItem("profileUser", JSON.stringify(response.data));
+          window.location.reload();
         });
       })
       .catch(error => {
@@ -66,8 +65,7 @@ export function MyProfile() {
         getProfile().then(response => {
           setUser(response.data);
           localStorage.setItem("profileUser", JSON.stringify(response.data));
-          setUpdated(true);
-          //window.location.reload();
+          window.location.reload();
         });
       })
       .catch(error => {
@@ -90,7 +88,6 @@ export function MyProfile() {
           <img src={user.avatarUrl} alt="" name="profile photo"></img>
         </div>
         <h1 className="profile-name">{user.name}</h1>
-        <p className="updated-message">{updated && "Perfil actualizado"}</p>
 
         <div>
           <label for="input-file" id="select-file">

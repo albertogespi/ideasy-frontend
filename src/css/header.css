@@ -7,7 +7,7 @@
 #logo-home {
   background-image: url("../images/logo.jpg");
   background-size: cover;
-  padding: 3rem;
+  padding: 2.6rem;
 }
 
 input.search {
@@ -41,7 +41,7 @@ input.search {
 
 .nav-row li {
   margin-right: 0.5rem;
-  margin-top: 1.7rem;
+  margin-top: 1.5rem;
 }
 
 .nav-row li button {

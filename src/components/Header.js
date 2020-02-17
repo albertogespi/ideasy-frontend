@@ -5,6 +5,7 @@ import { useAuth } from "../context/authContext";
 
 export function Header({ isAccessWindow }) {
 	const { currentUser, jwt, isAuth } = useAuth();
+	const storedUser = JSON.parse(localStorage.getItem("profileUser"));
 
 	return (
 		<header className={isAccessWindow ? "access-header" : "main-header"}>
@@ -39,7 +40,11 @@ export function Header({ isAccessWindow }) {
 							<Link to='/my-profile'>
 								<button id='my-profile' title='Ir a mi perfil'>
 									<div id='medium-icon' className='profile-photo '>
-										<img src={currentUser.avatarUrl} alt='' name='profile photo' />
+										<img
+											src={storedUser ? storedUser.avatarUrl : currentUser.avatarUrl}
+											alt=''
+											name='profile photo'
+										/>
 									</div>
 									<p>Mi perfil</p>
 								</button>
