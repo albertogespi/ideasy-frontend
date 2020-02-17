@@ -9,6 +9,7 @@ export function MyProfile() {
 
   const [file, setFile] = useState();
   const [isEmpty, setIsEmpty] = useState(true);
+  const [updated, setUpdated] = useState(false);
 
   const handleChange = e => {
     console.log(e.target.files);
@@ -31,6 +32,7 @@ export function MyProfile() {
         setFile(null);
         getProfile().then(response => {
           setUser(response.data);
+          setUpdated(true);
           localStorage.setItem("profileUser", JSON.stringify(response.data));
         });
       })
@@ -64,11 +66,17 @@ export function MyProfile() {
         getProfile().then(response => {
           setUser(response.data);
           localStorage.setItem("profileUser", JSON.stringify(response.data));
-          window.location.reload();
+          setUpdated(true);
+          //window.location.reload();
         });
       })
       .catch(error => {
-        console.log(error);
+        setValue("password", "");
+        setError(
+          "password",
+          "credentials",
+          "Contraseña incorrecta o datos enviados no válidos"
+        );
       });
   };
 
@@ -82,6 +90,7 @@ export function MyProfile() {
           <img src={user.avatarUrl} alt="" name="profile photo"></img>
         </div>
         <h1 className="profile-name">{user.name}</h1>
+        <p className="updated-message">{updated && "Perfil actualizado"}</p>
 
         <div>
           <label for="input-file" id="select-file">
@@ -100,10 +109,14 @@ export function MyProfile() {
         </div>
       </section>
       <section className="centered-container">
-        <form name="form1" onSubmit={handleSubmit(handleUpdate)}>
-          <fieldset>
+        <form
+          className="profile-form"
+          id="profile"
+          onSubmit={handleSubmit(handleUpdate)}
+        >
+          <fieldset className="profile">
             <div className="form-title">
-              <legend>Identificación y acceso</legend>
+              <legend>Datos de acceso</legend>
             </div>
 
             <ul>
@@ -180,7 +193,7 @@ export function MyProfile() {
               </li>
             </ul>
           </fieldset>
-          <fieldset>
+          <fieldset className="profile">
             <div className="form-title">
               <legend>Datos de contacto</legend>
             </div>

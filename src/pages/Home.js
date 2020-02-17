@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import { Header } from "../components/Header";
 import { Filters } from "../components/Filters";
@@ -53,7 +53,26 @@ export function Home() {
   return (
     <section className="container">
       <Header isAccessWindow={false} />
-      <section className="home-image"></section>
+      <section className="home-image">
+        <div>
+          <p className="first">
+            Únete ya a nuestro Portal de Ideas como desarrollador u
+            organización.
+          </p>
+          <p className="second">
+            Participa en proyectos de software innovadores o publica las
+            necesidades tecnológicas de tu organización.
+          </p>
+        </div>
+
+        <div>
+          <Link to="/access">
+            <button className="access" renderAs="button">
+              ACCEDE O REGÍSTRATE
+            </button>
+          </Link>
+        </div>
+      </section>
       <main className="home">
         <Filters
           categories={categories}

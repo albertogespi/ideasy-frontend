@@ -1,11 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-section#access-form {
-  border-radius: 2%;
+section#total-screen {
+  background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
 }
 
-#roles {
+section#access-form {
+  border-radius: 2%;
+  background-color: lightsteelblue;
+  width: 400px;
+}
+
+.accessWindow fieldset#roles {
+  background-color: lightsteelblue;
   margin-top: 1.2rem;
+  width: 400px;
 }
 
 .accessWindow {
@@ -17,20 +26,10 @@ section#access-form {
   text-align: center;
 
   min-height: 100%;
-  background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-size: cover;
-}
-
-.accessWindow section {
-  background-color: lightsteelblue;
 }
 
 .accessWindow section header {
   padding: 1.5rem 0 1rem 0;
-}
-
-.accessWindow fieldset#roles {
-  background-color: lightsteelblue;
 }
 
 .accessWindow fieldset#roles ul {
