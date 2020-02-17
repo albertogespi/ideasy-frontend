@@ -42,10 +42,7 @@ section#access-form {
 }
 
 .accessWindow input {
-  height: 2rem;
-  width: 250px;
   border: none;
-  padding: 0.5rem;
 }
 
 input#dev,
