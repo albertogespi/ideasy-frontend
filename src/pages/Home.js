@@ -44,11 +44,18 @@ export function Home() {
     history.push(historyQuery);
   };
 
+<<<<<<< HEAD
+	useEffect(() => {
+		updateQuery();
+		getHomeProjects(historyQuery).then((response) => setProjects(response.data));
+	}, [selectedCategory, selectedComplexity]);
+=======
   useEffect(() => {
     updateQuery();
     getHomeProjects(historyQuery).then(response => setProjects(response.data));
     console.log(projects);
   }, [selectedCategory, selectedComplexity]);
+>>>>>>> a7b90c69778fc2f22ecbab29cebc8ae2ba6c81b7
 
   return (
     <section className="container">

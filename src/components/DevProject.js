@@ -36,10 +36,10 @@ export function DevProject({ project }) {
 							<p>
 								Complejidad:
 								{project.complexity === 1
-									? "Fácil"
+									? " Fácil"
 									: project.complexity === 2
-									? "Medio"
-									: "Difícil"}
+									? " Medio"
+									: " Difícil"}
 							</p>
 						</li>
 					</ul>
