@@ -49,7 +49,11 @@ export function AccessWindow() {
       })
       .catch(error => {
         setValue("password", "");
-        setError("password", "credentials", "The credentials are invalid");
+        setError(
+          "password",
+          "credentials",
+          "El email o la contraseña no son correctos"
+        );
       });
   };
 
@@ -64,7 +68,7 @@ export function AccessWindow() {
   const [isOrg, setIsOrg] = useState(false);
 
   return (
-    <section className="container">
+    <section className="container" id="total-screen">
       <Header isAccessWindow={true} />
       <main className="accessWindow">
         <section className="centered-container" id="access-form">
@@ -116,7 +120,7 @@ export function AccessWindow() {
               </fieldset>
             )}
             {isRegisterWindow && (
-              <fieldset>
+              <fieldset id="user-data">
                 <legend>Identificación</legend>
                 <ul>
                   <li>

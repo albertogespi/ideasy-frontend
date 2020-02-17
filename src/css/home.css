@@ -7,4 +7,25 @@ section.home-image {
   min-height: 450px;
   background-image: url("../images/lamps.jpg");
   background-size: cover;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+section.home-image p {
+  color: white;
+}
+section.home-image p.first {
+  font-size: 2rem;
+}
+section.home-image p.second {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+section.home-image button.access {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }

@@ -1,23 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Lemonada&display=swap");
 
-.access-header div {
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0.5rem;
+.access-header {
+  padding: 0.5rem;
 }
 
 #logo-home {
-  font-family: "Lemonada", cursive;
-  font-size: 1.5rem;
-  background-color: transparent;
-  border: none;
+  background-image: url("../images/logo.jpg");
+  background-size: cover;
+  padding: 3rem;
 }
 
 input.search {
-  height: 2.4rem;
+  height: 2.2rem;
   width: 250px;
   border: 1.3px solid gray;
-  padding: 1.1rem;
   margin: 0 1rem 0 2rem;
 }
 
@@ -25,7 +21,7 @@ input.search {
   display: flex;
 
   justify-content: space-between;
-  padding: 2rem 0.5rem;
+  padding: 0.5rem;
   /*background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));*/
 }
 
@@ -45,6 +41,7 @@ input.search {
 
 .nav-row li {
   margin-right: 0.5rem;
+  margin-top: 1.7rem;
 }
 
 .nav-row li button {

@@ -1,24 +1,54 @@
 .myProfile .centered-container .profile-photo {
   width: 150px;
   height: 150px;
+  margin-top: -2rem;
 }
 
 .myProfile > section {
   padding: 1rem;
 }
 
+form.profile-form input {
+  border: none;
+}
+
+section form#profile {
+  border-radius: 2%;
+  background-color: lightsteelblue;
+  width: 400px;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
 .myProfile form fieldset {
-  width: 600px;
-  text-align: center;
+  width: 250px;
 }
 
 h1.profile-name {
-  margin-bottom: 2rem;
+  margin-top: 0.5rem;
 }
 
 input#input-file {
   display: none;
 }
+
+fieldset.profile legend {
+  text-align: left;
+}
+
+fieldset.profile ul {
+  align-items: center;
+}
+
+fieldset.profile label {
+  width: 100%;
+  text-align: left;
+}
+
+fieldset.profile ul li {
+  display: flex;
+  flex-direction: column;
+}
+
 label#select-file {
   font-size: 1.2rem;
   display: inline-block;
@@ -33,4 +63,10 @@ label#select-file {
 }
 label#select-file:hover {
   background-color: lightsteelblue;
+}
+
+p.updated-message {
+  color: green;
+  margin: none;
+  font-size: 1.4rem;
 }

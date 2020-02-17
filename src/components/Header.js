@@ -8,18 +8,18 @@ export function Header({ isAccessWindow }) {
 
   return (
     <header className={isAccessWindow ? "access-header" : "main-header"}>
-      {!isAccessWindow && <Search />}
       <div>
-        <button
-          id="logo-home"
-          aria-label="Portal de Ideas. Click para ir a inicio."
-          onClick={() => {
-            window.location.href = "/";
-          }}
-        >
-          Portal de Ideas
-        </button>
+        <div id="logo"></div>
+        <Link to="/">
+          <button
+            id="logo-home"
+            aria-label="Portal de Ideas. Click para ir a inicio."
+          ></button>
+        </Link>
+
+        {!isAccessWindow && <Search />}
       </div>
+
       {!isAccessWindow && isAuth && (
         <nav role="navigation">
           <ul className="nav-row">
@@ -67,7 +67,7 @@ export function Header({ isAccessWindow }) {
           </ul>
         </nav>
       )}
-      {!isAccessWindow && !isAuth && (
+      {/* {!isAccessWindow && !isAuth && (
         <div>
           <Link to="/access">
             <button className="gray" renderAs="button">
@@ -75,7 +75,7 @@ export function Header({ isAccessWindow }) {
             </button>
           </Link>
         </div>
-      )}
+      )} */}
     </header>
   );
 }
