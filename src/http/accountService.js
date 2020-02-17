@@ -36,7 +36,7 @@ axios.interceptors.response.use(
       !error.config.url.includes("/account/login")
     ) {
       localStorage.removeItem("currentUser");
-      window.location.href = "/login";
+      window.location.href = "/access";
     }
     return Promise.reject(error);
   }
