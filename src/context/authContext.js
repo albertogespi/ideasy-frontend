@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
 	const [jwt, setJwt] = useState(
 		storedUser ? jwt_decode(storedUser.accessToken) : null,
 	);
-	console.log(jwt);
+
 	const [currentUser, setCurrentUser] = useState(storedUser);
 
 	return (

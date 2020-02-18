@@ -1,70 +1,70 @@
-.myProfile .centered-container .profile-photo {
-  width: 150px;
-  height: 150px;
-  margin-top: -2rem;
+#myProfile .centered-container .profile-photo {
+	width: 150px;
+	height: 150px;
+	margin-top: -2rem;
 }
 
-.myProfile > section {
-  padding: 1rem;
+#myProfile > section {
+	padding: 1rem;
 }
 
 form#profile input {
-  border: none;
+	border: none;
 }
 
 section#profile-form {
-  padding: 0;
+	padding: 0;
 }
 
 section form#profile {
-  border-radius: 2%;
-  background-color: lightsteelblue;
-  width: 400px;
-  padding: 0.5rem 0 0.5rem 0;
+	border-radius: 2%;
+	background-color: lightsteelblue;
+	width: 400px;
+	padding: 0.5rem 0 0.5rem 0;
 }
 
-.myProfile form fieldset {
-  width: 250px;
+#myProfile form fieldset {
+	width: 250px;
 }
 
 h1.profile-name {
-  margin: 0.5rem 0 1rem 0;
+	margin: 0.5rem 0 1rem 0;
 }
 
 input#input-file {
-  display: none;
+	display: none;
 }
 
 fieldset.profile legend {
-  text-align: left;
+	text-align: left;
 }
 
 fieldset.profile ul {
-  align-items: center;
+	align-items: center;
 }
 
 fieldset.profile label {
-  width: 100%;
-  text-align: left;
+	width: 100%;
+	text-align: left;
 }
 
 fieldset.profile ul li {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 label#select-file {
-  font-size: 1.2rem;
-  display: inline-block;
-  cursor: pointer;
-  background-color: lightgray;
-  border-radius: 10px;
-  padding: 0.45rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin-right: 1.5rem;
+	font-size: 1.2rem;
+	display: inline-block;
+	cursor: pointer;
+	background-color: lightgray;
+	border-radius: 10px;
+	padding: 0.45rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin-right: 1.5rem;
 }
 label#select-file:hover {
-  background-color: lightsteelblue;
+	background-color: lightsteelblue;
 }

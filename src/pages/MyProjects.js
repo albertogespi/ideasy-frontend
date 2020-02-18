@@ -99,6 +99,7 @@ export function MyProjects() {
 					/>
 					{isOrgProfile ? (
 						<MyProjectsOrg
+							userWindow={false}
 							projects={orgProjects}
 							buttonSelected={buttonSelected}
 							setButtonSelected={setButtonSelected}

@@ -6,7 +6,12 @@ import { Link } from "react-router-dom";
 const ACTIVE_BUTTON = true;
 const INACTIVE_BUTTON = false;
 
-export function MyProjectsOrg({ projects, buttonSelected, setButtonSelected }) {
+export function MyProjectsOrg({
+	userWindow,
+	projects,
+	buttonSelected,
+	setButtonSelected,
+}) {
 	return (
 		<section>
 			<section>
@@ -28,11 +33,13 @@ export function MyProjectsOrg({ projects, buttonSelected, setButtonSelected }) {
 						Inactivos
 					</button>
 				</section>
-				<Link to='/new-project'>
-					<button id='new-project' aria-label='Click para crear un nuevo proyecto.'>
-						Nuevo Proyecto
-					</button>
-				</Link>
+				{!userWindow && (
+					<Link to='/new-project'>
+						<button id='new-project' aria-label='Click para crear un nuevo proyecto.'>
+							Nuevo Proyecto
+						</button>
+					</Link>
+				)}
 			</section>
 			<ProjectList projects={filterProjects(projects, buttonSelected)} />
 		</section>
