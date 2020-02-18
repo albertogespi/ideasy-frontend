@@ -9,7 +9,7 @@
 	flex-direction: column;
 }
 
-.project > ul > li:first-child {
+.project > ul li:first-child {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -111,8 +111,8 @@
 }
 
 .contributions {
-	border: 1px solid black;
-	min-height: 4rem;
+	border: 1px solid var(--color-superdark);
+	padding: 0.5rem;
 	margin-bottom: 1rem;
 }
 
@@ -121,6 +121,9 @@
 	flex-direction: row;
 	align-items: center;
 	padding: 0 1rem;
+}
+#contrib-row:not(:last-child) {
+	margin-bottom: 0.5rem;
 }
 
 .project button {
@@ -134,12 +137,24 @@
 
 #contrib-row a {
 	margin-right: 0.5rem;
+	width: 200px;
+	word-wrap: break-word;
+	text-decoration: underline;
 }
 
 .followers {
-	border: 1px solid black;
-	min-height: 4rem;
+	border: 1px solid var(--color-superdark);
 	margin-bottom: 1rem;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: row;
+}
+
+.followers button {
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .project > ul > li:nth-child(3) form {

@@ -84,7 +84,7 @@ export function MyProfile() {
 		<section className='container' id='myProfile'>
 			<Header />
 			<section className='centered-container'>
-				<div className='profile-photo'>
+				<div className='profile-photo' id='big-icon'>
 					<img src={user.avatarUrl} alt='' name='profile photo'></img>
 				</div>
 				<h1 className='profile-name'>{user.name}</h1>

@@ -19,9 +19,9 @@ export function MyProjects() {
 	const categories = [
 		"Todas",
 		"Blog",
+		"Corporativa",
 		"e-Commerce",
 		"e-Learning",
-		"Corporativa",
 		"Noticias",
 		"Wikis",
 	];

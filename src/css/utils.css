@@ -5,8 +5,7 @@ input,
 button,
 p,
 h1,
-h2,
-textarea {
+h2 {
   font-family: "Roboto", sans-serif;
   color: var(--color-superdark);
 }
@@ -25,7 +24,7 @@ textarea {
   display: inline-block;
   border-radius: 50%;
   overflow: hidden;
-  border: 1.5px solid black;
+  border: 1.5px solid var(--color-superdark);
 }
 
 img {
@@ -34,14 +33,25 @@ img {
   object-fit: cover;
 }
 
+#big-icon {
+  width: 180px;
+  height: 180px;
+}
+
 #medium-icon {
-  width: 48px;
-  height: 48px;
+  width: 110px;
+  height: 110px;
 }
 
 #small-icon {
   height: 40px;
   width: 40px;
+}
+
+#supersmall-icon {
+  height: 25px;
+  width: 25px;
+  margin-right: 5px;
 }
 
 button {

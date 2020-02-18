@@ -1,68 +1,63 @@
-#myProfile .centered-container .profile-photo {
-  width: 150px;
-  height: 150px;
-}
-
 #myProfile > section {
-  padding: 1rem;
+	padding: 1rem;
 }
 
 form#profile input {
-  border: none;
+	border: none;
 }
 
 section form#profile {
-  border-radius: 2%;
-  background-color: var(--color-medium);
-  width: 400px;
-  padding: 0.5rem 0 0.5rem 0;
+	border-radius: 2%;
+	background-color: var(--color-medium);
+	width: 400px;
+	padding: 0.5rem 0 0.5rem 0;
 }
 
 #myProfile form fieldset {
-  width: 250px;
+	width: 250px;
 }
 
 h1.profile-name {
-  margin: 0.5rem 0 1rem 0;
+	margin: 0.5rem 0 1rem 0;
 }
 
 input#input-file {
-  display: none;
+	display: none;
 }
 
 fieldset.profile legend {
-  text-align: left;
+	text-align: left;
 }
 
 fieldset.profile ul {
-  align-items: center;
+	align-items: center;
 }
 
 fieldset.profile label {
-  width: 100%;
-  text-align: left;
+	width: 100%;
+	text-align: left;
 }
 
 fieldset.profile ul li {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 label#select-file {
-  font-size: 1rem;
-  display: inline-block;
-  cursor: pointer;
-  background-color: var(--color-medium);
-  border-radius: 10px;
-  padding: 0.5rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin-right: 1.5rem;
+	font-size: 1rem;
+	display: inline-block;
+	cursor: pointer;
+	background-color: var(--color-medium);
+	border-radius: 10px;
+	padding: 0.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin-right: 1.5rem;
 }
 label#select-file:hover {
-  background-color: var(--color-dark);
+	background-color: var(--color-dark);
 }
 label#select-file:active {
-  background-color: var(--color-medium);
+	background-color: var(--color-medium);
 }

@@ -5,6 +5,7 @@ section#user-container {
   background-color: var(--color-dark);
   height: 100%;
   padding: 1rem;
+  border-right: 3px solid var(--color-superdark);
 }
 
 section.home {
@@ -29,6 +30,10 @@ section.home {
   text-decoration: underline;
 }
 .body {
+  display: grid;
+  grid-template-columns: 470px auto;
+}
+.projects {
   display: flex;
 }
 

@@ -22,8 +22,10 @@
 }
 
 .filters p {
-  text-align: center;
-  font-size: 1.3rem;
+	text-align: center;
+	font-size: 1.3rem;
+	border-bottom: 2px solid var(--color-superdark);
+	margin-bottom: 1rem;
 }
 
 .filters ul {
@@ -48,7 +50,7 @@
 }
 
 button#is-selected-bg {
-  background-color: var(--color-superdark);
-  border: 2px solid var(--color-dark);
-  color: var(--color-superlight);
+	background-color: var(--color-superdark);
+	border: 2px solid var(--color-superdark);
+	color: var(--color-superlight);
 }
