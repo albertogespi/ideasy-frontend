@@ -24,8 +24,14 @@ section.home-image p.second {
 }
 
 section.home-image button.access {
-  background-color: red;
+  background-color: rgb(212, 22, 22);
   color: white;
   font-weight: bold;
   margin-bottom: 2rem;
+}
+section.home-image button.access:hover {
+  background-color: rgb(179, 18, 18);
+}
+section.home-image button.access:active {
+  background-color: rgb(212, 22, 22);
 }

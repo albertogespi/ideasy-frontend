@@ -8,8 +8,12 @@
   padding: 1rem;
 }
 
-form.profile-form input {
+form#profile input {
   border: none;
+}
+
+section#profile-form {
+  padding: 0;
 }
 
 section form#profile {
