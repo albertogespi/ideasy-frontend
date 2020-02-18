@@ -61,7 +61,7 @@ export function User() {
 			}
 		}
 
-		history.push(`/my-projects/${userId}` + historyQuery);
+		history.push(`/user/${userId}` + historyQuery);
 	};
 
 	useEffect(() => {
@@ -85,7 +85,7 @@ export function User() {
 				setContributedProjects(response.data),
 			);
 		}
-	}, [selectedComplexity, selectedCategory, buttonSelected]);
+	}, [isOrgProfile, selectedComplexity, selectedCategory, buttonSelected]);
 
 	if (
 		user !== undefined &&
@@ -94,9 +94,8 @@ export function User() {
 		followedProjects !== undefined &&
 		contributedProjects !== undefined
 	) {
-		console.log(user);
 		return (
-			<main>
+			<section className='container'>
 				<Header isAccessWindow={false} />
 				<div className='centered-container'>
 					<section className='centered-container' id='user-container'>
@@ -135,6 +134,7 @@ export function User() {
 						/>
 						{isOrgProfile ? (
 							<MyProjectsOrg
+								userWindow={true}
 								projects={orgProjects}
 								buttonSelected={buttonSelected}
 								setButtonSelected={setButtonSelected}
@@ -149,7 +149,7 @@ export function User() {
 						)}
 					</section>
 				</section>
-			</main>
+			</section>
 		);
 	} else {
 		return <p>Cargando datos de usuario...</p>;
