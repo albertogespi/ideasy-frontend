@@ -38,11 +38,12 @@ input.search {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  width: 360px;
 }
 
 .nav-row li {
-  margin-right: 0.5rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 0 0;
+  padding: 0;
 }
 
 .nav-row li button {
@@ -61,4 +62,22 @@ input.search {
 div#medium-icon {
   height: 60px;
   width: 60px;
+}
+
+button#logout,
+button#my-projects,
+button#my-profile {
+  color: gray;
+}
+
+button#logout:hover,
+button#my-projects:hover,
+button#my-profile:hover {
+  color: rgb(224, 110, 16);
+  text-decoration: underline;
+}
+
+p.separator {
+  padding: 0;
+  color: gray;
 }

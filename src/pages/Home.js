@@ -8,83 +8,84 @@ import { ProjectList } from "../components/ProjectList";
 import { getHomeProjects } from "../http/homeService";
 
 export function Home() {
-	const categories = [
-		"Todas",
-		"Blog",
-		"e-Commerce",
-		"e-Learning",
-		"Corporativa",
-		"Noticias",
-		"Wikis",
-	];
+  const categories = [
+    "Todas",
+    "Blog",
+    "e-Commerce",
+    "e-Learning",
+    "Corporativa",
+    "Noticias",
+    "Wikis"
+  ];
 
-	const complexities = ["Todas", "Fácil", "Medio", "Difícil"];
+  const complexities = ["Todas", "Fácil", "Medio", "Difícil"];
 
-	const [projects, setProjects] = useState([]);
-	const [selectedCategory, setSelectedCategory] = useState(0);
-	const [selectedComplexity, setSelectedComplexity] = useState(0);
+  const [projects, setProjects] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(0);
+  const [selectedComplexity, setSelectedComplexity] = useState(0);
 
-	const history = useHistory();
+  const history = useHistory();
 
-	let historyQuery = "";
-	const updateQuery = () => {
-		if (selectedCategory !== 0) {
-			historyQuery += `/?category=${categories[selectedCategory]}`;
-		}
+  let historyQuery = "";
+  const updateQuery = () => {
+    if (selectedCategory !== 0) {
+      historyQuery += `/?category=${categories[selectedCategory]}`;
+    }
 
-		if (selectedComplexity !== 0) {
-			if (historyQuery === "") {
-				historyQuery += `/?complexity=${selectedComplexity}`;
-			} else {
-				historyQuery += `&complexity=${selectedComplexity}`;
-			}
-		}
+    if (selectedComplexity !== 0) {
+      if (historyQuery === "") {
+        historyQuery += `/?complexity=${selectedComplexity}`;
+      } else {
+        historyQuery += `&complexity=${selectedComplexity}`;
+      }
+    }
 
-		history.push(historyQuery);
-	};
+    history.push(historyQuery);
+  };
 
-	useEffect(() => {
-		updateQuery();
-		getHomeProjects(historyQuery).then((response) => setProjects(response.data));
-	}, [selectedCategory, selectedComplexity]);
+  useEffect(() => {
+    updateQuery();
+    getHomeProjects(historyQuery).then(response => setProjects(response.data));
+  }, [selectedCategory, selectedComplexity]);
 
-	if (projects !== undefined) {
-		return (
-			<section className='container'>
-				<Header isAccessWindow={false} />
-				<section className='home-image'>
-					<div>
-						<p className='first'>
-							Únete ya a nuestro Portal de Ideas como desarrollador u organización.
-						</p>
-						<p className='second'>
-							Participa en proyectos de software innovadores o publica las necesidades
-							tecnológicas de tu organización.
-						</p>
-					</div>
+  if (projects !== undefined) {
+    return (
+      <section className="container">
+        <Header isAccessWindow={false} />
+        <section className="home-image">
+          <div>
+            <p className="first">
+              Únete ya a nuestro Portal de Ideas como desarrollador u
+              organización.
+            </p>
+            <p className="second">
+              Participa en proyectos de software innovadores o publica las
+              necesidades tecnológicas de tu organización.
+            </p>
+          </div>
 
-					<div>
+          {/* <div>
 						<Link to='/access'>
 							<button className='access' renderAs='button'>
 								ACCEDE O REGÍSTRATE
 							</button>
 						</Link>
-					</div>
-				</section>
-				<main className='home'>
-					<Filters
-						categories={categories}
-						complexities={complexities}
-						selectedCategory={selectedCategory}
-						setSelectedCategory={setSelectedCategory}
-						selectedComplexity={selectedComplexity}
-						setSelectedComplexity={setSelectedComplexity}
-					/>
-					<ProjectList projects={projects} />
-				</main>
-			</section>
-		);
-	} else {
-		return <p>Internet va lento, espere</p>;
-	}
+					</div> */}
+        </section>
+        <main className="home">
+          <Filters
+            categories={categories}
+            complexities={complexities}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            selectedComplexity={selectedComplexity}
+            setSelectedComplexity={setSelectedComplexity}
+          />
+          <ProjectList projects={projects} />
+        </main>
+      </section>
+    );
+  } else {
+    return <p>Internet va lento, espere</p>;
+  }
 }

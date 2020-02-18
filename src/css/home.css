@@ -23,12 +23,12 @@ section.home-image p.second {
   margin-top: 1rem;
 }
 
-section.home-image button.access {
+/* section.home-image button.access {
   background-color: rgb(212, 22, 22);
   color: white;
   font-weight: bold;
   margin-bottom: 2rem;
-}
+} */
 section.home-image button.access:hover {
   background-color: rgb(179, 18, 18);
 }
