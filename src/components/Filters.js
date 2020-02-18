@@ -7,6 +7,7 @@ export function Filters({
 	setSelectedCategory,
 	selectedComplexity,
 	setSelectedComplexity,
+	updateQuery,
 }) {
 	return (
 		<section className='filters'>
