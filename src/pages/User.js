@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Filters } from "../components/Filters";
-import { useAuth } from "../context/authContext";
 import { Header } from "../components/Header";
+import { getAvgRatings } from "../http/projectsService";
+import { SimpleRating } from "../components/Rating";
 import { getUser } from "../http/userService";
 import { MyProjectsOrg } from "../components/MyProjectsOrg";
 import { MyProjectsDev } from "../components/MyProjectsDev";
@@ -28,6 +29,8 @@ export function User() {
 	const userId = window.location.href.split("/")[4];
 	const [user, setUser] = useState(undefined);
 	const [isOrgProfile, setIsOrgProfile] = useState(undefined);
+
+	const [rating, setRating] = useState(undefined);
 
 	//IsOrgProfile = true
 	const [orgProjects, setOrgProjects] = useState([]);
@@ -66,6 +69,9 @@ export function User() {
 			setUser(response.data);
 			setIsOrgProfile(response.data.role === "org");
 		});
+		getAvgRatings(userId).then((response) => {
+			setRating(response.data);
+		});
 		updateQuery();
 		if (isOrgProfile) {
 			getOrgProjects(userId, historyQuery).then((response) => {
@@ -83,6 +89,7 @@ export function User() {
 
 	if (
 		user !== undefined &&
+		rating !== undefined &&
 		orgProjects !== undefined &&
 		followedProjects !== undefined &&
 		contributedProjects !== undefined
@@ -91,18 +98,31 @@ export function User() {
 		return (
 			<main>
 				<Header isAccessWindow={false} />
-				<section className='centered-container'>
-					<div className='profile-photo'>
-						<img src={user.avatarUrl} alt='' name='profile photo'></img>
-					</div>
-					<p>{user.role === "dev" ? "Desarrollador" : "Organización"}</p>
-					<h1 className='profile-name'>{user.name}</h1>
-					<div>
-						<h2>Contacto</h2>
-						<p>Email: {user.contactEmail || user.email}</p>
-						{user.contactWeb && <p>Web: {user.contactWeb}</p>}
-					</div>
-				</section>
+				<div className='centered-container'>
+					<section className='centered-container' id='user-container'>
+						<div className='profile-photo'>
+							<img src={user.avatarUrl} alt='' name='profile photo'></img>
+						</div>
+						<h1>{user.name}</h1>
+						<p>{user.role === "dev" ? "Desarrollador" : "Organización"}</p>
+						<div className='centered-container' id='rating'>
+							{user.role === "dev" && (
+								<div className='centered-container'>
+									<SimpleRating readOnly={true} id='stars' />
+									<p>Puntuación media</p>
+									{rating
+										? `${rating} estrellas`
+										: "Este usuario aún no ha recibido puntuaciones."}
+								</div>
+							)}
+						</div>
+						<div className='centered-container' id='contact'>
+							<h2>Contacto</h2>
+							<p>{user.contactEmail || user.email}</p>
+							{user.contactWeb !== "NULL" && <a href={user.contactWeb}>Enlace web</a>}
+						</div>
+					</section>
+				</div>
 				<section>
 					<section className='home'>
 						<Filters

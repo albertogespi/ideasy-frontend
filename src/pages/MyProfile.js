@@ -105,9 +105,9 @@ export function MyProfile() {
           </button>
         </div>
       </section>
-      <section className="centered-container">
+      <section className="centered-container" id="profile-form">
         <form
-          className="profile-form"
+          className="centered-container"
           id="profile"
           onSubmit={handleSubmit(handleUpdate)}
         >

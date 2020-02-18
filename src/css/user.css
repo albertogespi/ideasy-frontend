@@ -1,0 +1,22 @@
+div#rating {
+  margin-top: 1rem;
+}
+section#user-container {
+  background-color: #b0a160;
+  width: 500px;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+#contact {
+  margin-top: 2rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #434e52;
+  color: white;
+  font-size: 1.1rem;
+}
+#contact * {
+  color: white;
+  font-size: 1.2rem;
+}
