@@ -15,6 +15,7 @@ export function MyProjectsDev({
 		<section>
 			<section>
 				<button
+					id={buttonSelected === FOLLOWED_BUTTON ? "is-selected" : ""}
 					onClick={() => {
 						setButtonSelected(FOLLOWED_BUTTON);
 					}}
@@ -22,6 +23,7 @@ export function MyProjectsDev({
 					Seguidos
 				</button>
 				<button
+					id={buttonSelected === CONTRIBUTED_BUTTON ? "is-selected" : ""}
 					onClick={() => {
 						setButtonSelected(CONTRIBUTED_BUTTON);
 					}}

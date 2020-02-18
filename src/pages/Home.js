@@ -48,39 +48,43 @@ export function Home() {
 		getHomeProjects(historyQuery).then((response) => setProjects(response.data));
 	}, [selectedCategory, selectedComplexity]);
 
-	return (
-		<section className='container'>
-			<Header isAccessWindow={false} />
-			<section className='home-image'>
-				<div>
-					<p className='first'>
-						Únete ya a nuestro Portal de Ideas como desarrollador u organización.
-					</p>
-					<p className='second'>
-						Participa en proyectos de software innovadores o publica las necesidades
-						tecnológicas de tu organización.
-					</p>
-				</div>
+	if (projects !== undefined) {
+		return (
+			<section className='container'>
+				<Header isAccessWindow={false} />
+				<section className='home-image'>
+					<div>
+						<p className='first'>
+							Únete ya a nuestro Portal de Ideas como desarrollador u organización.
+						</p>
+						<p className='second'>
+							Participa en proyectos de software innovadores o publica las necesidades
+							tecnológicas de tu organización.
+						</p>
+					</div>
 
-				<div>
-					<Link to='/access'>
-						<button className='access' renderAs='button'>
-							ACCEDE O REGÍSTRATE
-						</button>
-					</Link>
-				</div>
+					<div>
+						<Link to='/access'>
+							<button className='access' renderAs='button'>
+								ACCEDE O REGÍSTRATE
+							</button>
+						</Link>
+					</div>
+				</section>
+				<main className='home'>
+					<Filters
+						categories={categories}
+						complexities={complexities}
+						selectedCategory={selectedCategory}
+						setSelectedCategory={setSelectedCategory}
+						selectedComplexity={selectedComplexity}
+						setSelectedComplexity={setSelectedComplexity}
+					/>
+					<ProjectList projects={projects} />
+				</main>
 			</section>
-			<main className='home'>
-				<Filters
-					categories={categories}
-					complexities={complexities}
-					selectedCategory={selectedCategory}
-					setSelectedCategory={setSelectedCategory}
-					selectedComplexity={selectedComplexity}
-					setSelectedComplexity={setSelectedComplexity}
-				/>
-				<ProjectList projects={projects} />
-			</main>
-		</section>
-	);
+		);
+	} else {
+		return <p>Internet va lento, espere</p>;
+	}
 }

@@ -83,6 +83,8 @@ export function MyProjects() {
 		followedProjects !== undefined &&
 		contributedProjects !== undefined
 	) {
+		console.log(orgProjects);
+
 		return (
 			<section className='container'>
 				<Header isAccessWindow={false} />
@@ -96,7 +98,11 @@ export function MyProjects() {
 						setSelectedComplexity={setSelectedComplexity}
 					/>
 					{isOrgProfile ? (
-						<MyProjectsOrg projects={orgProjects} />
+						<MyProjectsOrg
+							projects={orgProjects}
+							buttonSelected={buttonSelected}
+							setButtonSelected={setButtonSelected}
+						/>
 					) : (
 						<MyProjectsDev
 							followedProjects={followedProjects}
