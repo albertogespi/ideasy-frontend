@@ -6,82 +6,98 @@ button,
 p,
 h1,
 h2 {
-  font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 
 .container {
-  background-color: var(--color-superlight);
+	background-color: var(--color-superlight);
 }
 .centered-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .profile-photo {
-  display: inline-block;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1.5px solid black;
+	display: inline-block;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1.5px solid black;
 }
 
 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 #medium-icon {
-  width: 48px;
-  height: 48px;
+	width: 48px;
+	height: 48px;
 }
 
 #small-icon {
-  height: 40px;
-  width: 40px;
+	height: 40px;
+	width: 40px;
 }
 
 button {
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.2rem;
-  height: 2.3rem;
-  background-color: var(--color-medium);
+	cursor: pointer;
+	border: none;
+	border-radius: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1.2rem;
+	height: 2.3rem;
+	background-color: var(--color-medium);
 }
 
 button.form {
-  background-color: var(--color-superdark);
-  color: var(--color-superlight);
+	background-color: var(--color-superdark);
+	color: var(--color-superlight);
 }
 
 button.form:hover {
-  background-color: var(--color-dark);
-  color: black;
+	background-color: var(--color-dark);
+	color: black;
 }
 button.form:active {
-  background-color: var(--color-superdark);
-  color: var(--color-superlight);
+	background-color: var(--color-superdark);
+	color: var(--color-superlight);
 }
 
 button.gray:hover {
-  background-color: var(--color-dark);
+	background-color: var(--color-dark);
 }
 button.gray:active {
-  background-color: var(--color-medium);
+	background-color: var(--color-medium);
 }
 
 button:focus {
-  outline: none;
+	outline: none;
 }
 
 input {
-  width: 250px;
-  height: 2rem;
-  padding-left: 0.5rem;
-  background-color: var(--color-superlight);
+	width: 250px;
+	height: 2rem;
+	padding-left: 0.5rem;
+	background-color: var(--color-superlight);
+}
+
+.selectors {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 1rem;
+}
+
+.selectors > button {
+	background-color: transparent;
+	border-radius: 0px;
+}
+
+button#is-selected-line {
+	border-bottom: 2px solid var(--color-superdark);
 }

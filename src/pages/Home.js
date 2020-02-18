@@ -86,9 +86,9 @@ export function Home() {
 						setSelectedComplexity={setSelectedComplexity}
 					/>
 					<section>
-						<section>
+						<section className='selectors'>
 							<button
-								id={buttonSelected === MOST_RECENT_BUTTON ? "is-selected" : ""}
+								id={buttonSelected === MOST_RECENT_BUTTON ? "is-selected-line" : ""}
 								onClick={() => {
 									setButtonSelected(MOST_RECENT_BUTTON);
 								}}
@@ -96,7 +96,7 @@ export function Home() {
 								Más recientes
 							</button>
 							<button
-								id={buttonSelected === MOST_FOLLOWED_BUTTON ? "is-selected" : ""}
+								id={buttonSelected === MOST_FOLLOWED_BUTTON ? "is-selected-line" : ""}
 								onClick={() => {
 									setButtonSelected(MOST_FOLLOWED_BUTTON);
 								}}

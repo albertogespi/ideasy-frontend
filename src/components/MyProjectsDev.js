@@ -13,9 +13,9 @@ export function MyProjectsDev({
 }) {
 	return (
 		<section>
-			<section>
+			<section className='selectors'>
 				<button
-					id={buttonSelected === FOLLOWED_BUTTON ? "is-selected" : ""}
+					id={buttonSelected === FOLLOWED_BUTTON ? "is-selected-line" : ""}
 					onClick={() => {
 						setButtonSelected(FOLLOWED_BUTTON);
 					}}
@@ -23,7 +23,7 @@ export function MyProjectsDev({
 					Seguidos
 				</button>
 				<button
-					id={buttonSelected === CONTRIBUTED_BUTTON ? "is-selected" : ""}
+					id={buttonSelected === CONTRIBUTED_BUTTON ? "is-selected-line" : ""}
 					onClick={() => {
 						setButtonSelected(CONTRIBUTED_BUTTON);
 					}}

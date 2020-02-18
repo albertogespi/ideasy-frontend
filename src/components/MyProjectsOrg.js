@@ -15,9 +15,9 @@ export function MyProjectsOrg({
 	return (
 		<section>
 			<section>
-				<section>
+				<section className='selectors'>
 					<button
-						id={buttonSelected === ACTIVE_BUTTON ? "is-selected" : ""}
+						id={buttonSelected === ACTIVE_BUTTON ? "is-selected-line" : ""}
 						onClick={() => {
 							setButtonSelected(ACTIVE_BUTTON);
 						}}
@@ -25,7 +25,7 @@ export function MyProjectsOrg({
 						Activos
 					</button>
 					<button
-						id={buttonSelected === INACTIVE_BUTTON ? "is-selected" : ""}
+						id={buttonSelected === INACTIVE_BUTTON ? "is-selected-line" : ""}
 						onClick={() => {
 							setButtonSelected(INACTIVE_BUTTON);
 						}}

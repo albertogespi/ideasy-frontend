@@ -18,7 +18,7 @@ export function Filters({
 						{categories.map((cat, index) => (
 							<li key={index}>
 								<button
-									id={selectedCategory === index ? "is-selected" : ""}
+									id={selectedCategory === index ? "is-selected-bg" : ""}
 									onClick={() => {
 										setSelectedCategory(index);
 									}}
@@ -35,7 +35,7 @@ export function Filters({
 						{complexities.map((comp, index) => (
 							<li key={index}>
 								<button
-									id={selectedComplexity === index ? "is-selected" : ""}
+									id={selectedComplexity === index ? "is-selected-bg" : ""}
 									onClick={() => {
 										setSelectedComplexity(index);
 									}}
