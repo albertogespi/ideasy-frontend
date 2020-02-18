@@ -13,7 +13,7 @@ section.home-image {
   justify-content: space-between;
 }
 section.home-image p {
-  color: white;
+  color: var(--color-superlight);
 }
 section.home-image p.first {
   font-size: 2rem;

@@ -1,25 +1,31 @@
 :root {
-	/* colors */
-	--color-highlighted-section: rgb(150, 235, 222);
-	--color-highlighted-textarea: rgb(180, 0, 111);
+  /* colors */
+  /* --color-highlighted-section: rgb(150, 235, 222);
+	--color-highlighted-textarea: rgb(180, 0, 111); */
 
-	/* fonts */
-	--font-primary: Arial, sans-serif;
-	--font-secondary: "Oswald", sans-serif;
-	--font-special: "Press Start 2P";
+  --color-superdark: rgb(37, 42, 55);
+  --color-dark: rgb(227, 207, 91);
+  --color-medium: rgb(188, 188, 188);
+  --color-light: rgb(227, 227, 227);
+  --color-superlight: rgb(252, 248, 211);
 
-	/* font-sizes */
-	--font-xs: 0.8rem;
-	--font-sm: 1rem;
-	--font-m: 1.2rem;
-	--font-l: 1.6rem;
-	--font-xl: 1.8rem;
-	--font-xxl: 2rem;
+  /* fonts */
+  --font-primary: Arial, sans-serif;
+  --font-secondary: "Oswald", sans-serif;
+  --font-special: "Press Start 2P";
 
-	/* spacing */
-	--space-xs: 0.25rem;
-	--space-sm: 0.5rem;
-	--space-md: 1rem;
-	--space-lg: 1.5rem;
-	--space-xl: 3rem;
+  /* font-sizes */
+  --font-xs: 0.8rem;
+  --font-sm: 1rem;
+  --font-m: 1.2rem;
+  --font-l: 1.6rem;
+  --font-xl: 1.8rem;
+  --font-xxl: 2rem;
+
+  /* spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 3rem;
 }

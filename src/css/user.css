@@ -2,17 +2,21 @@ div#rating {
   margin-top: 1rem;
 }
 section#user-container {
-  background-color: #b0a160;
+  background-color: var(--color-dark);
   width: 500px;
   border-radius: 10px;
   padding: 1rem;
+}
+
+div.stars-rating {
+  background-color: var(--color-superdark);
 }
 
 #contact {
   margin-top: 2rem;
   border-radius: 10px;
   padding: 1rem;
-  background-color: #434e52;
+  background-color: var(--color-superdark);
   color: white;
   font-size: 1.1rem;
 }
