@@ -5,7 +5,8 @@ input,
 button,
 p,
 h1,
-h2 {
+h2,
+textarea {
   font-family: "Roboto", sans-serif;
   color: var(--color-superdark);
 }
