@@ -7,8 +7,12 @@
 #logo-home {
   background-image: url("../images/ideasy5.png");
   background-size: cover;
-  padding: 2.6rem;
+  padding: 2.5rem;
   margin-left: 0;
+}
+
+div.header-user {
+  width: 470px;
 }
 
 input.search {

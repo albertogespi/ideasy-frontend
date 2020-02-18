@@ -3,24 +3,32 @@ div#rating {
 }
 section#user-container {
   background-color: var(--color-dark);
-  width: 500px;
+
+  height: 100%;
   border-radius: 10px;
   padding: 1rem;
 }
 
-div.stars-rating {
-  background-color: var(--color-superdark);
+section.home {
+  height: 100%;
 }
 
 #contact {
   margin-top: 2rem;
   border-radius: 10px;
+  border: 2px solid var(--color-superdark);
   padding: 1rem;
-  background-color: var(--color-superdark);
   color: white;
   font-size: 1.1rem;
 }
 #contact * {
-  color: white;
   font-size: 1.2rem;
+}
+.body {
+  display: flex;
+}
+
+.MuiRating-root {
+  padding: 1rem;
+  background-color: var(--color-superdark);
 }
