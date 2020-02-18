@@ -3,7 +3,6 @@ div#rating {
 }
 section#user-container {
   background-color: var(--color-dark);
-
   height: 100%;
   border-radius: 10px;
   padding: 1rem;
@@ -14,7 +13,7 @@ section.home {
 }
 
 #contact {
-  margin-top: 2rem;
+  margin-top: 3rem;
   border-radius: 10px;
   border: 2px solid var(--color-superdark);
   padding: 1rem;
@@ -31,4 +30,5 @@ section.home {
 .MuiRating-root {
   padding: 1rem;
   background-color: var(--color-superdark);
+  border-radius: 10px;
 }
