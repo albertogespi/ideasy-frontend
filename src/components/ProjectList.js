@@ -27,7 +27,7 @@ export function ProjectList({ projects }) {
                 <Link to={`/project/${project.project_id}`}>
                   <div>
                     <div id="project-data">
-                      <h2>{project.title}</h2>
+                      <h2 className="project-title">{project.title}</h2>
                       <p id="project-description">{project.description}</p>
                     </div>
                   </div>
@@ -56,7 +56,7 @@ export function ProjectList({ projects }) {
                         : " seguidores"}
                     </p>
                   </li>
-                  <li>
+                  <li className="complexity">
                     {project.complexity === 1
                       ? "Fácil"
                       : project.complexity === 2

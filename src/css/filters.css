@@ -1,53 +1,54 @@
 .filters {
-	padding: 1rem;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
-	background-color: var(--color-superdark);
-	color: var(--color-superlight);
+  background-color: var(--color-light);
+  color: var(--color-superlight);
 }
 
 .filters nav {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-	padding: 1rem;
+  padding: 1rem;
 }
 
 .filters section {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .filters p {
-	text-align: center;
-	font-size: 1.3rem;
+  text-align: center;
+  font-size: 1.3rem;
 }
 
 .filters ul {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .filters ul li {
-	display: flex;
-	flex-direction: column;
-	width: 12rem;
-	margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  margin-bottom: 5px;
 }
 
 .filters button {
-	border: 2px solid var(--color-light);
-	background-color: var(--color-light);
-	font-size: 1.2rem;
+  border: 2px solid var(--color-light);
+  background-color: var(--color-light);
+  font-size: 1.2rem;
 }
 .filters button:hover {
-	/* background-color: var(--color-medium); */
-	border: 2px solid var(--color-superdark);
+  /* background-color: var(--color-medium); */
+  border: 2px solid var(--color-superdark);
 }
 
 button#is-selected-bg {
-	background-color: var(--color-dark);
-	border: 2px solid var(--color-dark);
+  background-color: var(--color-superdark);
+  border: 2px solid var(--color-dark);
+  color: var(--color-superlight);
 }
