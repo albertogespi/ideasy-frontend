@@ -6,7 +6,8 @@ button,
 p,
 h1,
 h2 {
-	font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
+  color: var(--color-superdark);
 }
 
 .container {

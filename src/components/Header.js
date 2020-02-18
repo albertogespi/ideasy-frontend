@@ -9,7 +9,7 @@ export function Header({ isAccessWindow }) {
 
   return (
     <header className={isAccessWindow ? "access-header" : "main-header"}>
-      <div>
+      <div className="header-user">
         <div id="logo"></div>
         <Link to="/">
           <button
