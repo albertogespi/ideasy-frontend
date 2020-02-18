@@ -8,6 +8,10 @@ h1,
 h2 {
   font-family: "Roboto", sans-serif;
 }
+
+.container {
+  background-color: var(--color-superlight);
+}
 .centered-container {
   display: flex;
   flex-direction: column;
@@ -47,10 +51,37 @@ button {
   display: inline-block;
   font-size: 1.2rem;
   height: 2.3rem;
+  background-color: var(--color-medium);
+}
+
+button.form {
+  background-color: var(--color-superdark);
+  color: var(--color-superlight);
+}
+
+button.form:hover {
+  background-color: var(--color-dark);
+  color: black;
+}
+button.form:active {
+  background-color: var(--color-superdark);
+  color: var(--color-superlight);
+}
+
+button.gray:hover {
+  background-color: var(--color-dark);
+}
+button.gray:active {
+  background-color: var(--color-medium);
+}
+
+button:focus {
+  outline: none;
 }
 
 input {
   width: 250px;
   height: 2rem;
   padding-left: 0.5rem;
+  background-color: var(--color-superlight);
 }

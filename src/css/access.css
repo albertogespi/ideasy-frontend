@@ -7,12 +7,12 @@ section#total-screen {
 
 section#access-form {
   border-radius: 2%;
-  background-color: lightsteelblue;
+  background-color: var(--color-light);
   width: 400px;
 }
 
 .accessWindow fieldset#roles {
-  background-color: lightsteelblue;
+  background-color: var(--color-light);
   margin-top: 1.2rem;
   width: 400px;
 }

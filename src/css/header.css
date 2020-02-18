@@ -5,7 +5,7 @@
 }
 
 #logo-home {
-  background-image: url("../images/logo.jpg");
+  background-image: url("../images/ideasy5.png");
   background-size: cover;
   padding: 2.6rem;
   margin-left: 0;
@@ -23,6 +23,7 @@ input.search {
 
   justify-content: space-between;
   padding: 0.5rem;
+
   /*background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));*/
 }
 
@@ -73,7 +74,7 @@ button#my-profile {
 button#logout:hover,
 button#my-projects:hover,
 button#my-profile:hover {
-  color: rgb(224, 110, 16);
+  color: var(--color-dark);
   text-decoration: underline;
 }
 
