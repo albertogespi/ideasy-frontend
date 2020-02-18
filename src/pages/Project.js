@@ -101,7 +101,7 @@ export function Project() {
 					<ul>
 						<Link to={`/user/${project.user_id}`}>
 							<li>
-								<div id='medium-icon' className='profile-photo'>
+								<div id='small-icon' className='profile-photo'>
 									<img src={project.user_avatar_url} alt=''></img>
 								</div>
 								<button id='org-name'>{project.user_name}</button>
@@ -164,7 +164,7 @@ export function Project() {
 									<Link to={`/user/${user.user_id}`} key={index}>
 										<button>
 											<div id='small-icon' className='profile-photo'>
-												<img src={user.avatarUrl} alt='' />
+												<img src={user.avatar_url} alt='' />
 											</div>
 											<p>{user.name}</p>
 										</button>

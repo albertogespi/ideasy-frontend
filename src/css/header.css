@@ -1,88 +1,84 @@
 @import url("https://fonts.googleapis.com/css?family=Lemonada&display=swap");
 
 .access-header {
-  padding: 0.5rem;
+	padding: 0.5rem;
 }
 
 #logo-home {
-  background-image: url("../images/ideasy5.png");
-  background-size: cover;
-  padding: 2.5rem;
-  margin-left: 0;
+	background-image: url("../images/ideasy5.png");
+	background-size: cover;
+	padding: 2.5rem;
+	margin-left: 0;
 }
 
 div.header-user {
-  width: 470px;
+	width: 470px;
 }
 
 input.search {
-  height: 2.2rem;
-  width: 250px;
-  border: 1.3px solid gray;
-  margin: 0 1rem 0 2rem;
+	height: 2.2rem;
+	width: 250px;
+	border: 1.3px solid gray;
+	margin: 0 1rem 0 2rem;
 }
 
 .main-header {
-  display: flex;
+	display: flex;
 
-  justify-content: space-between;
-  padding: 0.5rem;
+	justify-content: space-between;
+	padding: 0.5rem;
 
-  /*background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));*/
+	/*background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));*/
 }
 
 .main-header div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
 
 .nav-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 360px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	width: 360px;
 }
 
 .nav-row li {
-  margin: 1.5rem 0 0 0;
-  padding: 0;
+	margin: 1.5rem 0 0 0;
+	padding: 0;
 }
 
 .nav-row li button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	background-color: transparent;
 }
 
 .nav-row p {
-  padding-bottom: 0;
-  font-size: var(--font-sm);
-}
-div#medium-icon {
-  height: 60px;
-  width: 60px;
+	padding-bottom: 0;
+	font-size: var(--font-sm);
 }
 
 button#logout,
 button#my-projects,
 button#my-profile {
-  color: gray;
+	color: gray;
 }
 
 button#logout:hover,
 button#my-projects:hover,
 button#my-profile:hover {
-  color: var(--color-dark);
-  text-decoration: underline;
+	color: var(--color-dark);
+	text-decoration: underline;
 }
 
 p.separator {
-  padding: 0;
-  color: gray;
+	padding: 0;
+	color: gray;
 }

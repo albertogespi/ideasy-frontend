@@ -1,87 +1,81 @@
 .projectList {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
 }
 
 .projectList ul li {
-  margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .project-miniature {
-  display: grid;
-  grid-template-columns: 10rem auto 10rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: var(--color-medium);
-  margin: 1.5rem;
-  height: 180px;
+	display: grid;
+	grid-template-columns: 10rem auto 10rem;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: var(--color-medium);
+	margin: 1.5rem;
+	height: 180px;
 }
 
 .project-miniature > :first-child {
-  align-items: center;
-  justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .project-miniature > div {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  padding: 1rem;
+	padding: 1rem;
 }
 
 #project-info {
-  padding: 0.5rem;
+	padding: 0.5rem;
 }
 
 #project-info ul li {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0;
 }
 
 #main-content {
-  padding: 0.5rem;
-  width: 30rem;
-  display: flex;
-  flex-direction: column;
+	padding: 0.5rem;
+	width: 30rem;
+	display: flex;
+	flex-direction: column;
 }
 
 #main-content div {
-  text-align: start;
-  margin: 0.2rem 0;
+	text-align: start;
+	margin: 0.2rem 0;
 }
 
 #project-data p {
-  word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 .projectList button {
-  margin: 0;
-  background-color: transparent;
-}
-
-#icon {
-  margin-right: 0.5rem;
-  height: 25px;
-  width: 25px;
+	margin: 0;
+	background-color: transparent;
 }
 
 section.projectList p#org-name {
-  padding: 0.1rem;
-  background-color: var(--color-dark);
-  border-radius: 10px;
-  border: 1px solid var(--color-superdark);
+	padding: 0.1rem;
+	background-color: var(--color-dark);
+	border-radius: 10px;
+	border: 1px solid var(--color-superdark);
 }
 
 section.projectList p.category {
-  background-color: var(--color-light);
-  border-radius: 10px;
-  width: 120px;
-  text-align: center;
-  padding: 0.1rem;
+	background-color: var(--color-light);
+	border-radius: 10px;
+	width: 120px;
+	text-align: center;
+	padding: 0.1rem;
 }

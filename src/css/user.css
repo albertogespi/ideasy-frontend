@@ -1,34 +1,38 @@
 div#rating {
-  margin-top: 1rem;
+	margin-top: 1rem;
 }
 section#user-container {
-  background-color: var(--color-dark);
-  height: 100%;
-  border-radius: 10px;
-  padding: 1rem;
+	background-color: var(--color-dark);
+	height: 100%;
+	padding: 1rem;
+	border-right: 3px solid var(--color-superdark);
 }
 
 section.home {
-  height: 100%;
+	height: 100%;
 }
 
 #contact {
-  margin-top: 3rem;
-  border-radius: 10px;
-  border: 2px solid var(--color-superdark);
-  padding: 1rem;
-  color: white;
-  font-size: 1.1rem;
+	margin-top: 3rem;
+	border-radius: 10px;
+	border: 2px solid var(--color-superdark);
+	padding: 1rem;
+	color: white;
+	font-size: 1.1rem;
 }
 #contact * {
-  font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 .body {
-  display: flex;
+	display: grid;
+	grid-template-columns: 470px auto;
+}
+.projects {
+	display: flex;
 }
 
 .MuiRating-root {
-  padding: 1rem;
-  background-color: var(--color-superdark);
-  border-radius: 10px;
+	padding: 1rem;
+	background-color: var(--color-superdark);
+	border-radius: 10px;
 }

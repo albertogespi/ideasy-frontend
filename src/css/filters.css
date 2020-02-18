@@ -5,8 +5,7 @@
 	align-items: center;
 	justify-content: center;
 
-	background-color: var(--color-superdark);
-	color: var(--color-superlight);
+	background-color: var(--color-light);
 }
 
 .filters nav {
@@ -24,6 +23,8 @@
 .filters p {
 	text-align: center;
 	font-size: 1.3rem;
+	border-bottom: 2px solid var(--color-superdark);
+	margin-bottom: 1rem;
 }
 
 .filters ul {
@@ -48,6 +49,7 @@
 }
 
 button#is-selected-bg {
-	background-color: var(--color-dark);
-	border: 2px solid var(--color-dark);
+	background-color: var(--color-superdark);
+	border: 2px solid var(--color-superdark);
+	color: var(--color-superlight);
 }

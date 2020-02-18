@@ -14,9 +14,9 @@ export function Home() {
 	const categories = [
 		"Todas",
 		"Blog",
+		"Corporativa",
 		"e-Commerce",
 		"e-Learning",
-		"Corporativa",
 		"Noticias",
 		"Wikis",
 	];
