@@ -215,3 +215,25 @@ label#document:hover {
 label#document:active {
 	background-color: var(--color-medium);
 }
+
+#spinner {
+	height: 35px;
+	width: 35px;
+	background-image: url("../images/spinner.gif");
+	background-size: cover;
+}
+
+.project #upload-file {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.project fieldset#upload-file {
+	width: auto;
+	margin: 0;
+}
+.project fieldset#upload-file > label {
+	margin: 0 0.5rem 0 0;
+}
