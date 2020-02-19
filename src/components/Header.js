@@ -6,6 +6,7 @@ import { useAuth } from "../context/authContext";
 export function Header({ isAccessWindow }) {
   const { currentUser, jwt, isAuth } = useAuth();
   const storedUser = JSON.parse(localStorage.getItem("profileUser"));
+  // const [projects, setProjects] = useState([]);
 
   return (
     <header className={isAccessWindow ? "access-header" : "main-header"}>
@@ -18,7 +19,7 @@ export function Header({ isAccessWindow }) {
           ></button>
         </Link>
 
-        {!isAccessWindow && <Search />}
+        {!isAccessWindow && <Search onSearch={text => console.log(text)} />}
       </div>
 
       {!isAccessWindow && isAuth && (
@@ -93,6 +94,7 @@ export function Header({ isAccessWindow }) {
           </Link>
         </div>
       )}
+      {/* { projects.length > 0 && projects.map} */}
     </header>
   );
 }

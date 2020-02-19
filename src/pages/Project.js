@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/authContext";
-import { SimpleRating } from "../components/Rating";
-
 import {
 	getUsersFollowingProject,
 	getProject,
@@ -18,6 +16,7 @@ import { Header } from "../components/Header";
 import { OrgProject } from "../components/OrgProject";
 import { DevProject } from "../components/DevProject";
 import { Link } from "react-router-dom";
+import { SimpleRating } from "../components/Rating";
 
 const DEVELOPER_VIEW = 2;
 const OWNER_VIEW = 1;
@@ -79,7 +78,9 @@ export function Project() {
 	useEffect(() => {
 		getDocuments(projectId).then((response) => {
 			setDocuments(response.data);
-			setMyContributions(devContributions(response.data));
+			if (typeOfProfile === DEVELOPER_VIEW) {
+				setMyContributions(devContributions(response.data));
+			}
 		});
 		setIsDeleted(false);
 	}, [file, isDeleted]);
@@ -144,7 +145,7 @@ export function Project() {
 								<button id='org-name'>{project.user_name}</button>
 							</li>
 						</Link>
-						<li>
+						<li className='top-middle'>
 							{typeOfProfile === OWNER_VIEW && <OrgProject project={project} />}
 							{typeOfProfile !== OWNER_VIEW && <DevProject project={project} />}
 						</li>
@@ -156,14 +157,17 @@ export function Project() {
 										{myContributions.map((document, index) => (
 											<section id='contrib-row'>
 												<a href={document.file_url}>{document.title}</a>
-												<button onClick={() => handleDelete(document.doc_id)}>
+												<button
+													className='delete-document'
+													onClick={() => handleDelete(document.doc_id)}
+												>
 													eliminar
 												</button>
 											</section>
 										))}
 									</section>
-									<form id='upload-file' onSubmit={handleSubmit(handleUpload)}>
-										<fieldset id='upload-file'>
+									<form onSubmit={handleSubmit(handleUpload)}>
+										<fieldset>
 											<label for='contributions' id='document'>
 												{file ? file.name : "Seleccionar archivo"}
 											</label>
@@ -178,7 +182,11 @@ export function Project() {
 												}}
 											></input>
 										</fieldset>
-										<button type='submit' disabled={formState.isSubmitting}>
+										<button
+											className='form'
+											type='submit'
+											disabled={formState.isSubmitting}
+										>
 											Subir archivo
 										</button>
 										<div id='spinner'></div>
@@ -186,7 +194,7 @@ export function Project() {
 								</section>
 							)}
 							{typeOfProfile === OWNER_VIEW && (
-								<section>
+								<section className='contributions-title'>
 									<p>Contribuciones</p>
 									<section className='contributions'>
 										{documents.map((document, index) => (
@@ -215,7 +223,7 @@ export function Project() {
 								</section>
 							)}
 						</li>
-						<li>
+						<li className='followers-title'>
 							<p>Seguidores de este proyecto</p>
 							<section className='followers'>
 								{usersFollowing.map((user, index) => (
@@ -232,11 +240,13 @@ export function Project() {
 						</li>
 						<li id='bottom'>
 							{typeOfProfile === DEVELOPER_VIEW && (
-								<button onClick={handleFollow}>
+								<button className='follow-button' onClick={handleFollow}>
 									{isFollower ? "Dejar de seguir proyecto" : "Seguir proyecto"}
 								</button>
 							)}
-							{typeOfProfile === OWNER_VIEW && <button>Cerrar proyecto</button>}
+							{typeOfProfile === OWNER_VIEW && (
+								<button className='close-project'>Cerrar proyecto</button>
+							)}
 						</li>
 					</ul>
 				</section>
