@@ -88,10 +88,10 @@ export function MyProfile() {
         <h1 className="profile-name">{user.name}</h1>
 
         <div>
-          <label for="input-file" id="select-file">
+          <label for="input-file" id="select-avatar">
             Seleccionar foto
           </label>
-          <input type="file" id="input-file" onChange={handleChange} />
+          <input type="file" id="input-avatar" onChange={handleChange} />
 
           <button
             className="form"
