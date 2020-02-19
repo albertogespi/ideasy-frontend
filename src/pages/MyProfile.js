@@ -23,8 +23,6 @@ export function MyProfile() {
 
 		const data = new FormData();
 		data.append("avatar", file[0]);
-		console.log(file[0]);
-		console.log(data);
 
 		uploadAvatar(data)
 			.then((response) => {

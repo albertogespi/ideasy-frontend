@@ -5,8 +5,13 @@ import {
 	getUsersFollowingProject,
 	getProject,
 	followProject,
+	unfollowProject,
 } from "../http/projectService";
-import { getDocuments } from "../http/documentsService";
+import {
+	getDocuments,
+	uploadDocument,
+	deleteDocument,
+} from "../http/documentsService";
 import { Header } from "../components/Header";
 import { OrgProject } from "../components/OrgProject";
 import { DevProject } from "../components/DevProject";
@@ -17,14 +22,14 @@ const OWNER_VIEW = 1;
 const ONLY_READ_VIEW = 0;
 
 export function Project() {
-	const { register } = useForm({
+	const { register, formState, handleSubmit } = useForm({
 		mode: "onBlur",
 	});
 	const { isAuth, jwt } = useAuth();
 
 	const projectId = window.location.href.split("/")[4];
 
-	const [isFollower, setIsFollower] = useState();
+	const [isFollower, setIsFollower] = useState(undefined);
 	const [myContributions, setMyContributions] = useState([]);
 
 	const [project, setProject] = useState(undefined);
@@ -58,12 +63,15 @@ export function Project() {
 
 		getUsersFollowingProject(projectId).then((response) => {
 			setUsersFollowing(response.data);
+			if (isFollower !== undefined) {
+				checkIsFollower(response.data);
+			}
 		});
 
 		getDocuments(projectId).then((response) => {
 			setDocuments(response.data);
 		});
-	}, []);
+	}, [isFollower]);
 
 	useEffect(() => {
 		if (typeOfProfile === 2 && documents !== undefined) {
@@ -71,9 +79,23 @@ export function Project() {
 		}
 	}, [documents]);
 
+	const checkIsFollower = (users) => {
+		for (let user of users) {
+			if (user.user_id === jwt.userId) {
+				setIsFollower(true);
+				return;
+			}
+		}
+		setIsFollower(false);
+	};
 	const handleFollow = () => {
-		followProject(projectId);
-		setIsFollower(true);
+		if (isFollower) {
+			unfollowProject(projectId);
+			setIsFollower(false);
+		} else {
+			followProject(projectId);
+			setIsFollower(true);
+		}
 	};
 
 	const devContributions = () => {
@@ -85,6 +107,16 @@ export function Project() {
 		});
 
 		return result;
+	};
+
+	const handleUpload = (formData) => {
+		const data = new FormData();
+		data.append("document", formData.document[0]);
+		uploadDocument(data, projectId).finally(() => window.location.reload());
+	};
+
+	const handleDelete = (docId) => {
+		deleteDocument(docId);
 	};
 
 	if (
@@ -113,27 +145,32 @@ export function Project() {
 						</li>
 						<li>
 							{typeOfProfile === DEVELOPER_VIEW && (
-								<form>
-									<fieldset>
-										<legend>Tus contribuciones</legend>
-										<section className='contributions'>
-											{myContributions.map((document, index) => (
-												<section id='contrib-row'>
-													<a href={document.file_url}>{document.title}</a>
-													<button>eliminar</button>
-												</section>
-											))}
-										</section>
-										<label for='contributions'>Sube una propuesta</label>
-										<input
-											type='file'
-											id='contributions'
-											name='contributions'
-											accept='pdf'
-											ref={register}
-										></input>
-									</fieldset>
-								</form>
+								<section>
+									<p>Tus contribuciones</p>
+									<section className='contributions'>
+										{myContributions.map((document, index) => (
+											<section id='contrib-row'>
+												<a href={document.file_url}>{document.title}</a>
+												<button onClick={handleDelete(document.doc_id)}>eliminar</button>
+											</section>
+										))}
+									</section>
+									<form onSubmit={handleSubmit(handleUpload)}>
+										<fieldset>
+											<label for='contributions'>Sube una propuesta: </label>
+											<input
+												type='file'
+												id='contributions'
+												name='document'
+												accept='pdf'
+												ref={register}
+											></input>
+										</fieldset>
+										<button type='submit' disabled={formState.isSubmitting}>
+											Subir archivo
+										</button>
+									</form>
+								</section>
 							)}
 							{typeOfProfile === OWNER_VIEW && (
 								<section>

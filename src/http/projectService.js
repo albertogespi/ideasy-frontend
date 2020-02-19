@@ -12,6 +12,12 @@ export function followProject(projectId) {
 	);
 }
 
+export function unfollowProject(projectId) {
+	return axios.delete(
+		`${process.env.REACT_APP_BACKEND_URL}/project/followers/${projectId}`,
+	);
+}
+
 export function getProject(projectId) {
 	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/project/${projectId}`);
 }
