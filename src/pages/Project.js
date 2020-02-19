@@ -34,6 +34,7 @@ export function Project() {
 	const [myContributions, setMyContributions] = useState([]);
 
 	const [file, setFile] = useState(undefined);
+	const [isCharging, setIsCharging] = useState(false);
 	const [isDeleted, setIsDeleted] = useState(false);
 
 	const [project, setProject] = useState(undefined);
@@ -83,7 +84,7 @@ export function Project() {
 			}
 		});
 		setIsDeleted(false);
-	}, [file, isDeleted]);
+	}, [file, isDeleted, typeOfProfile]);
 
 	const checkIsFollower = (users) => {
 		for (let user of users) {
@@ -118,7 +119,11 @@ export function Project() {
 	const handleUpload = (formData) => {
 		const data = new FormData();
 		data.append("document", formData.document[0]);
-		uploadDocument(data, projectId).finally(() => setFile(undefined));
+		setIsCharging(true);
+		uploadDocument(data, projectId).finally(() => {
+			setFile(undefined);
+			setIsCharging(false);
+		});
 	};
 
 	const handleDelete = (docId) => {
@@ -189,7 +194,7 @@ export function Project() {
 										>
 											Subir archivo
 										</button>
-										<div id='spinner'></div>
+										{isCharging && <div id='spinner'></div>}
 									</form>
 								</section>
 							)}
