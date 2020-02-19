@@ -204,7 +204,7 @@ label#document {
   font-size: 1rem;
 
   cursor: pointer;
-  background-color: var(--color-medium);
+  background-color: var(--color-light);
   border-radius: 10px;
   padding: 0.5rem;
   text-align: center;
@@ -213,30 +213,30 @@ label#document {
   margin-right: 1.5rem;
 }
 label#document:hover {
-  background-color: var(--color-dark);
+  background-color: var(--color-medium);
 }
 label#document:active {
   background-color: var(--color-medium);
 }
 
 #spinner {
-	height: 35px;
-	width: 35px;
-	background-image: url("../images/spinner.gif");
-	background-size: cover;
+  height: 35px;
+  width: 35px;
+  background-image: url("../images/spinner.gif");
+  background-size: cover;
 }
 
 .project #upload-file {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .project fieldset#upload-file {
-	width: auto;
-	margin: 0;
+  width: auto;
+  margin: 0;
 }
 .project fieldset#upload-file > label {
-	margin: 0 0.5rem 0 0;
+  margin: 0 0.5rem 0 0;
 }

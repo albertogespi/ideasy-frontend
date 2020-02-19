@@ -117,6 +117,7 @@ input {
   height: 2rem;
   padding-left: 0.5rem;
   background-color: var(--color-superlight);
+  border: none;
 }
 
 .selectors {

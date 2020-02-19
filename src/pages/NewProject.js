@@ -42,6 +42,7 @@ export function NewProject() {
                   type="text"
                   id="title"
                   name="title"
+                  maxLength="45"
                   ref={register({
                     required: "El título es obligatorio"
                   })}
@@ -52,6 +53,7 @@ export function NewProject() {
                 <textarea
                   id="description"
                   name="description"
+                  maxLength="255"
                   ref={register({
                     required: "El resumen es obligatorio"
                   })}
@@ -74,6 +76,7 @@ export function NewProject() {
               <li>
                 <label for="category">Categoría</label>
                 <select
+                  className="select-css"
                   name="category"
                   id="category"
                   ref={register({
@@ -92,6 +95,7 @@ export function NewProject() {
               <li>
                 <label for="complexity">Complejidad</label>
                 <select
+                  className="select-css"
                   name="complexity"
                   id="complexity"
                   ref={register({
