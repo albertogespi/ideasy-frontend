@@ -22,10 +22,10 @@
 }
 
 .filters p {
-	text-align: center;
-	font-size: 1.3rem;
-	border-bottom: 2px solid var(--color-superdark);
-	margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--color-superdark);
+  margin-bottom: 1rem;
 }
 
 .filters ul {
@@ -35,7 +35,7 @@
 .filters ul li {
   display: flex;
   flex-direction: column;
-  width: 12rem;
+  width: 11rem;
   margin-bottom: 5px;
 }
 
@@ -50,7 +50,7 @@
 }
 
 button#is-selected-bg {
-	background-color: var(--color-superdark);
-	border: 2px solid var(--color-superdark);
-	color: var(--color-superlight);
+  background-color: var(--color-superdark);
+  border: 2px solid var(--color-superdark);
+  color: var(--color-superlight);
 }
