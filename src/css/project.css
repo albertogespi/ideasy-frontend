@@ -1,167 +1,196 @@
 .project {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.project ul {
-	display: flex;
-	flex-direction: column;
+.project ul.project-view {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-light);
+  padding: 1rem 2rem;
+  border-radius: 10px;
 }
 
 .project > ul li:first-child {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem 0;
 }
 
 .project form {
-	align-items: stretch;
+  align-items: stretch;
 }
 
 .project fieldset {
-	padding: 0;
+  padding: 0;
 }
 
 .project ul {
-	padding: 0;
+  padding: 0;
 }
 
 .project section#top {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .project label {
-	margin-bottom: 0.5rem;
-	text-align: start;
+  margin-bottom: 0.5rem;
+  text-align: start;
 }
 
 #top {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+  display: flex;
+  flex-direction: row;
 }
 
 #top #visible-info {
-	display: flex;
-	flex-direction: column;
-	max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
 }
 
 #top #visible-info ul li {
-	display: flex;
-	flex-direction: column;
-	margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
 }
 
 #top #visible-info textarea#description {
-	height: 5rem;
+  height: 5rem;
 }
 
 #top #project-info {
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: transparent;
+}
+
+#top #dev-project-info {
+  margin-left: 10rem;
 }
 
 #top #project-info ul {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 #top #project-info ul li {
-	width: 225px;
-	text-align: start;
+  width: 225px;
+  text-align: start;
 }
 
 .project section#middle {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #middle {
-	max-width: 900px;
+  max-width: 900px;
 }
 
 #middle fieldset {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 #middle #details {
-	width: 100%;
-	height: 10rem;
+  width: 100%;
+  height: 10rem;
 }
 
 #middle p {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 #bottom {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .contributions {
-	border: 1px solid var(--color-superdark);
-	padding: 0.5rem;
-	margin-bottom: 1rem;
+  border: 1px solid var(--color-superdark);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 #contrib-row {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 1rem;
 }
 #contrib-row:not(:last-child) {
-	margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .project button {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .project button p {
-	margin-left: 0.3rem;
+  margin-left: 0.3rem;
 }
 
 #contrib-row a {
-	margin-right: 0.5rem;
-	width: 200px;
-	word-wrap: break-word;
-	text-decoration: underline;
+  margin-right: 0.5rem;
+  width: 200px;
+  word-wrap: break-word;
+  text-decoration: underline;
 }
 
 .followers {
-	border: 1px solid var(--color-superdark);
-	margin-bottom: 1rem;
-	padding: 0.5rem;
-	display: flex;
-	flex-direction: row;
+  border: 1px solid var(--color-superdark);
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .followers button {
-	height: 60px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .project > ul > li:nth-child(3) form {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .project > ul > li:nth-child(3) form fieldset {
-	width: 100%;
+  width: 100%;
+}
+
+input#contributions {
+  display: none;
+}
+label#document {
+  font-size: 1rem;
+
+  cursor: pointer;
+  background-color: var(--color-medium);
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+label#document:hover {
+  background-color: var(--color-dark);
+}
+label#document:active {
+  background-color: var(--color-medium);
 }

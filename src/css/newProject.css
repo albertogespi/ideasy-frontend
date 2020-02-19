@@ -1,0 +1,30 @@
+form.newProject {
+  background-color: var(--color-dark);
+  padding: 2rem 0;
+  width: 600px;
+  border-radius: 10px;
+}
+
+form.newProject ul li {
+  display: flex;
+  flex-direction: column;
+}
+form.newProject label {
+  text-align: left;
+}
+form.newProject textarea#description {
+  height: 5rem;
+}
+form.newProject textarea#details {
+  height: 10rem;
+}
+
+form.newProject button {
+  margin-top: 1rem;
+}
+form.newProject button:hover {
+  background-color: var(--color-medium);
+}
+form.newProject select {
+  width: 120px;
+}

@@ -72,16 +72,20 @@ button.form {
 }
 
 button.form:hover {
-  background-color: var(--color-dark);
-  color: black;
+  background-color: var(--color-medium);
+  color: var(--color-superdark);
 }
 button.form:active {
   background-color: var(--color-superdark);
   color: var(--color-superlight);
 }
 
+button.gray {
+  background-color: var(--color-light);
+}
+
 button.gray:hover {
-  background-color: var(--color-dark);
+  background-color: var(--color-medium);
 }
 button.gray:active {
   background-color: var(--color-medium);
@@ -112,4 +116,7 @@ input {
 
 button#is-selected-line {
   border-bottom: 2px solid var(--color-superdark);
+}
+textarea {
+  background-color: var(--color-superlight);
 }
