@@ -48,6 +48,7 @@ export function DevProject({ project }) {
         </section>
       </section>
       <section id="middle">
+        <h2>Descripción detallada</h2>
         <p>{project.details}</p>
       </section>
     </section>

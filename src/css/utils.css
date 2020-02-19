@@ -95,6 +95,23 @@ button:focus {
   outline: none;
 }
 
+button.delete-document,
+button.follow-button,
+button.close-project {
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-superdark);
+}
+button.delete-document:hover,
+button.follow-button:hover,
+button.close-project:hover {
+  text-decoration: underline;
+}
+button.delete-document:active,
+button.follow-project:active,
+button.close-project:active {
+  border: none;
+}
+
 input {
   width: 250px;
   height: 2rem;

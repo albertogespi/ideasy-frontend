@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
+import { callbackify } from "util";
 
-export function Search({ searchText, onAddNote, onSearchTextChanged }) {
+export function Search({ onSearch }) {
+  const inputRef = useRef(null);
+
   return (
     <div role="search">
       <input
+        ref={inputRef}
         type="search"
-        value={searchText}
         className="search"
-        onChange={e => onSearchTextChanged(e.target.value)}
         aria-label="Escribe aquí para buscar"
       />
-      <button className="form" id="search" onClick={onAddNote}>
+      <button
+        className="form"
+        id="search"
+        onClick={() => onSearch(inputRef.current.value)}
+      >
         Buscar
       </button>
     </div>

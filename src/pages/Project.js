@@ -155,7 +155,10 @@ export function Project() {
                     {myContributions.map((document, index) => (
                       <section id="contrib-row">
                         <a href={document.file_url}>{document.title}</a>
-                        <button onClick={handleDelete(document.doc_id)}>
+                        <button
+                          className="delete-document"
+                          onClick={handleDelete(document.doc_id)}
+                        >
                           eliminar
                         </button>
                       </section>
@@ -226,11 +229,13 @@ export function Project() {
             </li>
             <li id="bottom">
               {typeOfProfile === DEVELOPER_VIEW && (
-                <button onClick={handleFollow}>
+                <button className="follow-button" onClick={handleFollow}>
                   {isFollower ? "Dejar de seguir proyecto" : "Seguir proyecto"}
                 </button>
               )}
-              {typeOfProfile === OWNER_VIEW && <button>Cerrar proyecto</button>}
+              {typeOfProfile === OWNER_VIEW && (
+                <button className="close-project">Cerrar proyecto</button>
+              )}
             </li>
           </ul>
         </section>
