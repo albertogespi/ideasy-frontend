@@ -78,7 +78,9 @@ export function Project() {
   useEffect(() => {
     getDocuments(projectId).then(response => {
       setDocuments(response.data);
-      setMyContributions(devContributions(response.data));
+      if (typeOfProfile === DEVELOPER_VIEW) {
+        setMyContributions(devContributions(response.data));
+      }
     });
     setIsDeleted(false);
   }, [file, isDeleted]);
@@ -143,7 +145,7 @@ export function Project() {
                 <button id="org-name">{project.user_name}</button>
               </li>
             </Link>
-            <li>
+            <li className="top-middle">
               {typeOfProfile === OWNER_VIEW && <OrgProject project={project} />}
               {typeOfProfile !== OWNER_VIEW && <DevProject project={project} />}
             </li>
