@@ -10,67 +10,68 @@
 @import "./newProject.css";
 @import "./project.css";
 @import "./user.css";
+@import "./myProyects.css";
 
 html {
-  box-sizing: border-box;
-  height: 100%;
+	box-sizing: border-box;
+	height: 100%;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
 }
 
 body,
 #root {
-  height: 100vh;
+	height: 100vh;
 
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .container {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  height: 100%;
-  overflow: scroll;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	height: 100%;
+	overflow: scroll;
 }
 
 /* -- BASICS -- */
 h1 {
-  font-size: var(--font-xxl);
+	font-size: var(--font-xxl);
 }
 
 h2 {
-  margin: 0.5rem 0;
+	margin: 0.5rem 0;
 }
 
 p {
-  font-size: var(--font-m);
-  padding: 0.5rem 0;
-  word-wrap: break-word;
+	font-size: var(--font-m);
+	padding: 0.5rem 0;
+	word-wrap: break-word;
 }
 
 ul {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 ul li {
-  list-style: none;
+	list-style: none;
 }
 
 a {
-  font-size: var(--space-md);
-  text-decoration: none;
-  color: var(--color-superdark);
+	font-size: var(--space-md);
+	text-decoration: none;
+	color: var(--color-superdark);
 }
 
 button {
-  margin: 0 0.5rem;
-  padding: 0.5rem;
-  font-size: var(--font-sm);
+	margin: 0 0.5rem;
+	padding: 0.5rem;
+	font-size: var(--font-sm);
 }

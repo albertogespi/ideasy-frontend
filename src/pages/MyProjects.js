@@ -4,12 +4,15 @@ import { Filters } from "../components/Filters";
 import { useAuth } from "../context/authContext";
 import { Header } from "../components/Header";
 import { MyProjectsOrg } from "../components/MyProjectsOrg";
+import { getAvgRatings } from "../http/projectsService";
 import { MyProjectsDev } from "../components/MyProjectsDev";
+import { Link } from "react-router-dom";
 import {
 	getOrgProjects,
 	getFollowedProjects,
 	getContributedProjects,
 } from "../http/projectsService";
+import { SimpleRating } from "../components/Rating";
 
 export function MyProjects() {
 	const { jwt } = useAuth();
@@ -29,6 +32,8 @@ export function MyProjects() {
 	const complexities = ["Todas", "Fácil", "Medio", "Difícil"];
 
 	const userId = window.location.href.split("/")[4];
+
+	const [rating, setRating] = useState(undefined);
 
 	//IsOrgProfile = true
 	const [orgProjects, setOrgProjects] = useState([]);
@@ -76,12 +81,16 @@ export function MyProjects() {
 				setContributedProjects(response.data),
 			);
 		}
+		getAvgRatings(userId).then((response) => {
+			setRating(response.data);
+		});
 	}, [selectedComplexity, selectedCategory, buttonSelected]);
 
 	if (
 		orgProjects !== undefined &&
 		followedProjects !== undefined &&
-		contributedProjects !== undefined
+		contributedProjects !== undefined &&
+		rating !== undefined
 	) {
 		console.log(orgProjects);
 
@@ -98,19 +107,38 @@ export function MyProjects() {
 						setSelectedComplexity={setSelectedComplexity}
 					/>
 					{isOrgProfile ? (
-						<MyProjectsOrg
-							userWindow={false}
-							projects={orgProjects}
-							buttonSelected={buttonSelected}
-							setButtonSelected={setButtonSelected}
-						/>
+						<section>
+							<div className='centered-container'>
+								<Link to='/new-project'>
+									<button
+										id='new-project'
+										aria-label='Click para crear un nuevo proyecto.'
+									></button>
+								</Link>
+								<p>Nuevo proyecto</p>
+							</div>
+							<MyProjectsOrg
+								projects={orgProjects}
+								buttonSelected={buttonSelected}
+								setButtonSelected={setButtonSelected}
+							/>
+						</section>
 					) : (
-						<MyProjectsDev
-							followedProjects={followedProjects}
-							contributedProjects={contributedProjects}
-							buttonSelected={buttonSelected}
-							setButtonSelected={setButtonSelected}
-						/>
+						<section>
+							<div className='centered-container'>
+								<SimpleRating readOnly={true} value={rating} id='stars' />
+								<p>Puntuación media</p>
+								{rating
+									? `${Math.round(rating * 2) / 2} estrellas`
+									: "Aún no has recibido puntuaciones"}
+							</div>
+							<MyProjectsDev
+								followedProjects={followedProjects}
+								contributedProjects={contributedProjects}
+								buttonSelected={buttonSelected}
+								setButtonSelected={setButtonSelected}
+							/>
+						</section>
 					)}
 				</main>
 			</section>
