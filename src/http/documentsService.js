@@ -13,9 +13,9 @@ export function getDocuments(projectId) {
 	);
 }
 
-export function uploadRating(docData, projectId) {
+export function uploadRating(docData, docId) {
 	return axios.post(
-		`${process.env.REACT_APP_BACKEND_URL}/documents/${projectId}`,
+		`${process.env.REACT_APP_BACKEND_URL}/documents/${docId}`,
 		docData,
 	);
 }

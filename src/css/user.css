@@ -1,44 +1,44 @@
 div#rating {
-  margin-top: 1rem;
+	margin-top: 1rem;
 }
 section#user-container {
-  background-color: var(--color-dark);
-  height: 100%;
-  padding: 1rem;
-  border-right: 3px solid var(--color-superdark);
+	background-color: var(--color-dark);
+	height: 100%;
+	padding: 1rem;
+	border-right: 3px solid var(--color-superdark);
 }
 
 section.home {
-  height: 100%;
+	height: 100%;
 }
 
 #contact {
-  margin-top: 3rem;
-  border-radius: 10px;
-  border: 2px solid var(--color-superdark);
-  padding: 1rem;
-  color: white;
-  font-size: 1.1rem;
+	margin-top: 3rem;
+	border-radius: 10px;
+	border: 2px solid var(--color-superdark);
+	padding: 1rem;
+	color: white;
+	font-size: 1.1rem;
 }
 #contact * {
-  font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 #contact a {
-  color: var(--color-superdark);
+	color: var(--color-superdark);
 }
 #contact a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 .body {
-  display: grid;
-  grid-template-columns: 470px auto;
+	display: grid;
+	grid-template-columns: 470px auto;
 }
 .projects {
-  display: flex;
+	display: flex;
 }
 
-.MuiRating-root {
-  padding: 1rem;
-  background-color: var(--color-superdark);
-  border-radius: 10px;
+section#user-container .MuiRating-root {
+	padding: 1rem;
+	background-color: var(--color-superdark);
+	border-radius: 10px;
 }
