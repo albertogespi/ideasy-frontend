@@ -119,4 +119,5 @@ button#is-selected-line {
 }
 textarea {
   background-color: var(--color-superlight);
+  padding: 0.5rem;
 }

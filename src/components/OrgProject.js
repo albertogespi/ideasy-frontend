@@ -52,7 +52,7 @@ export function OrgProject({ project }) {
             </li>
           </ul>
         </fieldset>
-        <fieldset id="project-info">
+        <section id="project-info">
           <ul>
             <li>
               <img
@@ -116,7 +116,7 @@ export function OrgProject({ project }) {
               </select>
             </li>
           </ul>
-        </fieldset>
+        </section>
       </section>
       <section id="middle">
         <fieldset>
@@ -132,7 +132,11 @@ export function OrgProject({ project }) {
         </fieldset>
       </section>
       <section id="bottom">
-        <button type="submit" disabled={formState.isSubmitting}>
+        <button
+          className="form"
+          type="submit"
+          disabled={formState.isSubmitting}
+        >
           Guardar cambios
         </button>
       </section>

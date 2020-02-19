@@ -37,7 +37,7 @@ section.home {
   display: flex;
 }
 
-.MuiRating-root {
+section#user-container .MuiRating-root {
   padding: 1rem;
   background-color: var(--color-superdark);
   border-radius: 10px;

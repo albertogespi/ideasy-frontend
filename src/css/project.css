@@ -18,6 +18,11 @@
   align-items: center;
   margin: 1rem 0;
 }
+.project ul li.top-middle {
+  background-color: var(--color-light);
+  padding: 1rem;
+  border-radius: 10px;
+}
 
 .project form {
   align-items: stretch;
@@ -63,16 +68,20 @@
 }
 
 #top #project-info {
-  margin: 0;
-  padding: 0;
+  margin: 0 0 1rem 10rem;
+  padding: 0 1rem 1rem 1rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  background-color: transparent;
+  background-color: var(--color-superlight);
+  border: 1px solid var(--color-superdark);
 }
 
 #top #dev-project-info {
-  margin-left: 10rem;
+  margin: 0 0 1rem 10rem;
+  padding: 0 1rem 1rem 1rem;
+  background-color: var(--color-superlight);
+  border: 1px solid var(--color-superdark);
 }
 
 #top #project-info ul {
@@ -117,6 +126,10 @@
   justify-content: center;
 }
 
+.contributions-title {
+  margin-top: 2rem;
+}
+
 .contributions {
   border: 1px solid var(--color-superdark);
   padding: 0.5rem;
@@ -150,7 +163,11 @@
 }
 
 input#contributions {
-	width: auto;
+  width: auto;
+}
+
+.followers-title {
+  margin-top: 2rem;
 }
 
 .followers {

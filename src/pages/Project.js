@@ -143,13 +143,13 @@ export function Project() {
                 <button id="org-name">{project.user_name}</button>
               </li>
             </Link>
-            <li>
+            <li className="top-middle">
               {typeOfProfile === OWNER_VIEW && <OrgProject project={project} />}
               {typeOfProfile !== OWNER_VIEW && <DevProject project={project} />}
             </li>
             <li>
               {typeOfProfile === DEVELOPER_VIEW && (
-                <section>
+                <section className="contributions-title">
                   <p>Tus contribuciones</p>
                   <section className="contributions">
                     {myContributions.map((document, index) => (
@@ -177,14 +177,18 @@ export function Project() {
                         }}
                       ></input>
                     </fieldset>
-                    <button type="submit" disabled={formState.isSubmitting}>
+                    <button
+                      className="form"
+                      type="submit"
+                      disabled={formState.isSubmitting}
+                    >
                       Subir archivo
                     </button>
                   </form>
                 </section>
               )}
               {typeOfProfile === OWNER_VIEW && (
-                <section>
+                <section className="contributions-title">
                   <p>Contribuciones</p>
                   <section className="contributions">
                     {documents.map((document, index) => (
@@ -205,7 +209,7 @@ export function Project() {
                 </section>
               )}
             </li>
-            <li>
+            <li className="followers-title">
               <p>Seguidores de este proyecto</p>
               <section className="followers">
                 {usersFollowing.map((user, index) => (
