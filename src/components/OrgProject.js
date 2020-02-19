@@ -75,7 +75,7 @@ export function OrgProject({ project }) {
                   : " seguidores"}
               </p>
             </li>
-            <li>
+            <li id="selects">
               <label for="category">Categoría</label>
               <select
                 className="select-css"
@@ -96,7 +96,7 @@ export function OrgProject({ project }) {
                 ))}
               </select>
             </li>
-            <li>
+            <li id="selects">
               <label for="complexity">Complejidad</label>
               <select
                 className="select-css"

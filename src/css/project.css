@@ -15,7 +15,7 @@
 .project > ul li:first-child {
   display: flex;
   flex-direction: row;
-  align-items: center;
+
   margin: 1rem 0;
 }
 .project ul li.top-middle {
@@ -95,6 +95,11 @@
 #top #project-info ul li {
   width: 225px;
   text-align: start;
+}
+
+.project li#selects {
+  display: grid;
+  grid-template-columns: 100px auto;
 }
 
 .project section#middle {
