@@ -74,6 +74,7 @@ export function NewProject() {
               <li>
                 <label for="category">Categoría</label>
                 <select
+                  className="select-css"
                   name="category"
                   id="category"
                   ref={register({
@@ -92,6 +93,7 @@ export function NewProject() {
               <li>
                 <label for="complexity">Complejidad</label>
                 <select
+                  className="select-css"
                   name="complexity"
                   id="complexity"
                   ref={register({
