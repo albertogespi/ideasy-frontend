@@ -241,7 +241,9 @@ export function Project() {
                   {isFollower ? "Dejar de seguir proyecto" : "Seguir proyecto"}
                 </button>
               )}
-              {typeOfProfile === OWNER_VIEW && <button>Cerrar proyecto</button>}
+              {typeOfProfile === OWNER_VIEW && (
+                <button className="close-project">Cerrar proyecto</button>
+              )}
             </li>
           </ul>
         </section>
