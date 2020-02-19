@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export function uploadDocument(docData) {
+export function uploadDocument(docData, projectId) {
 	return axios.post(
-		`${process.env.REACT_APP_BACKEND_URL}/documents/projects/${docData.id}`,
+		`${process.env.REACT_APP_BACKEND_URL}/documents/projects/${projectId}`,
 		docData,
 	);
 }
@@ -13,9 +13,9 @@ export function getDocuments(projectId) {
 	);
 }
 
-export function uploadRating(docData) {
+export function uploadRating(docData, projectId) {
 	return axios.post(
-		`${process.env.REACT_APP_BACKEND_URL}/documents/${docData.id}`,
+		`${process.env.REACT_APP_BACKEND_URL}/documents/${projectId}`,
 		docData,
 	);
 }

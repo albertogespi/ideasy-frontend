@@ -23,8 +23,6 @@ export function MyProfile() {
 
     const data = new FormData();
     data.append("avatar", file[0]);
-    console.log(file[0]);
-    console.log(data);
 
     uploadAvatar(data)
       .then(response => {
@@ -90,10 +88,10 @@ export function MyProfile() {
         <h1 className="profile-name">{user.name}</h1>
 
         <div>
-          <label for="input-avatar" id="select-avatar">
+          <label for="input-file" id="select-file">
             Seleccionar foto
           </label>
-          <input type="file" id="input-avatar" onChange={handleChange} />
+          <input type="file" id="input-file" onChange={handleChange} />
 
           <button
             className="form"
