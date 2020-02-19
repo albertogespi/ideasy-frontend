@@ -166,8 +166,8 @@ export function Project() {
 											</section>
 										))}
 									</section>
-									<form onSubmit={handleSubmit(handleUpload)}>
-										<fieldset>
+									<form id='upload-file' onSubmit={handleSubmit(handleUpload)}>
+										<fieldset id='upload-file'>
 											<label for='contributions' id='document'>
 												{file ? file.name : "Seleccionar archivo"}
 											</label>
