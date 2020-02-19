@@ -16,6 +16,7 @@ import { Header } from "../components/Header";
 import { OrgProject } from "../components/OrgProject";
 import { DevProject } from "../components/DevProject";
 import { Link } from "react-router-dom";
+import { SimpleRating } from "../components/Rating";
 
 const DEVELOPER_VIEW = 2;
 const OWNER_VIEW = 1;
@@ -31,13 +32,21 @@ export function Project() {
 
   const [isFollower, setIsFollower] = useState(undefined);
   const [myContributions, setMyContributions] = useState([]);
+
   const [file, setFile] = useState(undefined);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const [project, setProject] = useState(undefined);
   const [usersFollowing, setUsersFollowing] = useState(undefined);
   const [documents, setDocuments] = useState(undefined);
 
   const [typeOfProfile, setTypeOfProfile] = useState(undefined);
+
+  useEffect(() => {
+    getProject(projectId).then(response => {
+      setProject(response.data);
+    });
+  }, []);
 
   useEffect(() => {
     if (project !== undefined) {
@@ -58,29 +67,21 @@ export function Project() {
   }, [project]);
 
   useEffect(() => {
-    getProject(projectId).then(response => {
-      setProject(response.data);
-    });
-
     getUsersFollowingProject(projectId).then(response => {
       setUsersFollowing(response.data);
       if (isFollower !== undefined) {
         checkIsFollower(response.data);
       }
     });
+  }, [isFollower]);
 
+  useEffect(() => {
     getDocuments(projectId).then(response => {
       setDocuments(response.data);
       setMyContributions(devContributions(response.data));
     });
-  }, [isFollower, file, myContributions]);
-
-  // useEffect(() => {
-  //   console.log("aqui");
-  //   if (typeOfProfile === 2 && documents !== undefined) {
-  //     setMyContributions(devContributions());
-  //   }
-  // }, [file]);
+    setIsDeleted(false);
+  }, [file, isDeleted]);
 
   const checkIsFollower = users => {
     for (let user of users) {
@@ -115,12 +116,11 @@ export function Project() {
   const handleUpload = formData => {
     const data = new FormData();
     data.append("document", formData.document[0]);
-    uploadDocument(data, projectId);
-    setFile(undefined);
+    uploadDocument(data, projectId).finally(() => setFile(undefined));
   };
 
   const handleDelete = docId => {
-    deleteDocument(docId);
+    deleteDocument(docId).finally(() => setIsDeleted(true));
   };
 
   if (
@@ -143,13 +143,13 @@ export function Project() {
                 <button id="org-name">{project.user_name}</button>
               </li>
             </Link>
-            <li className="top-middle">
+            <li>
               {typeOfProfile === OWNER_VIEW && <OrgProject project={project} />}
               {typeOfProfile !== OWNER_VIEW && <DevProject project={project} />}
             </li>
             <li>
               {typeOfProfile === DEVELOPER_VIEW && (
-                <section className="contributions-title">
+                <section>
                   <p>Tus contribuciones</p>
                   <section className="contributions">
                     {myContributions.map((document, index) => (
@@ -157,7 +157,7 @@ export function Project() {
                         <a href={document.file_url}>{document.title}</a>
                         <button
                           className="delete-document"
-                          onClick={handleDelete(document.doc_id)}
+                          onClick={() => handleDelete(document.doc_id)}
                         >
                           eliminar
                         </button>
@@ -173,7 +173,7 @@ export function Project() {
                         type="file"
                         id="contributions"
                         name="document"
-                        accept="pdf"
+                        accept="application/pdf"
                         ref={register}
                         onChange={e => {
                           setFile(e.target.files[0]);
@@ -196,7 +196,7 @@ export function Project() {
                   <section className="contributions">
                     {documents.map((document, index) => (
                       <div id="contrib-row">
-                        <Link to={`/user/${document.user_id}`}>
+                        <Link id="link" to={`/user/${document.user_id}`}>
                           <button>
                             <div id="small-icon" className="profile-photo">
                               <img src={document.user_avatar_url} alt=""></img>
@@ -205,7 +205,15 @@ export function Project() {
                           </button>
                         </Link>
                         <a href={document.file_url}>{document.title}</a>
-                        <div>{document.rating} estrellas</div>
+                        <div className="centered-container">
+                          <SimpleRating
+                            readOnly={false}
+                            value={document.rating}
+                            docId={document.doc_id}
+                            key={document.doc_id}
+                            id="stars"
+                          />
+                        </div>
                       </div>
                     ))}
                   </section>
@@ -233,9 +241,7 @@ export function Project() {
                   {isFollower ? "Dejar de seguir proyecto" : "Seguir proyecto"}
                 </button>
               )}
-              {typeOfProfile === OWNER_VIEW && (
-                <button className="close-project">Cerrar proyecto</button>
-              )}
+              {typeOfProfile === OWNER_VIEW && <button>Cerrar proyecto</button>}
             </li>
           </ul>
         </section>
