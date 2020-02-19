@@ -88,8 +88,8 @@ export function MyProfile() {
         <h1 className="profile-name">{user.name}</h1>
 
         <div>
-          <label for="input-file" id="select-avatar">
-            Seleccionar foto
+          <label for="input-avatar" id="select-avatar">
+            {file ? file[0].name : "Seleccionar foto"}
           </label>
           <input type="file" id="input-avatar" onChange={handleChange} />
 

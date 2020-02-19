@@ -31,6 +31,7 @@ export function Project() {
 
   const [isFollower, setIsFollower] = useState(undefined);
   const [myContributions, setMyContributions] = useState([]);
+  const [file, setFile] = useState(undefined);
 
   const [project, setProject] = useState(undefined);
   const [usersFollowing, setUsersFollowing] = useState(undefined);
@@ -70,14 +71,16 @@ export function Project() {
 
     getDocuments(projectId).then(response => {
       setDocuments(response.data);
+      setMyContributions(devContributions(response.data));
     });
-  }, [isFollower]);
+  }, [isFollower, file, myContributions]);
 
-  useEffect(() => {
-    if (typeOfProfile === 2 && documents !== undefined) {
-      setMyContributions(devContributions());
-    }
-  }, [documents]);
+  // useEffect(() => {
+  //   console.log("aqui");
+  //   if (typeOfProfile === 2 && documents !== undefined) {
+  //     setMyContributions(devContributions());
+  //   }
+  // }, [file]);
 
   const checkIsFollower = users => {
     for (let user of users) {
@@ -98,9 +101,9 @@ export function Project() {
     }
   };
 
-  const devContributions = () => {
+  const devContributions = docs => {
     const result = [];
-    documents.map(document => {
+    docs.map(document => {
       if (document.user_id === jwt.userId) {
         result.push(document);
       }
@@ -112,7 +115,8 @@ export function Project() {
   const handleUpload = formData => {
     const data = new FormData();
     data.append("document", formData.document[0]);
-    uploadDocument(data, projectId).finally(() => window.location.reload());
+    uploadDocument(data, projectId);
+    setFile(undefined);
   };
 
   const handleDelete = docId => {
@@ -160,7 +164,7 @@ export function Project() {
                   <form onSubmit={handleSubmit(handleUpload)}>
                     <fieldset>
                       <label for="contributions" id="document">
-                        Selecciona archivo{" "}
+                        {file ? file.name : "Seleccionar archivo"}
                       </label>
                       <input
                         type="file"
@@ -168,6 +172,9 @@ export function Project() {
                         name="document"
                         accept="pdf"
                         ref={register}
+                        onChange={e => {
+                          setFile(e.target.files[0]);
+                        }}
                       ></input>
                     </fieldset>
                     <button type="submit" disabled={formState.isSubmitting}>
