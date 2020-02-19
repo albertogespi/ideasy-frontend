@@ -75,7 +75,7 @@ export function Project() {
 			setDocuments(response.data);
 			setMyContributions(devContributions(response.data));
 		});
-	}, [isFollower, file, myContributions]);
+	}, [isFollower]);
 
 	// useEffect(() => {
 	//   console.log("aqui");
