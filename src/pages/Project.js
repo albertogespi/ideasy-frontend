@@ -33,13 +33,21 @@ export function Project() {
 
 	const [isFollower, setIsFollower] = useState(undefined);
 	const [myContributions, setMyContributions] = useState([]);
+
 	const [file, setFile] = useState(undefined);
+	const [isDeleted, setIsDeleted] = useState(false);
 
 	const [project, setProject] = useState(undefined);
 	const [usersFollowing, setUsersFollowing] = useState(undefined);
 	const [documents, setDocuments] = useState(undefined);
 
 	const [typeOfProfile, setTypeOfProfile] = useState(undefined);
+
+	useEffect(() => {
+		getProject(projectId).then((response) => {
+			setProject(response.data);
+		});
+	}, []);
 
 	useEffect(() => {
 		if (project !== undefined) {
@@ -60,29 +68,21 @@ export function Project() {
 	}, [project]);
 
 	useEffect(() => {
-		getProject(projectId).then((response) => {
-			setProject(response.data);
-		});
-
 		getUsersFollowingProject(projectId).then((response) => {
 			setUsersFollowing(response.data);
 			if (isFollower !== undefined) {
 				checkIsFollower(response.data);
 			}
 		});
+	}, [isFollower]);
 
+	useEffect(() => {
 		getDocuments(projectId).then((response) => {
 			setDocuments(response.data);
 			setMyContributions(devContributions(response.data));
 		});
-	}, [isFollower]);
-
-	// useEffect(() => {
-	//   console.log("aqui");
-	//   if (typeOfProfile === 2 && documents !== undefined) {
-	//     setMyContributions(devContributions());
-	//   }
-	// }, [file]);
+		setIsDeleted(false);
+	}, [file, isDeleted]);
 
 	const checkIsFollower = (users) => {
 		for (let user of users) {
@@ -117,12 +117,11 @@ export function Project() {
 	const handleUpload = (formData) => {
 		const data = new FormData();
 		data.append("document", formData.document[0]);
-		uploadDocument(data, projectId);
-		setFile(undefined);
+		uploadDocument(data, projectId).finally(() => setFile(undefined));
 	};
 
 	const handleDelete = (docId) => {
-		deleteDocument(docId);
+		deleteDocument(docId).finally(() => setIsDeleted(true));
 	};
 
 	if (
@@ -157,7 +156,9 @@ export function Project() {
 										{myContributions.map((document, index) => (
 											<section id='contrib-row'>
 												<a href={document.file_url}>{document.title}</a>
-												<button onClick={handleDelete(document.doc_id)}>eliminar</button>
+												<button onClick={() => handleDelete(document.doc_id)}>
+													eliminar
+												</button>
 											</section>
 										))}
 									</section>
@@ -170,7 +171,7 @@ export function Project() {
 												type='file'
 												id='contributions'
 												name='document'
-												accept='pdf'
+												accept='application/pdf'
 												ref={register}
 												onChange={(e) => {
 													setFile(e.target.files[0]);
