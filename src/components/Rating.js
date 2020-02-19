@@ -7,7 +7,6 @@ import Box from "@material-ui/core/Box";
 export function SimpleRating({ readOnly, value, docId }) {
 	const [rating, setRating] = useState(value);
 	const changeRating = (newValue) => {
-		console.log({ docId });
 		const data = { rating: newValue };
 		uploadRating(data, docId);
 		setRating(newValue);
@@ -31,7 +30,7 @@ export function SimpleRating({ readOnly, value, docId }) {
 			return (
 				<div>
 					<Rating
-						name='simple-controlled'
+						name={`material-ui-start-${docId}`}
 						value={rating}
 						onChange={(event, newValue) => {
 							changeRating(newValue);
