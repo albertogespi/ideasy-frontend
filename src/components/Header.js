@@ -28,7 +28,14 @@ export function Header({ isAccessWindow }) {
 					</Link>
 
 					{!isAccessWindow && (
-						<Search onSearch={(results) => setSearchResults(results)} />
+						<Search
+							onSearch={(results) => setSearchResults(results)}
+							onEmpty={(value) => {
+								if (value === "") {
+									setSearchResults(undefined);
+								}
+							}}
+						/>
 					)}
 				</div>
 

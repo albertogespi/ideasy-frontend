@@ -158,6 +158,9 @@ export function Project() {
 							</li>
 						</Link>
 						<li className='top-middle'>
+							{!isOpenProject && (
+								<p>Proyecto cerrado el {convertISOtoDate(project.closed_at)}</p>
+							)}
 							{typeOfProfile === OWNER_VIEW && isOpenProject && (
 								<OrgProject project={project} />
 							)}
@@ -287,4 +290,13 @@ export function Project() {
 	} else {
 		return <p>Cargando proyecto...</p>;
 	}
+}
+
+function convertISOtoDate(isoDate) {
+	var date = new Date(isoDate);
+	var day = date.getDate();
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var dateStr = month + "/" + day + "/" + year;
+	return dateStr;
 }
