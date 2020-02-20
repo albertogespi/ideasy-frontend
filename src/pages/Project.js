@@ -174,7 +174,7 @@ export function Project() {
                   <form id="upload-file" onSubmit={handleSubmit(handleUpload)}>
                     <fieldset id="upload-file">
                       <label for="contributions" id="document">
-                        {file ? file.name : "Seleccionar archivo"}
+                        {file ? file.name : "Seleccionar"}
                       </label>
                       <input
                         type="file"

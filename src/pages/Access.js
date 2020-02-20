@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode";
 
 export function AccessWindow() {
   // Variables //
+
   const {
     register,
     errors,
@@ -25,9 +26,6 @@ export function AccessWindow() {
   const handleRegister = formData => {
     return createAccount(formData)
       .then(response => {
-        alert(
-          `Bienvenido a nuestro Portal de Ideas ${formData.name}, tu cuenta se ha creado con éxito`
-        );
         const { email, password } = formData;
         handleLogin({ email, password });
       })

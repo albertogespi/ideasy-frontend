@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import { Header } from "../components/Header";
 import { createProject } from "../http/projectsService";
 import { useHistory } from "react-router-dom";
+import { useAuth } from "../context/authContext";
 
 export function NewProject() {
+  const { jwt } = useAuth();
+
   const { register, formState, handleSubmit, setError, setValue } = useForm({
     mode: "onBlur"
   });
@@ -15,9 +18,8 @@ export function NewProject() {
     console.log(formData);
     return createProject(formData)
       .then(response => {
-        history.push("/");
+        history.push(`/my-projects/${jwt.userId}`);
         console.log(response.data);
-        alert(`Proyecto creado con éxito`);
       })
       .catch(error => {
         setValue("password", "");

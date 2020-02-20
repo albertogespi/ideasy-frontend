@@ -116,6 +116,11 @@ button.close-project:active {
   border: none;
 }
 
+button#org-name {
+  background-color: var(--color-dark);
+  font-size: 1.2rem;
+}
+
 input {
   width: 250px;
   height: 2rem;
