@@ -1,6 +1,7 @@
 .home {
   display: grid;
   grid-template-columns: 20rem auto;
+  min-height: 100vh;
 }
 
 section.home-image {
