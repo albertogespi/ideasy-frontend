@@ -87,6 +87,9 @@ export function User() {
     }
   }, [isOrgProfile, selectedComplexity, selectedCategory, buttonSelected]);
 
+  console.log(window.location.pathname.split("/")[2]);
+  let userIdPath = window.location.pathname.split("/")[2];
+
   if (
     user !== undefined &&
     rating !== undefined &&
