@@ -27,7 +27,6 @@ export function User() {
 	const complexities = ["Todas", "Fácil", "Medio", "Difícil"];
 
 	const userId = window.location.href.split("/")[4];
-
 	const [user, setUser] = useState(undefined);
 	const [isOrgProfile, setIsOrgProfile] = useState(undefined);
 
@@ -65,10 +64,7 @@ export function User() {
 		history.push(`/user/${userId}` + historyQuery);
 	};
 
-	console.log(user, isOrgProfile);
 	useEffect(() => {
-		console.log("user ->", userId);
-
 		getUser(userId).then((response) => {
 			setUser(response.data);
 			setIsOrgProfile(response.data.role === "org");
