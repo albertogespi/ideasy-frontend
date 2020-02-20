@@ -81,151 +81,155 @@ export function MyProfile() {
   return (
     <section className="container" id="myProfile">
       <Header />
-      <section className="centered-container">
-        <div className="profile-photo" id="big-icon">
-          <img src={user.avatarUrl} alt="" name="profile photo"></img>
-        </div>
-        <h1 className="profile-name">{user.name}</h1>
-
-        <div>
-          <label for="input-avatar" id="select-avatar">
-            {file ? file[0].name : "Seleccionar foto"}
-          </label>
-          <input type="file" id="input-avatar" onChange={handleChange} />
-
-          <button
-            className="form"
-            type="button"
-            disabled={isEmpty}
-            onClick={handleUpload}
-          >
-            Cambiar foto
-          </button>
-        </div>
-      </section>
-      <section className="centered-container" id="profile-form">
-        <form
-          className="centered-container"
-          id="profile"
-          onSubmit={handleSubmit(handleUpdate)}
-        >
-          <fieldset className="profile">
-            <div className="form-title">
-              <legend>Datos de acceso</legend>
+      <section className="background">
+        <section className="centered-container">
+          <div className="centered-container" id="myProfile-top">
+            <div className="profile-photo" id="big-icon">
+              <img src={user.avatarUrl} alt="" name="profile photo"></img>
             </div>
+            <h1 className="profile-name">{user.name}</h1>
 
-            <ul>
-              <li>
-                <label for="name">Nombre</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  defaultValue={user.name}
-                  ref={register}
-                ></input>
-              </li>
-              {!isOrgProfile && (
+            <div>
+              <label for="input-avatar" id="select-avatar">
+                {file ? file[0].name : "Seleccionar foto"}
+              </label>
+              <input type="file" id="input-avatar" onChange={handleChange} />
+
+              <button
+                className="form"
+                type="button"
+                disabled={isEmpty}
+                onClick={handleUpload}
+              >
+                Cambiar foto
+              </button>
+            </div>
+          </div>
+        </section>
+        <section className="centered-container" id="profile-form">
+          <form
+            className="centered-container"
+            id="profile"
+            onSubmit={handleSubmit(handleUpdate)}
+          >
+            <fieldset className="profile">
+              <div className="form-title">
+                <legend>Datos de acceso</legend>
+              </div>
+
+              <ul>
                 <li>
-                  <label for="surname">Apellidos</label>
+                  <label for="name">Nombre</label>
                   <input
                     type="text"
-                    id="surname"
-                    name="surname"
-                    defaultValue={user.surname === "NULL" ? "" : user.surname}
+                    id="name"
+                    name="name"
+                    defaultValue={user.name}
                     ref={register}
                   ></input>
                 </li>
-              )}
-              <li>
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={user.email}
-                  readOnly
-                ></input>
-              </li>
-              <li>
-                <label for="password">Contraseña actual</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Introduzca contraseña actual"
-                  ref={register({
-                    required:
-                      "La contraseña es obligatoria para modificar sus datos"
-                  })}
-                ></input>
-                {errors.password && (
-                  <span className="errorMessage">
-                    {errors.password.message}
-                  </span>
+                {!isOrgProfile && (
+                  <li>
+                    <label for="surname">Apellidos</label>
+                    <input
+                      type="text"
+                      id="surname"
+                      name="surname"
+                      defaultValue={user.surname === "NULL" ? "" : user.surname}
+                      ref={register}
+                    ></input>
+                  </li>
                 )}
-              </li>
-              <li>
-                <label for="new-password">Nueva contraseña</label>
-                <input
-                  type="password"
-                  id="new-password"
-                  name="newPassword"
-                  placeholder="Introduzca nueva contraseña"
-                  ref={register({
-                    minLength: {
-                      message:
-                        "La nueva contraseña debe tener como mínimo 6 caracteres",
-                      value: 6
+                <li>
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={user.email}
+                    readOnly
+                  ></input>
+                </li>
+                <li>
+                  <label for="password">Contraseña actual</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Introduzca contraseña actual"
+                    ref={register({
+                      required:
+                        "La contraseña es obligatoria para modificar sus datos"
+                    })}
+                  ></input>
+                  {errors.password && (
+                    <span className="errorMessage">
+                      {errors.password.message}
+                    </span>
+                  )}
+                </li>
+                <li>
+                  <label for="new-password">Nueva contraseña</label>
+                  <input
+                    type="password"
+                    id="new-password"
+                    name="newPassword"
+                    placeholder="Introduzca nueva contraseña"
+                    ref={register({
+                      minLength: {
+                        message:
+                          "La nueva contraseña debe tener como mínimo 6 caracteres",
+                        value: 6
+                      }
+                    })}
+                  ></input>
+                  {errors.newPassword && (
+                    <span className="errorMessage">
+                      {errors.newPassword.message}
+                    </span>
+                  )}
+                </li>
+              </ul>
+            </fieldset>
+            <fieldset className="profile">
+              <div className="form-title">
+                <legend>Datos de contacto</legend>
+              </div>
+              <ul>
+                <li>
+                  <label for="contact-email">Correo</label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="contactEmail"
+                    defaultValue={user.contactEmail || user.email}
+                    ref={register}
+                  ></input>
+                </li>
+                <li>
+                  <label for="contact-web">Página web</label>
+                  <input
+                    type="url"
+                    id="contact-web"
+                    name="contactWeb"
+                    defaultValue={
+                      user.contactWeb === "NULL" ? "" : user.contactWeb
                     }
-                  })}
-                ></input>
-                {errors.newPassword && (
-                  <span className="errorMessage">
-                    {errors.newPassword.message}
-                  </span>
-                )}
-              </li>
-            </ul>
-          </fieldset>
-          <fieldset className="profile">
-            <div className="form-title">
-              <legend>Datos de contacto</legend>
-            </div>
-            <ul>
-              <li>
-                <label for="contact-email">Correo</label>
-                <input
-                  type="email"
-                  id="contact-email"
-                  name="contactEmail"
-                  defaultValue={user.contactEmail || user.email}
-                  ref={register}
-                ></input>
-              </li>
-              <li>
-                <label for="contact-web">Página web</label>
-                <input
-                  type="url"
-                  id="contact-web"
-                  name="contactWeb"
-                  defaultValue={
-                    user.contactWeb === "NULL" ? "" : user.contactWeb
-                  }
-                  placeholder="Introduzca su página web, perfil de Linkedin..."
-                  ref={register}
-                ></input>
-              </li>
-            </ul>
-          </fieldset>
-          <button
-            className="form"
-            type="submit"
-            disabled={formState.isSubmitting}
-          >
-            Modificar mis datos
-          </button>
-        </form>
+                    placeholder="Introduzca su página web, perfil de Linkedin..."
+                    ref={register}
+                  ></input>
+                </li>
+              </ul>
+            </fieldset>
+            <button
+              className="form"
+              type="submit"
+              disabled={formState.isSubmitting}
+            >
+              Modificar mis datos
+            </button>
+          </form>
+        </section>
       </section>
     </section>
   );

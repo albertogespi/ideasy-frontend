@@ -3,7 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: auto;
+}
+
+.projects-container {
+  max-height: 100%;
+}
+
+.projectList > ul {
+  height: 100%;
 }
 
 .projectList ul li {

@@ -30,7 +30,7 @@ export function NewProject() {
   return (
     <section className="container">
       <Header isAccessWindow={false} />
-      <main className="centered-container">
+      <main className="centered-container" id="background">
         <form
           className="newProject"
           onSubmit={handleSubmit(data => handleNewProyect(data))}

@@ -10,9 +10,6 @@ h2 {
   color: var(--color-superdark);
 }
 
-.container {
-  background-color: var(--color-superlight);
-}
 .centered-container {
   display: flex;
   flex-direction: column;

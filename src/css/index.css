@@ -31,15 +31,13 @@ html {
 body,
 #root {
   height: 100vh;
-
-  overflow: hidden;
 }
 
 .container {
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  overflow: scroll;
+  background-color: var(--color-superlight);
 }
 
 /* -- BASICS -- */

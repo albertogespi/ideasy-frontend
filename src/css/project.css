@@ -11,6 +11,9 @@
   padding: 1rem 2rem;
   border-radius: 10px;
 }
+#top #visible-info h1 {
+  font-size: 1.8rem;
+}
 
 .project > ul li:first-child {
   display: flex;

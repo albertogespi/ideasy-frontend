@@ -1,6 +1,10 @@
 div#rating {
   margin-top: 1rem;
 }
+div#header-user {
+  height: 100%;
+}
+
 section#user-container {
   background-color: var(--color-dark);
   height: 100%;

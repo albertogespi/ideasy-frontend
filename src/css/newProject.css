@@ -1,8 +1,14 @@
+main#background {
+  background-image: url("../images/fondo.jpeg");
+  background-size: cover;
+  height: 100%;
+}
 form.newProject {
   background-color: var(--color-dark);
   padding: 2rem 0;
   width: 600px;
   border-radius: 10px;
+  margin: 2rem auto;
 }
 
 form.newProject ul li {
