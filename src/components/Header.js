@@ -15,7 +15,6 @@ export function Header({ isAccessWindow }) {
   const { jwt, isAuth } = useAuth();
   const storedUser = JSON.parse(localStorage.getItem("profileUser"));
 
-  console.log("aqui");
   return (
     <header>
       <section className={isAccessWindow ? "access-header" : "main-header"}>
@@ -29,7 +28,14 @@ export function Header({ isAccessWindow }) {
           </Link>
 
           {!isAccessWindow && (
-            <Search onSearch={results => setSearchResults(results)} />
+            <Search
+              onSearch={results => setSearchResults(results)}
+              onEmpty={value => {
+                if (value === "") {
+                  setSearchResults(undefined);
+                }
+              }}
+            />
           )}
         </div>
 

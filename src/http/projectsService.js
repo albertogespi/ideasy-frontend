@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export function getContributedProjects(userId, queryValues) {
-	console.log(userId, queryValues);
 	return axios.get(
 		`${process.env.REACT_APP_BACKEND_URL}/projects/contributed/${userId}${queryValues}`,
 	);

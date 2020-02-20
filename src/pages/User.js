@@ -87,9 +87,6 @@ export function User() {
     }
   }, [isOrgProfile, selectedComplexity, selectedCategory, buttonSelected]);
 
-  console.log(window.location.pathname.split("/")[2]);
-  let userIdPath = window.location.pathname.split("/")[2];
-
   if (
     user !== undefined &&
     rating !== undefined &&
@@ -128,29 +125,31 @@ export function User() {
               </div>
             </section>
           </div>
-          <section className="home">
-            <Filters
-              categories={categories}
-              complexities={complexities}
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-              selectedComplexity={selectedComplexity}
-              setSelectedComplexity={setSelectedComplexity}
-            />
-            {isOrgProfile ? (
-              <MyProjectsOrg
-                projects={orgProjects}
-                buttonSelected={buttonSelected}
-                setButtonSelected={setButtonSelected}
+          <section id="projects">
+            <section className="home">
+              <Filters
+                categories={categories}
+                complexities={complexities}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                selectedComplexity={selectedComplexity}
+                setSelectedComplexity={setSelectedComplexity}
               />
-            ) : (
-              <MyProjectsDev
-                followedProjects={followedProjects}
-                contributedProjects={contributedProjects}
-                buttonSelected={buttonSelected}
-                setButtonSelected={setButtonSelected}
-              />
-            )}
+              {isOrgProfile ? (
+                <MyProjectsOrg
+                  projects={orgProjects}
+                  buttonSelected={buttonSelected}
+                  setButtonSelected={setButtonSelected}
+                />
+              ) : (
+                <MyProjectsDev
+                  followedProjects={followedProjects}
+                  contributedProjects={contributedProjects}
+                  buttonSelected={buttonSelected}
+                  setButtonSelected={setButtonSelected}
+                />
+              )}
+            </section>
           </section>
         </section>
       </section>

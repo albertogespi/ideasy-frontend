@@ -1,11 +1,8 @@
 import React, { useRef } from "react";
-import { callbackify } from "util";
 import { getSearchResults } from "../http/searchService";
 
-export function Search({ onSearch }) {
+export function Search({ onSearch, onEmpty }) {
 	const inputRef = useRef(null);
-	const currentUrl = window.location.href;
-	console.log(currentUrl);
 
 	return (
 		<div role='search'>
@@ -14,6 +11,7 @@ export function Search({ onSearch }) {
 				type='search'
 				className='search'
 				aria-label='Escribe aquí para buscar'
+				onChange={(e) => onEmpty(e.target.value)}
 			/>
 			<button
 				className='form'
@@ -34,7 +32,6 @@ export function Search({ onSearch }) {
 }
 
 function getResults(searchQuery, onCompleted) {
-	console.log(searchQuery);
 	return getSearchResults(searchQuery).then((response) =>
 		onCompleted(response.data),
 	);
