@@ -157,7 +157,7 @@ export function Project() {
             <li>
               {typeOfProfile === DEVELOPER_VIEW && (
                 <section className="contributions-title">
-                  <p>Tus contribuciones</p>
+                  <p className="centered-container">Tus contribuciones</p>
                   <section className="contributions">
                     {myContributions.map((document, index) => (
                       <section id="contrib-row">
@@ -200,7 +200,7 @@ export function Project() {
               )}
               {typeOfProfile === OWNER_VIEW && (
                 <section className="contributions-title">
-                  <p>Contribuciones</p>
+                  <p className="centered-container">Contribuciones</p>
                   <section className="contributions">
                     {documents.map((document, index) => (
                       <div id="contrib-row">
@@ -229,7 +229,7 @@ export function Project() {
               )}
             </li>
             <li className="followers-title">
-              <p>Seguidores de este proyecto</p>
+              <p className="centered-container">Seguidores de este proyecto</p>
               <section className="followers">
                 {usersFollowing.map((user, index) => (
                   <Link to={`/user/${user.user_id}`} key={index}>

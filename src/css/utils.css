@@ -95,6 +95,10 @@ button:focus {
   outline: none;
 }
 
+button.delete-document {
+  max-height: 2.2rem;
+}
+
 button.delete-document,
 button.follow-button,
 button.close-project {
@@ -138,4 +142,8 @@ button#is-selected-line {
 textarea {
   background-color: var(--color-superlight);
   padding: 0.5rem;
+}
+
+section.selectors {
+  margin-top: 1rem;
 }
