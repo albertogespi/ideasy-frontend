@@ -15,7 +15,6 @@ export function Header({ isAccessWindow }) {
 	const { jwt, isAuth } = useAuth();
 	const storedUser = JSON.parse(localStorage.getItem("profileUser"));
 
-	console.log("aqui");
 	return (
 		<header>
 			<section className={isAccessWindow ? "access-header" : "main-header"}>

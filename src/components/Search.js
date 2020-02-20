@@ -5,7 +5,6 @@ import { getSearchResults } from "../http/searchService";
 export function Search({ onSearch }) {
 	const inputRef = useRef(null);
 	const currentUrl = window.location.href;
-	console.log(currentUrl);
 
 	return (
 		<div role='search'>
@@ -34,7 +33,6 @@ export function Search({ onSearch }) {
 }
 
 function getResults(searchQuery, onCompleted) {
-	console.log(searchQuery);
 	return getSearchResults(searchQuery).then((response) =>
 		onCompleted(response.data),
 	);

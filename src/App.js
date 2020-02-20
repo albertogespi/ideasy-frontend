@@ -11,6 +11,7 @@ import { User } from "./pages/User";
 import { MyProjects } from "./pages/MyProjects";
 
 function App() {
+	console.log("paso por app()");
 	return (
 		<BrowserRouter>
 			<AuthProvider>

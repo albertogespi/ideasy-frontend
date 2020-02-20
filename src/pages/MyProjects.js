@@ -92,8 +92,6 @@ export function MyProjects() {
 		contributedProjects !== undefined &&
 		rating !== undefined
 	) {
-		console.log(orgProjects);
-
 		return (
 			<section className='container'>
 				<Header isAccessWindow={false} />
