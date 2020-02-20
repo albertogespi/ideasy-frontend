@@ -82,3 +82,32 @@ p.separator {
 	padding: 0;
 	color: gray;
 }
+
+.search-results {
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+}
+
+.search-results > section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 100%;
+	padding: 1rem;
+}
+
+section#projects-results,
+section#users-results {
+	overflow: auto;
+}
+
+section#projects-results ul li,
+section#users-results ul li {
+	margin: 0.5rem 0;
+}
+
+button#search-result {
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+}

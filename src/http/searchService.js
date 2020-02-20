@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export function getSearchResults(url, queryValues) {
-	return axios.get(`${url}/${queryValues}`);
+export function getSearchResults(queryValues) {
+	return axios.get(`${process.env.REACT_APP_BACKEND_URL}/search${queryValues}`);
 }
