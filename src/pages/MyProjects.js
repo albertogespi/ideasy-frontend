@@ -93,7 +93,7 @@ export function MyProjects() {
 		rating !== undefined
 	) {
 		return (
-			<section className='container'>
+			<section id='myProjects' className='container'>
 				<Header isAccessWindow={false} />
 				<main className='body'>
 					<Filters

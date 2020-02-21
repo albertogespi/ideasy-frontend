@@ -10,3 +10,7 @@
 #my-projects-rating {
 	margin-top: 2rem;
 }
+
+#myProjects .projects-container {
+	min-height: 545px;
+}

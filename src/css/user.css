@@ -3,7 +3,7 @@ div#rating {
 }
 div.header-user {
 	height: 100%;
-	/* min-height: 700px; */
+	min-height: 700px;
 	min-width: 470px;
 }
 

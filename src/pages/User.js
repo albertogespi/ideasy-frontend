@@ -127,7 +127,7 @@ export function User() {
 							</div>
 						</section>
 					</div>
-					<section id='projects'>
+					<section className='projects'>
 						<Filters
 							categories={categories}
 							complexities={complexities}
