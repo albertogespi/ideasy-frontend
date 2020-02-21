@@ -213,6 +213,8 @@ input#contributions {
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: 980px;
 }
 
 .followers button,
@@ -220,8 +222,12 @@ input#contributions {
   height: 60px;
 }
 
-.followers div#small-icon {
-  margin-bottom: 1rem;
+.followers button {
+  margin: 0.3rem;
+}
+
+.project button p {
+  margin-bottom: 0;
 }
 
 .project > ul > li:nth-child(3) form {
