@@ -11,36 +11,35 @@ import { User } from "./pages/User";
 import { MyProjects } from "./pages/MyProjects";
 
 function App() {
-	console.log("paso por app()");
-	return (
-		<BrowserRouter>
-			<AuthProvider>
-				<Switch>
-					<Route exact path='/'>
-						<Home />
-					</Route>
-					<Route path='/access'>
-						<AccessWindow />
-					</Route>
-					<Route path='/my-projects/:userId'>
-						<MyProjects />
-					</Route>
-					<Route path='/my-profile'>
-						<MyProfile />
-					</Route>
-					<Route path='/new-project'>
-						<NewProject />
-					</Route>
-					<Route path='/project/:projectId'>
-						<Project />
-					</Route>
-					<Route path='/user/:userId'>
-						<User />
-					</Route>
-				</Switch>
-			</AuthProvider>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/access">
+            <AccessWindow />
+          </Route>
+          <Route path="/my-projects/:userId">
+            <MyProjects />
+          </Route>
+          <Route path="/my-profile">
+            <MyProfile />
+          </Route>
+          <Route path="/new-project">
+            <NewProject />
+          </Route>
+          <Route path="/project/:projectId">
+            <Project />
+          </Route>
+          <Route path="/user/:userId">
+            <User />
+          </Route>
+        </Switch>
+      </AuthProvider>
+    </BrowserRouter>
+  );
 }
 
 export default App;
