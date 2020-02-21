@@ -31,7 +31,7 @@ export function Project() {
 
 	const projectId = window.location.href.split("/")[4];
 
-	const [isFollower, setIsFollower] = useState([]);
+	const [isFollower, setIsFollower] = useState(false);
 	const [myContributions, setMyContributions] = useState([]);
 
 	const [file, setFile] = useState(undefined);
@@ -96,7 +96,6 @@ export function Project() {
 				return;
 			}
 		}
-		setIsFollower(false);
 	};
 	const handleFollow = () => {
 		if (isFollower) {
@@ -146,6 +145,7 @@ export function Project() {
 		isOpenProject !== undefined &&
 		isFollower !== undefined
 	) {
+		console.log(isFollower);
 		return (
 			<section className='container'>
 				<Header isAccessWindow={false} />

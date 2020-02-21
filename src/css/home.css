@@ -1,27 +1,35 @@
 .home {
-  display: grid;
-  grid-template-columns: 20rem auto;
-  min-height: 100vh;
+	display: flex;
+	flex-direction: row;
 }
 
 section.home-image {
-  min-height: 450px;
-  background-image: url("../images/lamps.jpg");
-  background-size: cover;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	width: 100%;
+	min-width: 1134px;
+	min-height: 450px;
+	background-image: url("../images/lamps.jpg");
+	background-size: cover;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 section.home-image p {
-  color: var(--color-superlight);
+	color: var(--color-superlight);
 }
 section.home-image p.first {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 section.home-image p.second {
-  font-size: 1.5rem;
-  margin-top: 1rem;
+	font-size: 1.5rem;
+	margin-top: 1rem;
+}
+
+section#home-body {
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	width: 100%;
 }
 
 /* section.home-image button.access {

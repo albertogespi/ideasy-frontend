@@ -1,57 +1,43 @@
 div#rating {
-  margin-top: 1rem;
+	margin-top: 1rem;
 }
-div#header-user {
-  height: 100%;
+div.header-user {
+	height: 100%;
+	/* min-height: 700px; */
+	min-width: 470px;
 }
 
 section#user-container {
-  background-color: var(--color-dark);
-  height: 100%;
-  padding: 1rem;
-  border-right: 3px solid var(--color-superdark);
-  justify-content: flex-start;
+	background-color: var(--color-dark);
+	height: 100%;
+	padding: 1rem;
+	border-right: 3px solid var(--color-superdark);
 }
 section#user-container h1 {
-  font-size: 2.5rem;
-  margin-top: 0.5rem;
-}
-
-section#user-container div#big-icon {
-  margin-top: 12rem;
-}
-
-section.home {
-  height: 100%;
+	font-size: 2.5rem;
+	margin-top: 0.5rem;
 }
 
 #contact {
-  margin-top: 3rem;
-  border-radius: 10px;
-  border: 2px solid var(--color-superdark);
-  padding: 1rem;
-  color: white;
-  font-size: 1.1rem;
+	margin-top: 3rem;
+	border-radius: 10px;
+	border: 2px solid var(--color-superdark);
+	padding: 1rem;
+	color: white;
+	font-size: 1.1rem;
 }
 #contact * {
-  font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 #contact a {
-  color: var(--color-superdark);
+	color: var(--color-superdark);
 }
 #contact a:hover {
-  text-decoration: underline;
-}
-.body {
-  display: grid;
-  grid-template-columns: 470px auto;
-}
-.projects {
-  display: flex;
+	text-decoration: underline;
 }
 
 section#user-container .MuiRating-root {
-  padding: 1rem;
-  background-color: var(--color-superdark);
-  border-radius: 10px;
+	padding: 1rem;
+	background-color: var(--color-superdark);
+	border-radius: 10px;
 }

@@ -1,8 +1,12 @@
 #new-project {
-  height: 70px;
-  width: 70px;
-  background-image: url("../images/new.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: var(--color-dark);
+	height: 70px;
+	width: 70px;
+	background-image: url("../images/new.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: var(--color-dark);
+}
+
+#my-projects-rating {
+	margin-top: 2rem;
 }
