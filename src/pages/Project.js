@@ -168,7 +168,9 @@ export function Project() {
             </Link>
             <li className="top-middle">
               {!isOpenProject && (
-                <p>Proyecto cerrado el {convertISOtoDate(project.closed_at)}</p>
+                <p id="closed-project">
+                  Proyecto cerrado el {convertISOtoDate(project.closed_at)}
+                </p>
               )}
               {typeOfProfile === OWNER_VIEW && isOpenProject && (
                 <OrgProject project={project} />

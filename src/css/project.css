@@ -282,3 +282,6 @@ label#document:active {
 .project fieldset#upload-file > label {
   margin: 0 0.5rem 0 0;
 }
+p#closed-project {
+  color: red;
+}
