@@ -57,51 +57,55 @@ export function Home() {
 		return (
 			<section className='container'>
 				<Header isAccessWindow={false} />
-				<section id='home-body' className='home-image'>
-					<p className='first'>Únete ya a Ideasy, el portal de ideas de software.</p>
-					<p className='second'>
-						Regístrate como desarrollador u organización, participa en proyectos de
-						software innovadores o publica las necesidades tecnológicas de tu
-						organización.
-					</p>
-				</section>
-				<main className='projects'>
-					<Filters
-						categories={categories}
-						complexities={complexities}
-						selectedCategory={selectedCategory}
-						setSelectedCategory={setSelectedCategory}
-						selectedComplexity={selectedComplexity}
-						setSelectedComplexity={setSelectedComplexity}
-					/>
-					<section className='projects-container'>
-						<section className='selectors'>
-							<button
-								id={buttonSelected === MOST_RECENT_BUTTON ? "is-selected-line" : ""}
-								onClick={() => {
-									setButtonSelected(MOST_RECENT_BUTTON);
-								}}
-							>
-								Más recientes
-							</button>
-							<button
-								id={buttonSelected === MOST_FOLLOWED_BUTTON ? "is-selected-line" : ""}
-								onClick={() => {
-									setButtonSelected(MOST_FOLLOWED_BUTTON);
-								}}
-							>
-								Más populares
-							</button>
-						</section>
-						<ProjectList
-							projects={
-								buttonSelected === MOST_RECENT_BUTTON
-									? projects
-									: sortByMostPopular(projects)
-							}
-						/>
+				<section id='home-body'>
+					<section className='home-image'>
+						<p className='first'>
+							Únete ya a Ideasy, el portal de ideas de software.
+						</p>
+						<p className='second'>
+							Regístrate como desarrollador u organización, participa en proyectos de
+							software innovadores o publica las necesidades tecnológicas de tu
+							organización.
+						</p>
 					</section>
-				</main>
+					<main className='projects'>
+						<Filters
+							categories={categories}
+							complexities={complexities}
+							selectedCategory={selectedCategory}
+							setSelectedCategory={setSelectedCategory}
+							selectedComplexity={selectedComplexity}
+							setSelectedComplexity={setSelectedComplexity}
+						/>
+						<section className='projects-container'>
+							<section className='selectors'>
+								<button
+									id={buttonSelected === MOST_RECENT_BUTTON ? "is-selected-line" : ""}
+									onClick={() => {
+										setButtonSelected(MOST_RECENT_BUTTON);
+									}}
+								>
+									Más recientes
+								</button>
+								<button
+									id={buttonSelected === MOST_FOLLOWED_BUTTON ? "is-selected-line" : ""}
+									onClick={() => {
+										setButtonSelected(MOST_FOLLOWED_BUTTON);
+									}}
+								>
+									Más populares
+								</button>
+							</section>
+							<ProjectList
+								projects={
+									buttonSelected === MOST_RECENT_BUTTON
+										? projects
+										: sortByMostPopular(projects)
+								}
+							/>
+						</section>
+					</main>
+				</section>
 			</section>
 		);
 	} else {
