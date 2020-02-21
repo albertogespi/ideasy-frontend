@@ -6,10 +6,6 @@
   overflow: auto;
 }
 
-.projects-container {
-  max-height: 100%;
-}
-
 .projectList > ul {
   height: 100%;
 }
@@ -103,10 +99,4 @@ section.projectList li.complexity {
 
 h2.project-title {
   font-size: 1.3rem;
-}
-section.projectList,
-section.selectors,
-#new-project-button,
-#my-projects-rating {
-  margin-left: 4rem;
 }

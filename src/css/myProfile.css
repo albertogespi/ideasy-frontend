@@ -1,4 +1,4 @@
-section.background {
+#myProfile #home-body {
   background-image: url("../images/fondo.jpeg");
   background-size: cover;
 }
@@ -76,6 +76,8 @@ label#select-avatar {
   text-decoration: none;
   display: inline-block;
   margin-right: 1.5rem;
+  word-wrap: break-word;
+  width: 140px;
 }
 label#select-avatar:hover {
   background-color: var(--color-light);

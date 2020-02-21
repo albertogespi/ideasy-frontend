@@ -11,7 +11,7 @@
   margin-left: 0;
 }
 
-div.header-user {
+div.header {
   width: 470px;
 }
 
@@ -24,7 +24,10 @@ input.search {
 
 .main-header {
   display: flex;
-
+  position: relative;
+  width: 100%;
+  box-shadow: 0 4px 12px 0 rgba(37, 42, 55, 0.5);
+  background-color: var(--color-superlight);
   justify-content: space-between;
   padding: 0.5rem;
 

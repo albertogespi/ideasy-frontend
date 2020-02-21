@@ -12,7 +12,7 @@ export function MyProjectsDev({
 	setButtonSelected,
 }) {
 	return (
-		<section>
+		<section class='projects-container'>
 			<section className='selectors'>
 				<button
 					id={buttonSelected === FOLLOWED_BUTTON ? "is-selected-line" : ""}

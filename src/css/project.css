@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 }
 
 .project ul.project-view {
@@ -238,6 +239,7 @@ input#contributions {
 label#document {
   font-size: 1rem;
 
+  word-wrap: break-word;
   cursor: pointer;
   background-color: var(--color-light);
   border-radius: 10px;

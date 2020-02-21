@@ -82,7 +82,7 @@ export function MyProfile() {
   return (
     <section className="container" id="myProfile">
       <Header />
-      <section className="background">
+      <section id="home-body">
         <section className="centered-container">
           <div className="centered-container" id="myProfile-top">
             <Link className="centered-container" to={`/user/${jwt.userId}`}>

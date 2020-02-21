@@ -8,7 +8,14 @@ import { useAuth } from "../context/authContext";
 export function NewProject() {
   const { jwt } = useAuth();
 
-  const { register, formState, handleSubmit, setError, setValue } = useForm({
+  const {
+    register,
+    formState,
+    handleSubmit,
+    setError,
+    setValue,
+    errors
+  } = useForm({
     mode: "onBlur"
   });
 
@@ -49,6 +56,9 @@ export function NewProject() {
                     required: "El título es obligatorio"
                   })}
                 ></input>
+                {errors.title && (
+                  <span className="errorMessage">{errors.title.message}</span>
+                )}
               </li>
               <li>
                 <label for="description">Resumen</label>
@@ -60,6 +70,11 @@ export function NewProject() {
                     required: "El resumen es obligatorio"
                   })}
                 ></textarea>
+                {errors.description && (
+                  <span className="errorMessage">
+                    {errors.description.message}
+                  </span>
+                )}
               </li>
               <li>
                 <label for="details">Detalles</label>
@@ -70,6 +85,9 @@ export function NewProject() {
                     required: "La descripción es obligatoria"
                   })}
                 ></textarea>
+                {errors.details && (
+                  <span className="errorMessage">{errors.details.message}</span>
+                )}
               </li>
             </ul>
           </fieldset>
@@ -85,7 +103,7 @@ export function NewProject() {
                     required: "La categoría es obligatoria"
                   })}
                 >
-                  <option>Selecciona...</option>
+                  <option value="">Selecciona...</option>
                   <option value="Blog">Blog</option>
                   <option value="e-Commerce">e-Commerce</option>
                   <option value="e-Learning">e-Learning</option>
@@ -93,6 +111,11 @@ export function NewProject() {
                   <option value="Noticias">Noticias</option>
                   <option value="Wikis">Wikis</option>
                 </select>
+                {errors.category && (
+                  <span className="errorMessage">
+                    {errors.category.message}
+                  </span>
+                )}
               </li>
               <li>
                 <label for="complexity">Complejidad</label>
@@ -104,11 +127,16 @@ export function NewProject() {
                     required: "La complejidad es obligatoria"
                   })}
                 >
-                  <option>Selecciona...</option>
+                  <option value="">Selecciona...</option>
                   <option value="1">Fácil</option>
                   <option value="2">Medio</option>
                   <option value="3">Difícil</option>
                 </select>
+                {errors.complexity && (
+                  <span className="errorMessage">
+                    {errors.complexity.message}
+                  </span>
+                )}
               </li>
             </ul>
           </fieldset>
