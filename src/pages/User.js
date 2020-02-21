@@ -101,7 +101,13 @@ export function User() {
           <div className="header-user">
             <section className="centered-container" id="user-container">
               <div className="profile-photo" id="big-icon">
-                <img src={user.avatarUrl} alt="" name="profile photo"></img>
+                <img
+                  src={
+                    user.avatarUrl || require("../images/default-avatar.jpg")
+                  }
+                  alt=""
+                  name="profile photo"
+                ></img>
               </div>
               <h1>{user.name}</h1>
               <p>{user.role === "dev" ? "Desarrollador" : "Organización"}</p>

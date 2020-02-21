@@ -85,7 +85,11 @@ export function MyProfile() {
         <section className="centered-container">
           <div className="centered-container" id="myProfile-top">
             <div className="profile-photo" id="big-icon">
-              <img src={user.avatarUrl} alt="" name="profile photo"></img>
+              <img
+                src={user.avatarUrl || require("../images/default-avatar.jpg")}
+                alt=""
+                name="profile photo"
+              ></img>
             </div>
             <h1 className="profile-name">{user.name}</h1>
 

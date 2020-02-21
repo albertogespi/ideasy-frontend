@@ -20,12 +20,12 @@ export function Header({ isAccessWindow }) {
       <section className={isAccessWindow ? "access-header" : "main-header"}>
         <div className="header-user">
           <div id="logo"></div>
-          <Link to="/">
+          <a href="/">
             <button
               id="logo-home"
               aria-label="Portal de Ideas. Click para ir a inicio."
             ></button>
-          </Link>
+          </a>
 
           {!isAccessWindow && (
             <Search
@@ -100,7 +100,13 @@ export function Header({ isAccessWindow }) {
                       <Link to={`/user/${user.user_id}`} key={index}>
                         <button id="search-result">
                           <div id="small-icon" className="profile-photo">
-                            <img src={user.avatar_url} alt="" />
+                            <img
+                              src={
+                                user.avatar_url ||
+                                require("../images/default-avatar.jpg")
+                              }
+                              alt=""
+                            />
                           </div>
                           <p>{user.name}</p>
                         </button>
@@ -117,7 +123,13 @@ export function Header({ isAccessWindow }) {
                       <Link to={`/project/${project.project_id}`} key={index}>
                         <button id="search-result">
                           <div id="small-icon" className="profile-photo">
-                            <img src={project.user_avatar_url} alt="" />
+                            <img
+                              src={
+                                project.user_avatar_url ||
+                                require("../images/default-avatar.jpg")
+                              }
+                              alt=""
+                            />
                           </div>
                           <p>{project.title}</p>
                         </button>
