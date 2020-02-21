@@ -104,3 +104,9 @@ section.projectList li.complexity {
 h2.project-title {
   font-size: 1.3rem;
 }
+section.projectList,
+section.selectors,
+#new-project-button,
+#my-projects-rating {
+  margin-left: 4rem;
+}

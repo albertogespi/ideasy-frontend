@@ -1,3 +1,6 @@
+#new-project-screen {
+  height: 100vh;
+}
 main#background {
   background-image: url("../images/fondo.jpeg");
   background-size: cover;
