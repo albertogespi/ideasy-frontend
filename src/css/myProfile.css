@@ -12,21 +12,24 @@ div#myProfile-top .profile-photo {
 }
 
 div#myProfile-top {
-  /* border-top-left-radius: 10px;
-  border-top-right-radius: 10px; */
-  background: linear-gradient(
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* background: linear-gradient(
     0.25turn,
     transparent,
     var(--color-light),
     transparent
-  );
+  ); */
+  background-color: var(--color-dark);
+  margin-top: 5rem;
 }
 
 section form#profile {
-  /* border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px; */
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   background-color: var(--color-dark);
-  border-radius: 10px;
+  margin-bottom: 3rem;
+  /* border-radius: 10px; */
 }
 
 #myProfile #myProfile-top,
@@ -75,12 +78,8 @@ label#select-avatar {
   margin-right: 1.5rem;
 }
 label#select-avatar:hover {
-  background-color: var(--color-dark);
+  background-color: var(--color-light);
 }
 label#select-avatar:active {
   background-color: var(--color-medium);
-}
-
-div#myProfile-top button:hover {
-  background-color: var(--color-dark);
 }

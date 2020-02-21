@@ -153,10 +153,12 @@ export function Project() {
 					<ul>
 						<Link to={`/user/${project.user_id}`}>
 							<li>
-								<div id='small-icon' className='profile-photo'>
-									<img src={project.user_avatar_url} alt=''></img>
-								</div>
-								<button id='org-name'>{project.user_name}</button>
+								<button id='org-name'>
+									<div id='small-icon' className='profile-photo'>
+										<img src={project.user_avatar_url} alt=''></img>
+									</div>
+									<p>{project.user_name}</p>
+								</button>
 							</li>
 						</Link>
 						<li className='top-middle'>

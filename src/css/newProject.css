@@ -1,3 +1,6 @@
+#new-project-screen {
+  height: 100vh;
+}
 main#background {
   background-image: url("../images/fondo.jpeg");
   background-size: cover;
@@ -32,5 +35,5 @@ form.newProject button:hover {
   background-color: var(--color-medium);
 }
 form.newProject select {
-  width: 120px;
+  width: 130px;
 }

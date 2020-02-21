@@ -116,6 +116,8 @@ button.close-project:active {
 button#org-name {
   background-color: var(--color-dark);
   font-size: 1.2rem;
+  height: 60px;
+  margin-left: 0;
 }
 
 input {

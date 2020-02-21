@@ -28,7 +28,7 @@ export function NewProject() {
   };
 
   return (
-    <section className="container">
+    <section className="container" id="new-project-screen">
       <Header isAccessWindow={false} />
       <main className="centered-container" id="background">
         <form
