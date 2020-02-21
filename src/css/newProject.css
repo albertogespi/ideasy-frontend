@@ -35,5 +35,5 @@ form.newProject button:hover {
   background-color: var(--color-medium);
 }
 form.newProject select {
-  width: 120px;
+  width: 130px;
 }

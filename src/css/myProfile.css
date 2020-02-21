@@ -21,13 +21,14 @@ div#myProfile-top {
     transparent
   ); */
   background-color: var(--color-dark);
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
 
 section form#profile {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   background-color: var(--color-dark);
+  margin-bottom: 3rem;
   /* border-radius: 10px; */
 }
 
