@@ -31,7 +31,7 @@ export function Project() {
 
 	const projectId = window.location.href.split("/")[4];
 
-	const [isFollower, setIsFollower] = useState(undefined);
+	const [isFollower, setIsFollower] = useState([]);
 	const [myContributions, setMyContributions] = useState([]);
 
 	const [file, setFile] = useState(undefined);
@@ -73,7 +73,9 @@ export function Project() {
 	useEffect(() => {
 		getUsersFollowingProject(projectId).then((response) => {
 			setUsersFollowing(response.data);
-			checkIsFollower(response.data);
+			if (typeOfProfile === ONLY_READ_VIEW) {
+				checkIsFollower(response.data);
+			}
 		});
 	}, [isFollower]);
 
