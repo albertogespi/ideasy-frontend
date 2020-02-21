@@ -63,6 +63,7 @@ export function Header({ isAccessWindow }) {
 								<p className='separator'>|</p>
 							</li>
 
+<<<<<<< HEAD
 							<li>
 								<button
 									id='logout'
@@ -135,4 +136,92 @@ export function Header({ isAccessWindow }) {
 			)}
 		</header>
 	);
+=======
+              <li>
+                <button
+                  id="logout"
+                  title="Click para cerrar sesión"
+                  onClick={() => {
+                    localStorage.removeItem("currentUser");
+                    window.location.href = "/";
+                  }}
+                >
+                  Cerrar sesión
+                </button>
+              </li>
+            </ul>
+          </nav>
+        )}
+        {!isAccessWindow && !isAuth && (
+          <div>
+            <Link to="/access">
+              <button className="gray" id="access-button" renderAs="button">
+                Accede o regístrate
+              </button>
+            </Link>
+          </div>
+        )}
+      </section>
+      {searchResults !== undefined && (
+        <section className="search-results">
+          {Object.keys(searchResults).length !== 0 && (
+            <section>
+              <section id="users-results">
+                <p>Usuarios</p>
+                <ul>
+                  {searchResults["users"].map((user, index) => (
+                    <li key={index}>
+                      <Link to={`/user/${user.user_id}`} key={index}>
+                        <button id="search-result">
+                          <div id="small-icon" className="profile-photo">
+                            <img
+                              src={
+                                user.avatar_url ||
+                                require("../images/default-avatar.jpg")
+                              }
+                              alt=""
+                            />
+                          </div>
+                          <p>{user.name}</p>
+                        </button>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+              <section id="projects-results">
+                <p>Proyectos</p>
+                <ul>
+                  {searchResults["projects"].map((project, index) => (
+                    <li key={index}>
+                      <Link to={`/project/${project.project_id}`} key={index}>
+                        <button id="search-result">
+                          <div id="small-icon" className="profile-photo">
+                            <img
+                              src={
+                                project.user_avatar_url ||
+                                require("../images/default-avatar.jpg")
+                              }
+                              alt=""
+                            />
+                          </div>
+                          <p>{project.title}</p>
+                        </button>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </section>
+          )}
+          {Object.keys(searchResults).length === 0 && (
+            <p className="centered-container">
+              No se encontró ningún resultado
+            </p>
+          )}
+        </section>
+      )}
+    </header>
+  );
+>>>>>>> 11762bbc06c76b1389354e8c84aa7c0090a3ee5f
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/authContext";
 import { Header } from "../components/Header";
@@ -84,10 +85,16 @@ export function MyProfile() {
 			<section id='home-body'>
 				<section className='centered-container'>
 					<div className='centered-container' id='myProfile-top'>
-						<div className='profile-photo' id='big-icon'>
-							<img src={user.avatarUrl} alt='' name='profile photo'></img>
-						</div>
-						<h1 className='profile-name'>{user.name}</h1>
+						<Link className='centered-container' to={`/user/${jwt.userId}`}>
+							<div className='profile-photo' id='big-icon'>
+								<img
+									src={user.avatarUrl || require("../images/default-avatar.jpg")}
+									alt=''
+									name='profile photo'
+								></img>
+							</div>
+							<h1 className='profile-name'>{user.name}</h1>
+						</Link>
 
 						<div>
 							<label for='input-avatar' id='select-avatar'>

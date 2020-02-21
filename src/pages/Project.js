@@ -145,7 +145,6 @@ export function Project() {
 		isOpenProject !== undefined &&
 		isFollower !== undefined
 	) {
-		console.log(isFollower);
 		return (
 			<section className='container'>
 				<Header isAccessWindow={false} />
@@ -155,7 +154,12 @@ export function Project() {
 							<li>
 								<button id='org-name'>
 									<div id='small-icon' className='profile-photo'>
-										<img src={project.user_avatar_url} alt=''></img>
+										<img
+											src={
+												project.user_avatar_url || require("../images/default-avatar.jpg")
+											}
+											alt=''
+										></img>
 									</div>
 									<p>{project.user_name}</p>
 								</button>
@@ -267,7 +271,10 @@ export function Project() {
 									<Link to={`/user/${user.user_id}`} key={index}>
 										<button>
 											<div id='small-icon' className='profile-photo'>
-												<img src={user.avatar_url} alt='' />
+												<img
+													src={user.avatar_url || require("../images/default-avatar.jpg")}
+													alt=''
+												/>
 											</div>
 											<p>{user.name}</p>
 										</button>
