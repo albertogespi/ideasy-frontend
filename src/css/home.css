@@ -11,28 +11,17 @@ section.home-image {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 section.home-image p {
   color: var(--color-superlight);
 }
 section.home-image p.first {
   font-size: 2rem;
+
+  margin-top: 1rem;
 }
 section.home-image p.second {
   font-size: 1.5rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
-
-/* section.home-image button.access {
-  background-color: rgb(212, 22, 22);
-  color: white;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-section.home-image button.access:hover {
-  background-color: rgb(179, 18, 18);
-}
-section.home-image button.access:active {
-  background-color: rgb(212, 22, 22);
-} */

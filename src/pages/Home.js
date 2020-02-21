@@ -58,16 +58,14 @@ export function Home() {
       <section className="container">
         <Header isAccessWindow={false} />
         <section className="home-image">
-          <div>
-            <p className="first">
-              Únete ya a nuestro Portal de Ideas como desarrollador u
-              organización.
-            </p>
-            <p className="second">
-              Participa en proyectos de software innovadores o publica las
-              necesidades tecnológicas de tu organización.
-            </p>
-          </div>
+          <p className="first">
+            Únete ya a Ideasy, el portal de ideas de software.
+          </p>
+          <p className="second">
+            Regístrate como desarrollador u organización, participa en proyectos
+            de software innovadores o publica las necesidades tecnológicas de tu
+            organización.
+          </p>
         </section>
         <main className="home">
           <Filters
