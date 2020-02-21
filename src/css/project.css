@@ -78,8 +78,7 @@
   margin: 0 0 1rem 10rem;
   padding: 0 1rem 1rem 1rem;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+
   background-color: var(--color-superlight);
   border: 1px solid var(--color-superdark);
   border-radius: 10px;
@@ -97,12 +96,16 @@
 #top #project-info ul {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 #top #project-info ul li {
-  width: 225px;
   text-align: start;
+}
+
+#top #dev-project-info ul li {
+  display: flex;
+  align-items: center;
 }
 
 .project li#selects {
