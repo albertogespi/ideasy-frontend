@@ -64,8 +64,8 @@ export function Home() {
             </p>
             <p className="second">
               Regístrate como desarrollador u organización, participa en
-              proyectos de software innovadores o publica las necesidades
-              tecnológicas de tu organización.
+              proyectos innovadores o publica las necesidades tecnológicas de tu
+              organización.
             </p>
           </section>
           <main className="projects">
