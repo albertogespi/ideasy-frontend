@@ -14,12 +14,6 @@ div#myProfile-top .profile-photo {
 div#myProfile-top {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  /* background: linear-gradient(
-    0.25turn,
-    transparent,
-    var(--color-light),
-    transparent
-  ); */
   background-color: var(--color-dark);
   margin-top: 5rem;
 }
@@ -29,7 +23,6 @@ section form#profile {
   border-bottom-left-radius: 10px;
   background-color: var(--color-dark);
   margin-bottom: 3rem;
-  /* border-radius: 10px; */
 }
 
 #myProfile #myProfile-top,

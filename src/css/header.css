@@ -30,8 +30,6 @@ input.search {
   background-color: var(--color-superlight);
   justify-content: space-between;
   padding: 0.5rem;
-
-  /*background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));*/
 }
 
 .main-header div {

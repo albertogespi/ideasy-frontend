@@ -5,39 +5,38 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
 export function SimpleRating({ readOnly, value, docId }) {
-	const [rating, setRating] = useState(value);
-	const changeRating = (newValue) => {
-		const data = { rating: newValue };
-		uploadRating(data, docId);
-		setRating(newValue);
-	};
+  const [rating, setRating] = useState(value);
+  const changeRating = newValue => {
+    const data = { rating: newValue };
+    uploadRating(data, docId);
+    setRating(newValue);
+  };
 
-	if (rating !== undefined) {
-		if (readOnly) {
-			return (
-				<div classname='stars-rating'>
-					<Rating
-						name='read-only'
-						precision={0.5}
-						value={rating}
-						size='large'
-						readOnly
-					/>
-					{/* <Typography component="legend">Puntuación media</Typography> */}
-				</div>
-			);
-		} else {
-			return (
-				<div>
-					<Rating
-						name={`material-ui-start-${docId}`}
-						value={rating}
-						onChange={(event, newValue) => {
-							changeRating(newValue);
-						}}
-					/>
-				</div>
-			);
-		}
-	}
+  if (rating !== undefined) {
+    if (readOnly) {
+      return (
+        <div classname="stars-rating">
+          <Rating
+            name="read-only"
+            precision={0.5}
+            value={rating}
+            size="large"
+            readOnly
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Rating
+            name={`material-ui-start-${docId}`}
+            value={rating}
+            onChange={(event, newValue) => {
+              changeRating(newValue);
+            }}
+          />
+        </div>
+      );
+    }
+  }
 }
