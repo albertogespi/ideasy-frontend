@@ -1,102 +1,104 @@
 .projectList {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+	margin-bottom: 1rem;
 }
 
 .projectList > ul {
-  height: 100%;
+	height: 100%;
+	margin-bottom: 1rem;
 }
 
 .projectList ul li {
-  margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .project-miniature {
-  display: grid;
-  grid-template-columns: 10rem auto 10rem;
-  border: 2px solid var(--color-superdark);
-  background-color: var(--color-medium);
-  border-radius: 10px;
-  margin: 1.5rem;
-  height: 180px;
+	display: grid;
+	grid-template-columns: 10rem auto 10rem;
+	border: 2px solid var(--color-superdark);
+	background-color: var(--color-medium);
+	border-radius: 10px;
+	margin: 1.5rem;
+	height: 180px;
 }
 
 .project-miniature > :first-child {
-  align-items: center;
-  justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .project-miniature > div {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-  padding: 1rem;
+	padding: 1rem;
 }
 
 #project-info {
-  padding: 0.5rem;
-  background-color: var(--color-light);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+	padding: 0.5rem;
+	background-color: var(--color-light);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 #project-info ul {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 #project-info ul li {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 #main-content {
-  padding: 0.5rem;
-  width: 30rem;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+	padding: 0.5rem;
+	width: 30rem;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
 
 #main-content div {
-  text-align: start;
-  margin: 0.2rem 0;
+	text-align: start;
+	margin: 0.2rem 0;
 }
 
 #project-data p {
-  word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 .projectList button {
-  margin: 0;
-  background-color: transparent;
+	margin: 0;
+	background-color: transparent;
 }
 
 section.projectList p#org-name {
-  padding: 0.1rem;
-  background-color: var(--color-dark);
-  border-radius: 10px;
-  border: 1.5px solid var(--color-superdark);
+	padding: 0.1rem;
+	background-color: var(--color-dark);
+	border-radius: 10px;
+	border: 1.5px solid var(--color-superdark);
 }
 
 section.projectList p.category {
-  background-color: var(--color-light);
-  border-radius: 10px;
-  width: 120px;
-  text-align: center;
-  padding: 0.1rem;
+	background-color: var(--color-light);
+	border-radius: 10px;
+	width: 120px;
+	text-align: center;
+	padding: 0.1rem;
 }
 section.projectList li.complexity {
-  margin: 0.5rem auto 0 auto;
+	margin: 0.5rem auto 0 auto;
 }
 
 h2.project-title {
-  font-size: 1.3rem;
+	font-size: 1.3rem;
 }

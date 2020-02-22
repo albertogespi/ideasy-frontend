@@ -32,17 +32,22 @@ body {
 	height: 100%;
 }
 
-/*
-#root {
-  min-height: 100vh;
-  min-width: 100vw;
-} */
-
 .container {
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
 	background-color: var(--color-superlight);
+}
+
+footer {
+	background-color: var(--color-superdark);
+	min-height: 35px;
+}
+
+footer p {
+	color: var(--color-light);
+	font-style: oblique;
+	font-size: var(--font-sm);
 }
 
 /* -- BASICS -- */

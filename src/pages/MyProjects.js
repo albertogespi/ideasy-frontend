@@ -7,6 +7,7 @@ import { MyProjectsOrg } from "../components/MyProjectsOrg";
 import { getAvgRatings } from "../http/projectsService";
 import { MyProjectsDev } from "../components/MyProjectsDev";
 import { Link } from "react-router-dom";
+import { Footer } from "../components/Footer";
 import {
 	getOrgProjects,
 	getFollowedProjects,
@@ -139,6 +140,7 @@ export function MyProjects() {
 						</section>
 					)}
 				</main>
+				<Footer />
 			</section>
 		);
 	} else {

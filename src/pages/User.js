@@ -12,6 +12,7 @@ import {
 	getFollowedProjects,
 	getContributedProjects,
 } from "../http/projectsService";
+import { Footer } from "../components/Footer";
 
 export function User() {
 	const categories = [
@@ -152,6 +153,7 @@ export function User() {
 						)}
 					</section>
 				</section>
+				<Footer />
 			</section>
 		);
 	} else {
