@@ -19,6 +19,7 @@ import { DevProject } from "../components/DevProject";
 import { Link } from "react-router-dom";
 import { SimpleRating } from "../components/Rating";
 import { Footer } from "../components/Footer";
+import { convertISOtoDate } from "../functions/convertISOtoDate";
 
 const DEVELOPER_VIEW = 2;
 const OWNER_VIEW = 1;
@@ -246,7 +247,13 @@ export function Project() {
 												<Link id='link' to={`/user/${document.user_id}`}>
 													<button>
 														<div id='small-icon' className='profile-photo'>
-															<img src={document.user_avatar_url} alt=''></img>
+															<img
+																src={
+																	document.user_avatar_url ||
+																	require("../images/default-avatar.jpg")
+																}
+																alt=''
+															></img>
 														</div>
 														<p>{document.user_name}</p>
 													</button>
@@ -305,13 +312,4 @@ export function Project() {
 	} else {
 		return <p>Cargando proyecto...</p>;
 	}
-}
-
-function convertISOtoDate(isoDate) {
-	var date = new Date(isoDate);
-	var day = date.getDate();
-	var year = date.getFullYear();
-	var month = date.getMonth() + 1;
-	var dateStr = month + "/" + day + "/" + year;
-	return dateStr;
 }
