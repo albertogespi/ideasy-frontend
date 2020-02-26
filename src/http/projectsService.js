@@ -1,5 +1,11 @@
 import axios from "axios";
 
+export function getNumberOfContributions(userId) {
+	return axios.get(
+		`${process.env.REACT_APP_BACKEND_URL}/projects/contributed/number/${userId}`,
+	);
+}
+
 export function getContributedProjects(userId, queryValues) {
 	return axios.get(
 		`${process.env.REACT_APP_BACKEND_URL}/projects/contributed/${userId}${queryValues}`,

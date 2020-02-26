@@ -12,6 +12,7 @@ import {
 	getOrgProjects,
 	getFollowedProjects,
 	getContributedProjects,
+	getNumberOfContributions,
 } from "../http/projectsService";
 import { SimpleRating } from "../components/Rating";
 
@@ -34,14 +35,14 @@ export function MyProjects() {
 
 	const userId = window.location.href.split("/")[4];
 
-	const [rating, setRating] = useState(undefined);
-
 	//IsOrgProfile = true
 	const [orgProjects, setOrgProjects] = useState([]);
 
 	//IsOrgProfile = false
 	const [followedProjects, setFollowedProjects] = useState([]);
 	const [contributedProjects, setContributedProjects] = useState([]);
+	const [rating, setRating] = useState(undefined);
+	const [numberOfContributions, setNumberOfContributions] = useState(0);
 
 	const [buttonSelected, setButtonSelected] = useState(true);
 
@@ -83,7 +84,11 @@ export function MyProjects() {
 			);
 		}
 		getAvgRatings(userId).then((response) => {
-			setRating(response.data);
+			const ratingRounded = Math.round(response.data * 2) / 2;
+			setRating(ratingRounded);
+		});
+		getNumberOfContributions(userId).then((response) => {
+			setNumberOfContributions(response.data);
 		});
 	}, [selectedComplexity, selectedCategory, buttonSelected]);
 
@@ -128,8 +133,12 @@ export function MyProjects() {
 								<SimpleRating readOnly={true} value={rating} id='stars' />
 								<p>Mi puntuación media</p>
 								{rating
-									? `${Math.round(rating * 2) / 2} estrellas`
-									: "Aún no has recibido puntuaciones"}
+									? `${rating} ${
+											rating === 1 ? "estrella" : "estrellas"
+									  } / ${numberOfContributions} ${
+											numberOfContributions === 1 ? "contribución" : "contribuciones"
+									  }`
+									: "Este usuario aún no ha recibido puntuaciones"}
 							</div>
 							<MyProjectsDev
 								followedProjects={followedProjects}
