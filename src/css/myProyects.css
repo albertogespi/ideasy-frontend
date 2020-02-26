@@ -18,8 +18,3 @@
 #myProjects .MuiRating-root {
 	color: var(--color-dark);
 }
-
-#myProjects #empty-text {
-	text-align: center;
-	font-size: var(--font-m);
-}
