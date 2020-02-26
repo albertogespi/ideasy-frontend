@@ -9,7 +9,6 @@ export function getProfile() {
 }
 
 export function uploadAvatar(userData) {
-  console.log(userData);
   return axios.post(
     `${process.env.REACT_APP_BACKEND_URL}/users/avatar`,
     userData

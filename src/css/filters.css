@@ -49,8 +49,12 @@
 	font-size: var(--font-m);
 }
 .filters button:hover {
+<<<<<<< HEAD
 	/* background-color: var(--color-medium); */
 	border: 2px solid var(--color-superdark);
+=======
+  border: 2px solid var(--color-superdark);
+>>>>>>> 08dcc4a5f52e6a8e80323220f4cf2c2fe5a1483c
 }
 
 button#is-selected-bg {

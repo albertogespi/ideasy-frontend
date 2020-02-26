@@ -5,12 +5,12 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
 export function SimpleRating({ readOnly, value, docId }) {
-	const [rating, setRating] = useState(value);
-	const changeRating = (newValue) => {
-		const data = { rating: newValue };
-		uploadRating(data, docId);
-		setRating(newValue);
-	};
+  const [rating, setRating] = useState(value);
+  const changeRating = newValue => {
+    const data = { rating: newValue };
+    uploadRating(data, docId);
+    setRating(newValue);
+  };
 
 	if (rating !== undefined) {
 		if (readOnly) {
