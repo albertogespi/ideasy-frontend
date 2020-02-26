@@ -17,7 +17,7 @@
 	font-size: 1.8rem;
 }
 
-.project > ul li:first-child {
+.project #org-name-label {
 	display: flex;
 	flex-direction: row;
 
@@ -47,8 +47,9 @@
 }
 
 .project label {
-	margin-bottom: 0.5rem;
+	margin: 0.5rem 0;
 	text-align: start;
+	font-size: var(--font-m);
 }
 
 #top {
@@ -77,8 +78,8 @@
 }
 
 #top #project-info {
-	margin: 0 0 1rem 10rem;
-	padding: 0 1rem 1rem 1rem;
+	width: 270px;
+	padding: 0.5rem;
 	display: flex;
 
 	background-color: var(--color-superlight);
@@ -87,18 +88,18 @@
 }
 
 #top #dev-project-info {
-	margin: 0 0 1rem 10rem;
-	padding: 0 1rem 1rem 1rem;
+	padding: 1rem;
 	background-color: var(--color-superlight);
 	border: 1px solid var(--color-superdark);
 	border-radius: 10px;
-	width: 250px;
+	width: 270px;
 }
 
 #top #project-info ul {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	justify-content: space-around;
 }
 
 #top #project-info ul li {
@@ -112,7 +113,7 @@
 
 .project li#selects {
 	display: grid;
-	grid-template-columns: 100px auto;
+	grid-template-columns: 120px auto;
 }
 
 .project section#middle {
@@ -156,15 +157,22 @@
 }
 
 .contributions {
-	border: 1px solid var(--color-superdark);
+	/* border: 1px solid var(--color-superdark); */
 	border-radius: 10px;
-	padding: 0.5rem;
+	padding: 0.5rem 0;
 	margin-bottom: 1rem;
 }
 
-#contrib-row {
+#contrib-row-dev {
 	display: grid;
-	grid-template-columns: 200px auto auto;
+	grid-template-columns: 500px 365px auto;
+	align-items: center;
+	padding: 0;
+}
+
+#contrib-row-org {
+	display: grid;
+	grid-template-columns: 180px 500px auto;
 	align-items: center;
 	padding: 0;
 }
@@ -173,7 +181,8 @@ button.delete-document {
 	width: 100px;
 }
 
-#contrib-row:not(:last-child) {
+#contrib-row-dev:not(:last-child),
+#contrib-row-org:not(:last-child) {
 	margin-bottom: 0.5rem;
 }
 
@@ -188,9 +197,9 @@ button.delete-document {
 	margin-left: 0.3rem;
 }
 
-#contrib-row a:not(#link) {
+#contrib-row-dev a:not(#link),
+#contrib-row-org a:not(#link) {
 	margin-right: 0.5rem;
-	width: 200px;
 	word-wrap: break-word;
 	text-decoration: underline;
 }
@@ -208,10 +217,10 @@ input#contributions {
 }
 
 .followers {
-	border: 1px solid var(--color-superdark);
+	/* border: 1px solid var(--color-superdark); */
 	border-radius: 10px;
 	margin-bottom: 1rem;
-	padding: 0.5rem;
+	padding: 0.5rem 0;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -285,4 +294,26 @@ label#document:active {
 }
 p#closed-project {
 	color: red;
+}
+
+.profile-miniature-button {
+	background-color: var(--color-superdark);
+}
+.profile-miniature-button > p {
+	color: var(--color-superlight);
+}
+
+.project .MuiRating-root {
+	color: var(--color-dark);
+}
+
+p#empty-text {
+	font-size: var(--font-sm);
+	color: var(--color-medium);
+	margin: 0;
+	width: 100%;
+}
+
+.project p {
+	margin-bottom: 0;
 }

@@ -23,6 +23,7 @@ export function SimpleRating({ readOnly, value, docId }) {
             size="large"
             readOnly
           />
+          {/* <Typography component="legend">Puntuación media</Typography> */}
         </div>
       );
     } else {

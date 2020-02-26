@@ -153,7 +153,7 @@ export function Project() {
 				<section className='project'>
 					<ul>
 						<Link to={`/user/${project.user_id}`}>
-							<li>
+							<li id='org-name-label'>
 								<button id='org-name'>
 									<div id='small-icon' className='profile-photo'>
 										<img
@@ -184,30 +184,34 @@ export function Project() {
 						<li>
 							{typeOfProfile === DEVELOPER_VIEW && (
 								<section className='contributions-title'>
-									<p className='centered-container'>Tus contribuciones</p>
+									<p>Tus contribuciones</p>
 									<section className='contributions'>
-										{myContributions.map((document, index) => (
-											<section id='contrib-row'>
-												<a href={document.file_url}>{document.title}</a>
-												<div className='centered-container'>
-													<SimpleRating
-														readOnly={true}
-														value={document.rating}
-														docId={document.doc_id}
-														key={document.doc_id}
-														id='stars'
-													/>
-												</div>
-												{isOpenProject && (
-													<button
-														className='delete-document'
-														onClick={() => handleDelete(document.doc_id)}
-													>
-														eliminar
-													</button>
-												)}
-											</section>
-										))}
+										{myContributions.length !== 0 ? (
+											myContributions.map((document, index) => (
+												<section id='contrib-row-dev'>
+													<a href={document.file_url}>{document.title}</a>
+													<div className='centered-container'>
+														<SimpleRating
+															readOnly={true}
+															value={document.rating}
+															docId={document.doc_id}
+															key={document.doc_id}
+															id='stars'
+														/>
+													</div>
+													{isOpenProject && (
+														<button
+															className='delete-document'
+															onClick={() => handleDelete(document.doc_id)}
+														>
+															eliminar
+														</button>
+													)}
+												</section>
+											))
+										) : (
+											<p id='empty-text'>¡Sube una propuesta!</p>
+										)}
 									</section>
 									{isOpenProject && (
 										<form id='upload-file' onSubmit={handleSubmit(handleUpload)}>
@@ -240,56 +244,64 @@ export function Project() {
 							)}
 							{typeOfProfile === OWNER_VIEW && (
 								<section className='contributions-title'>
-									<p className='centered-container'>Contribuciones</p>
+									<p>Contribuciones</p>
 									<section className='contributions'>
-										{documents.map((document, index) => (
-											<div id='contrib-row'>
-												<Link id='link' to={`/user/${document.user_id}`}>
-													<button>
-														<div id='small-icon' className='profile-photo'>
-															<img
-																src={
-																	document.user_avatar_url ||
-																	require("../images/default-avatar.jpg")
-																}
-																alt=''
-															></img>
-														</div>
-														<p>{document.user_name}</p>
-													</button>
-												</Link>
-												<a href={document.file_url}>{document.title}</a>
-												<div className='centered-container'>
-													<SimpleRating
-														readOnly={isOpenProject ? false : true}
-														value={document.rating}
-														docId={document.doc_id}
-														key={document.doc_id}
-														id='stars'
-													/>
+										{documents.length !== 0 ? (
+											documents.map((document, index) => (
+												<div id='contrib-row-org'>
+													<Link id='link' to={`/user/${document.user_id}`}>
+														<button className='profile-miniature-button'>
+															<div id='small-icon' className='profile-photo'>
+																<img
+																	src={
+																		document.user_avatar_url ||
+																		require("../images/default-avatar.jpg")
+																	}
+																	alt=''
+																></img>
+															</div>
+															<p>{document.user_name}</p>
+														</button>
+													</Link>
+													<a href={document.file_url}>{document.title}</a>
+													<div className='centered-container'>
+														<SimpleRating
+															readOnly={isOpenProject ? false : true}
+															value={document.rating}
+															docId={document.doc_id}
+															key={document.doc_id}
+															id='stars'
+														/>
+													</div>
 												</div>
-											</div>
-										))}
+											))
+										) : (
+											<p id='empty-text'>Aún no hay contribuciones</p>
+										)}
 									</section>
 								</section>
 							)}
 						</li>
 						<li className='followers-title'>
-							<p className='centered-container'>Seguidores de este proyecto</p>
+							<p>Seguidores de este proyecto</p>
 							<section className='followers'>
-								{usersFollowing.map((user, index) => (
-									<Link to={`/user/${user.user_id}`} key={index}>
-										<button>
-											<div id='small-icon' className='profile-photo'>
-												<img
-													src={user.avatar_url || require("../images/default-avatar.jpg")}
-													alt=''
-												/>
-											</div>
-											<p>{user.name}</p>
-										</button>
-									</Link>
-								))}
+								{usersFollowing.length !== 0 ? (
+									usersFollowing.map((user, index) => (
+										<Link to={`/user/${user.user_id}`} key={index}>
+											<button className='profile-miniature-button'>
+												<div id='small-icon' className='profile-photo'>
+													<img
+														src={user.avatar_url || require("../images/default-avatar.jpg")}
+														alt=''
+													/>
+												</div>
+												<p>{user.name}</p>
+											</button>
+										</Link>
+									))
+								) : (
+									<p id='empty-text'>Este proyecto aún no tiene seguidores</p>
+								)}
 							</section>
 						</li>
 						<li id='bottom'>

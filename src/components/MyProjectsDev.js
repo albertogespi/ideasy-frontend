@@ -31,9 +31,17 @@ export function MyProjectsDev({
 					Aportados
 				</button>
 			</section>
-			<ProjectList
-				projects={buttonSelected ? followedProjects : contributedProjects}
-			/>
+			{buttonSelected === FOLLOWED_BUTTON ? (
+				followedProjects.length !== 0 ? (
+					<ProjectList projects={followedProjects} />
+				) : (
+					<p id='empty-text'>No hay resultados</p>
+				)
+			) : contributedProjects.length !== 0 ? (
+				<ProjectList projects={contributedProjects} />
+			) : (
+				<p id='empty-text'>No hay resultados</p>
+			)}
 		</section>
 	);
 }

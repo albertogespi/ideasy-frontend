@@ -12,19 +12,9 @@ export function DevProject({ project }) {
 				<section id='dev-project-info'>
 					<ul>
 						<li>
-							<img
-								src='https://img.icons8.com/android/24/000000/sun.png'
-								alt=''
-								id='supersmall-icon'
-							/>
-							<p>{convertISOtoDate(project.created_at)}</p>
+							<p>Creado el {convertISOtoDate(project.created_at)}</p>
 						</li>
 						<li>
-							<img
-								src='https://img.icons8.com/material-outlined/24/000000/user--v1.png'
-								alt=''
-								id='supersmall-icon'
-							/>
 							<p>
 								{project.number_of_followers}
 								{project.number_of_followers === 1 ? " seguidor" : " seguidores"}

@@ -6,6 +6,8 @@ const ACTIVE_BUTTON = true;
 const INACTIVE_BUTTON = false;
 
 export function MyProjectsOrg({ projects, buttonSelected, setButtonSelected }) {
+	const projectsFiltered = filterProjects(projects, buttonSelected);
+
 	return (
 		<section className='projects-container'>
 			<section className='selectors'>
@@ -26,7 +28,11 @@ export function MyProjectsOrg({ projects, buttonSelected, setButtonSelected }) {
 					Inactivos
 				</button>
 			</section>
-			<ProjectList projects={filterProjects(projects, buttonSelected)} />
+			{projectsFiltered.length !== 0 ? (
+				<ProjectList projects={projectsFiltered} />
+			) : (
+				<p id='empty-text'>No hay resultados</p>
+			)}
 		</section>
 	);
 }
