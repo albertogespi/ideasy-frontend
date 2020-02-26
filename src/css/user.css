@@ -51,5 +51,15 @@ section#user-container .MuiRating-iconEmpty {
 }
 p#profile-role {
   font-size: 2rem;
-  margin: 2rem;
+  margin: 2rem 0 3rem 0;
+}
+
+section.projects section.filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+section.projects section.filters section#category {
+  margin-top: 1.5rem;
 }
