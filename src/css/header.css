@@ -77,13 +77,13 @@ button#my-profile {
 button#logout:hover,
 button#my-projects:hover,
 button#my-profile:hover {
-  color: var(--color-dark);
+  color: var(--color-medium);
   text-decoration: underline;
 }
 
 p.separator {
   padding: 0;
-  color: gray;
+  color: var(--color-superdark);
 }
 
 .search-results {
