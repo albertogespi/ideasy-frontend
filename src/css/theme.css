@@ -1,31 +1,31 @@
 :root {
-	/*--color-superdark: rgb(37, 42, 55);*/ /*original darkblue*/
-	--color-superdark: rgb(10, 10, 10);
-	/* --color-dark: rgb(227, 207, 91); original mostaza (más claro)*/
-	--color-dark: rgb(217, 191, 37);
-	/* --color-medium: rgb(188, 188, 188); (original gris claro*/
-	--color-medium: rgb(80, 80, 80);
-	/* --color-light: rgb(227, 227, 227); original */
-	--color-light: rgb(210, 210, 210);
-	--color-superlight: rgb(252, 248, 211);
+  /*--color-superdark: rgb(37, 42, 55);*/ /*original darkblue*/
+  --color-superdark: rgb(10, 10, 10);
+  /* --color-dark: rgb(227, 207, 91); original mostaza (más claro)*/
+  --color-dark: rgb(217, 191, 37);
+  /* --color-medium: rgb(188, 188, 188); (original gris claro*/
+  --color-medium: rgb(80, 80, 80);
+  /* --color-light: rgb(227, 227, 227); original */
+  --color-light: rgb(210, 210, 210);
+  --color-superlight: rgb(249, 248, 208);
 
-	/* fonts */
-	--font-primary: Arial, sans-serif;
-	--font-secondary: "Oswald", sans-serif;
-	--font-special: "Press Start 2P";
+  /* fonts */
+  --font-primary: Arial, sans-serif;
+  --font-secondary: "Oswald", sans-serif;
+  --font-special: "Press Start 2P";
 
-	/* font-sizes */
-	--font-xs: 0.8rem;
-	--font-sm: 1rem;
-	--font-m: 1.2rem;
-	--font-l: 1.6rem;
-	--font-xl: 1.8rem;
-	--font-xxl: 2rem;
+  /* font-sizes */
+  --font-xs: 0.8rem;
+  --font-sm: 1rem;
+  --font-m: 1.2rem;
+  --font-l: 1.6rem;
+  --font-xl: 1.8rem;
+  --font-xxl: 2rem;
 
-	/* spacing */
-	--space-xs: 0.25rem;
-	--space-sm: 0.5rem;
-	--space-md: 1rem;
-	--space-lg: 1.5rem;
-	--space-xl: 3rem;
+  /* spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 3rem;
 }
