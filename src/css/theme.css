@@ -1,8 +1,12 @@
 :root {
-	--color-superdark: rgb(37, 42, 55);
-	--color-dark: rgb(227, 207, 91);
-	--color-medium: rgb(188, 188, 188);
-	--color-light: rgb(227, 227, 227);
+	/*--color-superdark: rgb(37, 42, 55);*/ /*original darkblue*/
+	--color-superdark: rgb(10, 10, 10);
+	/* --color-dark: rgb(227, 207, 91); original mostaza (más claro)*/
+	--color-dark: rgb(217, 191, 37);
+	/* --color-medium: rgb(188, 188, 188); (original gris claro*/
+	--color-medium: rgb(80, 80, 80);
+	/* --color-light: rgb(227, 227, 227); original */
+	--color-light: rgb(210, 210, 210);
 	--color-superlight: rgb(252, 248, 211);
 
 	/* fonts */

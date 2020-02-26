@@ -11,6 +11,7 @@ export function Search({ onSearch, onEmpty }) {
 				type='search'
 				className='search'
 				aria-label='Escribe aquí para buscar'
+				placeholder='Escribe para buscar...'
 				onChange={(e) => onEmpty(e.target.value)}
 			/>
 			<button

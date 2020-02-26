@@ -13,7 +13,7 @@ export function Filters({
 		<section className='filters'>
 			<nav>
 				<section id='category'>
-					<p>Categoría</p>
+					<p>Filtrar por categoría</p>
 					<ul>
 						{categories.map((cat, index) => (
 							<li key={index}>
@@ -30,7 +30,7 @@ export function Filters({
 					</ul>
 				</section>
 				<section id='complexity'>
-					<p>Complejidad</p>
+					<p>Filtrar por complejidad</p>
 					<ul>
 						{complexities.map((comp, index) => (
 							<li key={index}>

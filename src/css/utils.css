@@ -86,7 +86,6 @@ button {
 	display: inline-block;
 	font-size: 1.2rem;
 	height: 2.3rem;
-	background-color: var(--color-medium);
 }
 
 button.form {
@@ -96,7 +95,6 @@ button.form {
 
 button.form:hover {
 	background-color: var(--color-medium);
-	color: var(--color-superdark);
 }
 button.form:active {
 	background-color: var(--color-superdark);
@@ -109,6 +107,7 @@ button.gray {
 
 button.gray:hover {
 	background-color: var(--color-medium);
+	color: var(--color-superlight);
 }
 button.gray:active {
 	background-color: var(--color-medium);
@@ -126,7 +125,6 @@ button.delete-document,
 button.follow-button,
 button.close-project {
 	background-color: var(--color-dark);
-	border: 1px solid var(--color-superdark);
 }
 button.delete-document:hover,
 button.follow-button:hover,

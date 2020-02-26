@@ -126,7 +126,7 @@ export function MyProjects() {
 						<section className='projects-container'>
 							<div className='centered-container' id='my-projects-rating'>
 								<SimpleRating readOnly={true} value={rating} id='stars' />
-								<p>Puntuación media</p>
+								<p>Mi puntuación media</p>
 								{rating
 									? `${Math.round(rating * 2) / 2} estrellas`
 									: "Aún no has recibido puntuaciones"}

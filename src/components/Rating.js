@@ -32,6 +32,7 @@ export function SimpleRating({ readOnly, value, docId }) {
 					<Rating
 						name={`material-ui-start-${docId}`}
 						value={rating}
+						size='large'
 						onChange={(event, newValue) => {
 							changeRating(newValue);
 						}}

@@ -25,7 +25,6 @@ export function MyProfile() {
 
 		const data = new FormData();
 		data.append("avatar", file[0]);
-
 		uploadAvatar(data)
 			.then((response) => {
 				setFile(null);

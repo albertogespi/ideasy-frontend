@@ -14,3 +14,12 @@
 #myProjects .projects-container {
 	min-height: 545px;
 }
+
+#myProjects .MuiRating-root {
+	color: var(--color-dark);
+}
+
+#myProjects #empty-text {
+	text-align: center;
+	font-size: var(--font-m);
+}

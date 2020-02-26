@@ -39,30 +39,23 @@ export function ProjectList({ projects }) {
 							<div id='project-info'>
 								<ul>
 									<li>
-										<img
-											src='https://img.icons8.com/android/24/000000/sun.png'
-											alt=''
-											id='supersmall-icon'
-										/>
+										<p>Creado el</p>
 										<p>{convertISOtoDate(project.created_at)}</p>
 									</li>
 									<li>
-										<img
-											src='https://img.icons8.com/material-outlined/24/000000/user--v1.png'
-											alt=''
-											id='supersmall-icon'
-										/>
 										<p>
 											{project.number_of_followers}
 											{project.number_of_followers === 1 ? " seguidor" : " seguidores"}
 										</p>
 									</li>
 									<li className='complexity'>
-										{project.complexity === 1
-											? "Fácil"
-											: project.complexity === 2
-											? "Medio"
-											: "Díficil"}
+										<p>
+											{project.complexity === 1
+												? "Fácil"
+												: project.complexity === 2
+												? "Medio"
+												: "Díficil"}
+										</p>
 									</li>
 								</ul>
 							</div>
