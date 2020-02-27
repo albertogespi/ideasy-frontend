@@ -135,7 +135,10 @@ export function Project() {
 	};
 
 	const handleClose = () => {
-		closeProject(projectId).finally(() => setIsOpenProject(false));
+		closeProject(projectId).finally(() => {
+			setIsOpenProject(false);
+			setProject({ ...project, closed_at: Date.now() });
+		});
 	};
 
 	if (
