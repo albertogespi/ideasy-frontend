@@ -47,27 +47,30 @@ export function MyProjects() {
 	const [buttonSelected, setButtonSelected] = useState(true);
 
 	//filters
-	const [selectedCategory, setSelectedCategory] = useState(0);
-	const [selectedComplexity, setSelectedComplexity] = useState(0);
+	const [filtersState, setFiltersState] = useState({
+		category: '',
+		complexity: '',
+	  });
 
 	const history = useHistory();
 
 	let historyQuery = "";
 	const updateQuery = () => {
-		if (selectedCategory !== 0) {
-			historyQuery += `/?category=${categories[selectedCategory]}`;
-		}
-
-		if (selectedComplexity !== 0) {
+		console.log(filtersState);
+		  if (filtersState.category !== '') {
+			historyQuery += `/?category=${filtersState.category}`;
+		  }
+	  
+		  if (filtersState.complexity !== '') {
 			if (historyQuery === "") {
-				historyQuery += `/?complexity=${selectedComplexity}`;
+			  historyQuery += `/?complexity=${filtersState.complexity}`;
 			} else {
-				historyQuery += `&complexity=${selectedComplexity}`;
+			  historyQuery += `&complexity=${filtersState.complexity}`;
 			}
-		}
-
-		history.push(`/my-projects/${userId}` + historyQuery);
-	};
+		  }
+	  
+		  history.push(`/my-projects/${userId}` + historyQuery);
+		};
 
 	useEffect(() => {
 		updateQuery();
@@ -90,7 +93,7 @@ export function MyProjects() {
 		getNumberOfContributions(userId).then((response) => {
 			setNumberOfContributions(response.data);
 		});
-	}, [selectedComplexity, selectedCategory, buttonSelected]);
+	}, [filtersState, buttonSelected]);
 
 	if (
 		orgProjects !== undefined &&
@@ -102,14 +105,7 @@ export function MyProjects() {
 			<section id='myProjects' className='container'>
 				<Header isAccessWindow={false} />
 				<main className='body'>
-					<Filters
-						categories={categories}
-						complexities={complexities}
-						selectedCategory={selectedCategory}
-						setSelectedCategory={setSelectedCategory}
-						selectedComplexity={selectedComplexity}
-						setSelectedComplexity={setSelectedComplexity}
-					/>
+					<Filters filtersState={filtersState} setFiltersState={setFiltersState}/>
 					{isOrgProfile ? (
 						<section className='projects-container'>
 							<div className='centered-container' id='new-project-button'>

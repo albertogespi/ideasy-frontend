@@ -12,21 +12,12 @@ const MOST_RECENT_BUTTON = true;
 const MOST_FOLLOWED_BUTTON = false;
 
 export function Home() {
-  const categories = [
-    "Todas",
-    "Blog",
-    "Corporativa",
-    "e-Commerce",
-    "e-Learning",
-    "Noticias",
-    "Wikis"
-  ];
-
-  const complexities = ["Todas", "Fácil", "Medio", "Difícil"];
+  const [filtersState, setFiltersState] = useState({
+    category: '',
+    complexity: '',
+  });
 
   const [projects, setProjects] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(0);
-  const [selectedComplexity, setSelectedComplexity] = useState(0);
 
   const [buttonSelected, setButtonSelected] = useState(MOST_RECENT_BUTTON);
 
@@ -34,25 +25,26 @@ export function Home() {
 
   let historyQuery = "";
   const updateQuery = () => {
-    if (selectedCategory !== 0) {
-      historyQuery += `/?category=${categories[selectedCategory]}`;
-    }
-
-    if (selectedComplexity !== 0) {
-      if (historyQuery === "") {
-        historyQuery += `/?complexity=${selectedComplexity}`;
-      } else {
-        historyQuery += `&complexity=${selectedComplexity}`;
+    console.log(filtersState);
+      if (filtersState.category !== '') {
+        historyQuery += `/?category=${filtersState.category}`;
       }
-    }
-
-    history.push(historyQuery);
-  };
+  
+      if (filtersState.complexity !== '') {
+        if (historyQuery === "") {
+          historyQuery += `/?complexity=${filtersState.complexity}`;
+        } else {
+          historyQuery += `&complexity=${filtersState.complexity}`;
+        }
+      }
+  
+      history.push(historyQuery);
+    };
 
   useEffect(() => {
     updateQuery();
     getHomeProjects(historyQuery).then(response => setProjects(response.data));
-  }, [selectedCategory, selectedComplexity, buttonSelected]);
+  }, [filtersState, buttonSelected]);
 
   if (projects !== undefined) {
     return (
@@ -70,14 +62,7 @@ export function Home() {
             </p>
           </section>
           <main className="projects">
-            <Filters
-              categories={categories}
-              complexities={complexities}
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-              selectedComplexity={selectedComplexity}
-              setSelectedComplexity={setSelectedComplexity}
-            />
+            <Filters filtersState={filtersState} setFiltersState={setFiltersState}/>
             <section className="projects-container">
               <section className="selectors">
                 <button

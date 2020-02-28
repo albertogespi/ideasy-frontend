@@ -44,27 +44,30 @@ export function User() {
 	const [buttonSelected, setButtonSelected] = useState(true);
 
 	//filters
-	const [selectedCategory, setSelectedCategory] = useState(0);
-	const [selectedComplexity, setSelectedComplexity] = useState(0);
+	const [filtersState, setFiltersState] = useState({
+		category: '',
+		complexity: '',
+	  });
 
 	const history = useHistory();
 
 	let historyQuery = "";
 	const updateQuery = () => {
-		if (selectedCategory !== 0) {
-			historyQuery += `/?category=${categories[selectedCategory]}`;
-		}
-
-		if (selectedComplexity !== 0) {
+		console.log(filtersState);
+		  if (filtersState.category !== '') {
+			historyQuery += `/?category=${filtersState.category}`;
+		  }
+	  
+		  if (filtersState.complexity !== '') {
 			if (historyQuery === "") {
-				historyQuery += `/?complexity=${selectedComplexity}`;
+			  historyQuery += `/?complexity=${filtersState.complexity}`;
 			} else {
-				historyQuery += `&complexity=${selectedComplexity}`;
+			  historyQuery += `&complexity=${filtersState.complexity}`;
 			}
-		}
-
-		history.push(`/user/${userId}` + historyQuery);
-	};
+		  }
+	  
+		  history.push(`/user/${userId}` + historyQuery);
+		};
 
 	useEffect(() => {
 		getUser(userId).then((response) => {
@@ -91,7 +94,7 @@ export function User() {
 				setContributedProjects(response.data),
 			);
 		}
-	}, [isOrgProfile, selectedComplexity, selectedCategory, buttonSelected]);
+	}, [isOrgProfile, filtersState, buttonSelected]);
 
 	if (
 		user !== undefined &&
@@ -143,14 +146,7 @@ export function User() {
 						</section>
 					</div>
 					<section className='projects'>
-						<Filters
-							categories={categories}
-							complexities={complexities}
-							selectedCategory={selectedCategory}
-							setSelectedCategory={setSelectedCategory}
-							selectedComplexity={selectedComplexity}
-							setSelectedComplexity={setSelectedComplexity}
-						/>
+					<Filters filtersState={filtersState} setFiltersState={setFiltersState}/>
 						{isOrgProfile ? (
 							<MyProjectsOrg
 								projects={orgProjects}
