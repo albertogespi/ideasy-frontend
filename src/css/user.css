@@ -8,10 +8,10 @@ div.header-user {
 }
 
 section#user-container {
-  background-color: var(--color-dark);
+  background-color: var(--color-light);
   height: 100%;
   padding: 1rem;
-  border-right: 3px solid var(--color-superdark);
+  border-right: 2px solid var(--color-superdark);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -26,8 +26,6 @@ section#user-container h1 {
   border-radius: 10px;
   border: 2px solid var(--color-superdark);
   padding: 1rem;
-  color: white;
-  font-size: 1.1rem;
 }
 #contact * {
   font-size: 1.2rem;

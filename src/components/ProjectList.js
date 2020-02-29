@@ -25,32 +25,25 @@ export function ProjectList({ projects }) {
                     <p id="org-name">{project.user_name}</p>
                   </button>
                 </a>
-                <div id="creation-date">
-                  <p>Creado el</p>
-                  <p>{convertISOtoDate(project.created_at)}</p>
-                </div>
+                <p className="complexity">
+                  {project.complexity === 1
+                    ? "Fácil"
+                    : project.complexity === 2
+                    ? "Medio"
+                    : "Díficil"}
+                </p>
               </div>
               <Link to={`/project/${project.project_id}`}>
                 <div id="main-content">
                   <div id="main-content-header">
-                    <div id="category-complexity">
-                      <p className="category">{project.category}</p>
-                      <p>
-                        {project.complexity === 1
-                          ? "Fácil"
-                          : project.complexity === 2
-                          ? "Medio"
-                          : "Díficil"}
-                      </p>
-                    </div>
-                    <div>
-                      <p>
-                        {project.number_of_followers}
-                        {project.number_of_followers === 1
-                          ? " seguidor"
-                          : " seguidores"}
-                      </p>
-                    </div>
+                    <p className="category">{project.category}</p>
+
+                    <p id="followers">
+                      {project.number_of_followers}
+                      {project.number_of_followers === 1
+                        ? " seguidor"
+                        : " seguidores"}
+                    </p>
                   </div>
 
                   <div>
