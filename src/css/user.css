@@ -11,7 +11,7 @@ section#user-container {
   background-color: var(--color-light);
   height: 100%;
   padding: 1rem;
-  border-right: 2px solid var(--color-superdark);
+  border-right: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,22 +24,21 @@ section#user-container h1 {
 #contact {
   margin-top: 3rem;
   border-radius: 10px;
-  border: 2px solid var(--color-superdark);
+  border: 2px solid black;
   padding: 1rem;
 }
 #contact * {
   font-size: 1.2rem;
 }
-#contact a {
-  color: var(--color-superdark);
-}
+
 #contact a:hover {
+  color: var(--color-superdark);
   text-decoration: underline;
 }
 
 section#user-container .MuiRating-root {
   padding: 1rem;
-  background-color: var(--color-superdark);
+  background-color: var(--color-medium);
   color: var(--color-dark);
   border-radius: 10px;
 }

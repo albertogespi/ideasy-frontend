@@ -7,7 +7,7 @@ p,
 h1,
 h2 {
   font-family: "Roboto", sans-serif;
-  color: var(--color-superdark);
+  color: black;
 }
 
 .body {
@@ -87,15 +87,18 @@ button {
   font-size: 1.2rem;
   height: 2.3rem;
 }
+button:focus {
+  outline: none;
+}
 
+button:hover {
+  text-decoration: underline;
+}
 button.form {
   background-color: var(--color-superdark);
   color: var(--color-superlight);
 }
 
-button.form:hover {
-  background-color: var(--color-medium);
-}
 button.form:active {
   background-color: var(--color-superdark);
   color: var(--color-superlight);
@@ -105,16 +108,8 @@ button.gray {
   background-color: var(--color-light);
 }
 
-button.gray:hover {
-  background-color: var(--color-medium);
-  color: var(--color-superlight);
-}
 button.gray:active {
   background-color: var(--color-medium);
-}
-
-button:focus {
-  outline: none;
 }
 
 button.delete-document {
@@ -144,13 +139,10 @@ button.follow-button > p {
 
 button.delete-document,
 button.close-project {
-  background-color: var(--color-dark);
+  background-color: var(--color-red);
+  color: white;
 }
-button.delete-document:hover,
-button.follow-button:hover,
-button.close-project:hover {
-  text-decoration: underline;
-}
+
 button.delete-document:active,
 button.follow-project:active,
 button.close-project:active {
@@ -158,13 +150,10 @@ button.close-project:active {
 }
 
 button#org-name {
-  background-color: var(--color-dark);
+  background-color: var(--color-light);
   font-size: 1.2rem;
   height: 60px;
   margin-left: 0;
-}
-button#profile:hover {
-  text-decoration: underline;
 }
 
 input {
@@ -188,11 +177,12 @@ input {
 }
 
 button#is-selected-line {
-  border-bottom: 2px solid var(--color-superdark);
+  border-bottom: 2px solid black;
 }
 textarea {
   background-color: var(--color-superlight);
   padding: 0.5rem;
+  border: none;
 }
 
 .projects-container #empty-text {
