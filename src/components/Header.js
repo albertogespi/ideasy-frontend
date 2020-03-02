@@ -15,7 +15,7 @@ export function Header({ isAccessWindow }) {
           <div id="logo"></div>
           <a href="/">
             <button
-              id="logo-home"
+              id={isAccessWindow ? "logo-access" : "logo-home"}
               aria-label="Portal de Ideas. Click para ir a inicio."
             ></button>
           </a>

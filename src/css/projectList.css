@@ -21,7 +21,7 @@
 
 .project-miniature {
   display: grid;
-  grid-template-columns: 9rem 20rem;
+  grid-template-columns: 9rem 17rem;
   border: 2px solid var(--color-light);
   background-color: var(--color-superlight);
   margin: 0.5rem;
@@ -102,7 +102,7 @@
 #main-content-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 #project-data {
@@ -132,7 +132,7 @@ section.projectList .project-miniature div#complexity-category {
 
 .projectList p.category {
   color: var(--color-medium);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   padding: 0;
 }
 
@@ -168,6 +168,9 @@ section.projectList .project-miniature div#complexity-category {
 }
 
 h2.project-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   word-wrap: break-word;
+}
+p#project-description {
+  font-size: 1rem;
 }
