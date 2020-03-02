@@ -4,11 +4,19 @@
   padding: 0.5rem;
 }
 
-#logo-home {
+#logo-access {
   background-image: url("../images/white-logo.jpg");
   background-size: cover;
   padding: 2.5rem;
   margin-left: 0;
+}
+
+#logo-home {
+  background-image: url("../images/final-logo.png");
+  background-size: cover;
+  padding: 2.5rem;
+  margin-left: 0;
+  background-color: transparent;
 }
 
 div.header {
@@ -125,9 +133,8 @@ button#search-result {
   background-color: transparent;
 }
 button#search-result:hover {
-  /* background-color: rgb(239, 125, 108); */
-  background-color: var(--color-blue);
-  /* background-color: rgb(67, 127, 151); */
+  /* background-color: var(--color-blue); */
+  background-color: var(--color-light);
 }
 button#search-result p {
   padding-left: 0.5rem;
