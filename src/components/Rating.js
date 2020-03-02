@@ -15,7 +15,7 @@ export function SimpleRating({ readOnly, value, docId }) {
   if (rating !== undefined) {
     if (readOnly) {
       return (
-        <div classname="stars-rating">
+        <div>
           <Rating
             name="read-only"
             precision={0.5}

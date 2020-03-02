@@ -56,7 +56,7 @@ form#org-view-project {
   flex-direction: row;
 }
 
-.project label {
+.project li.top-middle form#org-view-project label {
   margin: 0.5rem 0;
   text-align: start;
   font-size: var(--font-m);

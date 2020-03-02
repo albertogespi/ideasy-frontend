@@ -38,7 +38,7 @@ section#user-container h1 {
 
 section#user-container .MuiRating-root {
   padding: 1rem;
-  background-color: var(--color-medium);
+  background-color: var(--color-superdark);
   color: var(--color-dark);
   border-radius: 10px;
 }
