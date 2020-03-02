@@ -62,7 +62,7 @@ export function OrgProject({ project }) {
                   : " seguidores"}
               </p>
             </li>
-            <li id="selects">
+            <li>
                 <Selects isFilters={false} selectsState={selectsState} setSelectsState={setSelectsState}/>
             </li>
           </ul>

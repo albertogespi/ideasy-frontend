@@ -17,6 +17,13 @@ h2 {
   height: 100%;
 }
 
+.home-body {
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	width: 100%;
+}
+
 .centered-container {
   display: flex;
   flex-direction: column;
@@ -75,6 +82,19 @@ img {
   height: 25px;
   width: 25px;
   margin-right: 5px;
+}
+
+#spinner.centered-container{
+  height: 100vh;
+}
+
+#spinner .MuiCircularProgress-colorPrimary{
+  color: var(--color-red);
+}
+
+#submit-button-div{
+  display: flex;
+  justify-content: center;
 }
 
 button {

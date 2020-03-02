@@ -27,10 +27,3 @@ section.home-image p.second {
 	background-color: rgba(10, 10, 10, 0.6);
 	word-wrap: wrap;
 }
-
-section#home-body {
-	display: flex;
-	flex-direction: column;
-	overflow: auto;
-	width: 100%;
-}

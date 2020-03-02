@@ -8,6 +8,8 @@ import { ProjectList } from "../components/ProjectList";
 import { getHomeProjects } from "../http/homeService";
 import { Footer } from "../components/Footer";
 
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 const MOST_RECENT_BUTTON = true;
 const MOST_FOLLOWED_BUTTON = false;
 
@@ -17,7 +19,7 @@ export function Home() {
     complexity: '',
   });
 
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(undefined);
 
   const [buttonSelected, setButtonSelected] = useState(MOST_RECENT_BUTTON);
 
@@ -47,10 +49,11 @@ export function Home() {
   }, [selectsState, buttonSelected]);
 
   if (projects !== undefined) {
+    console.log(projects);
     return (
       <section className="container">
         <Header isAccessWindow={false} />
-        <section id="home-body">
+        <section className="home-body">
           <section className="home-image">
             <p className="first">
               Únete ya a Ideasy, el portal de ideas de software
@@ -104,7 +107,7 @@ export function Home() {
       </section>
     );
   } else {
-    return <p>Internet va lento, espere</p>;
+    return <div className="centered-container" id="spinner"><CircularProgress size={60}/></div>
   }
 }
 

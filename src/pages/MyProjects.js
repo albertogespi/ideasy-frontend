@@ -15,6 +15,7 @@ import {
 	getNumberOfContributions,
 } from "../http/projectsService";
 import { SimpleRating } from "../components/Rating";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export function MyProjects() {
 	const { jwt } = useAuth();
@@ -137,6 +138,6 @@ export function MyProjects() {
 			</section>
 		);
 	} else {
-		return <p>Internet va lento, espere</p>;
+		return <div className="centered-container" id="spinner"><CircularProgress size={60}/></div>;
 	}
 }

@@ -21,17 +21,10 @@ import { SimpleRating } from "../components/Rating";
 import { Footer } from "../components/Footer";
 import { convertISOtoDate } from "../functions/convertISOtoDate";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { withStyles } from '@material-ui/core/styles';
 
 const DEVELOPER_VIEW = 2;
 const OWNER_VIEW = 1;
 const ONLY_READ_VIEW = 0;
-
-const ColorCircularProgress = withStyles({
-	root: {
-	  color: '#fd151b',
-	},
-  })(CircularProgress);
 
 export function Project() {
 	const { register, formState, handleSubmit } = useForm({
@@ -261,7 +254,7 @@ export function Project() {
 											>
 												Subir archivo
 											</button>
-											{isCharging && <div><ColorCircularProgress size={30}/></div>}
+											{isCharging && <div id="spinner"><CircularProgress size={30}/></div>}
 										</form>
 									)}
 								</section>
@@ -341,6 +334,6 @@ export function Project() {
 			</section>
 		);
 	} else {
-		return <p>Cargando proyecto...</p>;
+		return <div className="centered-container" id="spinner"><CircularProgress size={60}/></div>;
 	}
 }

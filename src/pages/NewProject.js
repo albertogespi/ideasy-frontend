@@ -53,11 +53,11 @@ export function NewProject() {
   };
 
   return (
-    <section className="container" id="new-project-screen">
+    <section className="container" id="newProject">
       <Header isAccessWindow={false} />
-      <main className="centered-container" id="background">
+      <main className="home-body">
+      <section className="centered-container">
         <form
-          className="newProject"
           onSubmit={handleSubmit(data => handleNewProyect(data))}
         >
           <h1>Nuevo Proyecto</h1>
@@ -112,7 +112,7 @@ export function NewProject() {
           <fieldset>
             <Selects isFilters={false} selectsState={selectsState} setSelectsState={setSelectsState} />
           </fieldset>
-          <div>
+          <div id="submit-button-div">
             <button
               className="form"
               type="submit"
@@ -122,6 +122,7 @@ export function NewProject() {
             </button>
           </div>
         </form>
+      </section>
       </main>
       <Footer />
     </section>

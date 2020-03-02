@@ -39,9 +39,9 @@ export function Selects({isFilters, selectsState, setSelectsState}){
   };
 
   return (
-    <section className={isFilters ? "filters" : ""}>
+    <section className={isFilters ? "filters" : "selects"}>
         {isFilters && <h2>Filtrar proyectos por</h2>}
-        <section id="filters-selects">
+        <section>
           <FormControl className={classes.formControl}>
             <InputLabel id="category" htmlFor="category-native-helper">Categoría</InputLabel>
             <Select

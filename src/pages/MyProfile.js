@@ -5,12 +5,14 @@ import { useAuth } from "../context/authContext";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { getProfile, updateProfile, uploadAvatar } from "../http/userService";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export function MyProfile() {
-	//esta parte gestiona cambiar el avatar
 
+	//esta parte gestiona cambiar el avatar
 	const [file, setFile] = useState();
 	const [isEmpty, setIsEmpty] = useState(true);
+	const [isCharging, setIsCharging] = useState(false);
 
 	const handleChange = (e) => {
 		console.log(e.target.files);
@@ -25,6 +27,7 @@ export function MyProfile() {
 
 		const data = new FormData();
 		data.append("avatar", file[0]);
+		setIsCharging(true);
 		uploadAvatar(data)
 			.then((response) => {
 				setFile(null);
@@ -33,6 +36,7 @@ export function MyProfile() {
 					localStorage.setItem("profileUser", JSON.stringify(response.data));
 					window.location.reload();
 				});
+				setIsCharging(false);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -82,7 +86,7 @@ export function MyProfile() {
 	return (
 		<section className='container' id='myProfile'>
 			<Header />
-			<section id='home-body'>
+			<section className='home-body'>
 				<section className='centered-container'>
 					<div className='centered-container' id='myProfile-top'>
 						<Link className='centered-container' to={`/user/${jwt.userId}`}>
@@ -96,7 +100,7 @@ export function MyProfile() {
 							<h1 className='profile-name'>{user.name}</h1>
 						</Link>
 
-						<div>
+						<div id="upload-profile-photo">
 							<label for='input-avatar' id='select-avatar'>
 								{file ? file[0].name : "Seleccionar foto"}
 							</label>
@@ -110,6 +114,7 @@ export function MyProfile() {
 							>
 								Cambiar foto
 							</button>
+							{isCharging && <div id="spinner"><CircularProgress size={30}/></div>}
 						</div>
 					</div>
 				</section>
@@ -208,13 +213,13 @@ export function MyProfile() {
 									></input>
 								</li>
 								<li>
-									<label for='contact-web'>Página web</label>
+									<label for='contact-web'>Web</label>
 									<input
 										type='url'
 										id='contact-web'
 										name='contactWeb'
 										defaultValue={user.contactWeb === "NULL" ? "" : user.contactWeb}
-										placeholder='Introduzca su página web, perfil de Linkedin...'
+										placeholder='Introduzca página web, LinkedIn...'
 										ref={register}
 									></input>
 								</li>

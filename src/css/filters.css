@@ -7,3 +7,9 @@
 .filters h2 {
   padding-left: 0.5rem;
 }
+
+.selects{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

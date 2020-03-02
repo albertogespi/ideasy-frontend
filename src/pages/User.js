@@ -14,6 +14,7 @@ import {
   getNumberOfContributions
 } from "../http/projectsService";
 import { Footer } from "../components/Footer";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export function User() {
   const userId = window.location.href.split("/")[4];
@@ -167,6 +168,6 @@ export function User() {
       </section>
     );
   } else {
-    return <p>Cargando datos de usuario...</p>;
+    return <div className="centered-container" id="spinner"><CircularProgress size={60}/></div>;
   }
 }

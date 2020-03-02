@@ -1,39 +1,32 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-section#total-screen {
+#accessWindow{
   background-image: url("../images/fondo.jpeg");
   background-size: cover;
-  height: 100vh;
 }
 
-section#access-form {
+#access-form {
   border-radius: 10px;
   background-color: var(--color-dark);
   width: 400px;
-  margin-bottom: 5rem;
+  margin: 3rem 0;
 }
 
-.accessWindow fieldset#roles {
+#access-form header {
+  padding: 1.5rem 0 1rem 0;
+}
+
+#access-form fieldset ul{
+  align-items: center;
+}
+
+#access-form fieldset#roles {
   background-color: var(--color-dark);
   margin-top: 1.2rem;
   width: 400px;
 }
 
-.accessWindow {
-  font-family: "Roboto", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-}
-
-.accessWindow section header {
-  padding: 1.5rem 0 1rem 0;
-}
-
-.accessWindow fieldset#roles ul {
+#access-form fieldset#roles ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -41,7 +34,7 @@ section#access-form {
   padding: 1rem;
 }
 
-.accessWindow input {
+#access-form input {
   border: none;
 }
 
@@ -60,4 +53,8 @@ input#org {
 div#access {
   border-bottom: 1px solid var(--color-superdark);
   padding-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

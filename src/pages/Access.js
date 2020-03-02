@@ -67,14 +67,15 @@ export function AccessWindow() {
 	const [isOrg, setIsOrg] = useState(false);
 
 	return (
-		<section className='container' id='total-screen'>
+		<section className='container' id='accessWindow'>
 			<Header isAccessWindow={true} />
-			<main className='accessWindow'>
-				<section className='centered-container' id='access-form'>
+			<main className='home-body'>
+				<section className='centered-container'>
+				<section id='access-form' className="centered-container">
 					<header>
 						<h1>{isRegisterWindow ? "REGÍSTRATE" : "ACCEDE"}</h1>
 					</header>
-					<div className='centered-container' id='access'>
+					<div id='access'>
 						<p>¿{isRegisterWindow ? "Ya" : "No"} tienes una cuenta?</p>
 						<button className='gray' onClick={changeWindow}>
 							{isRegisterWindow ? "ACCEDER A MI CUENTA" : "REGISTRARME"}
@@ -192,12 +193,13 @@ export function AccessWindow() {
 								</li>
 							</ul>
 						</fieldset>
-						<div>
+						<div id="submit-button-div">
 							<button className='form' type='submit' disabled={formState.isSubmitting}>
 								{isRegisterWindow ? "CREAR CUENTA" : "ACCEDER"}
 							</button>
 						</div>
 					</form>
+				</section>
 				</section>
 			</main>
 			<Footer />
