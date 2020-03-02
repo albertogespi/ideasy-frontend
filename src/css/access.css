@@ -5,11 +5,14 @@
   background-size: cover;
 }
 
+#accessWindow .home-body > .centered-container{
+  height: 100%;
+}
+
 #access-form {
   border-radius: 10px;
   background-color: var(--color-dark);
   width: 400px;
-  margin: 3rem 0;
 }
 
 #access-form header {
