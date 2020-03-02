@@ -137,7 +137,7 @@ section.projectList .project-miniature div#complexity-category {
 }
 
 .projectList .project-miniature div#easy p {
-  background-color: var(--color-green);
+  background-color: var(--color-green2);
 }
 .projectList .project-miniature div#medium p {
   background-color: var(--color-dark);
