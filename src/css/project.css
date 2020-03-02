@@ -56,7 +56,8 @@ form#org-view-project {
   flex-direction: row;
 }
 
-.project li > label, #details-label {
+.project li > label,
+#details-label {
   margin: 0.5rem 0;
   text-align: start;
   font-size: var(--font-m);

@@ -1,20 +1,27 @@
 #new-project {
-	height: 70px;
-	width: 70px;
-	background-image: url("../images/new.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-color: var(--color-dark);
+  height: 70px;
+  width: 70px;
+  background-image: url("../images/new.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--color-dark);
 }
 
 #my-projects-rating {
-	margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 #myProjects .projects-container {
-	min-height: 545px;
+  min-height: 545px;
 }
 
 #myProjects .MuiRating-root {
-	color: var(--color-dark);
+  padding: 1rem;
+  background-color: var(--color-superdark);
+  color: var(--color-dark);
+  border-radius: 10px;
+}
+
+#myProjects .MuiRating-iconEmpty {
+  color: var(--color-medium);
 }

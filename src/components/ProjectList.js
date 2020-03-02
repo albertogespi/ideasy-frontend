@@ -42,7 +42,7 @@ export function ProjectList({ projects }) {
                   <div id="main-content-header">
                     <div id="complexity-category">
                       <div
-                        className={
+                        id={
                           project.complexity === 1
                             ? "easy"
                             : project.complexity === 2
@@ -50,7 +50,13 @@ export function ProjectList({ projects }) {
                             : "hard"
                         }
                       >
-                        <p></p>
+                        <p>
+                          {project.complexity === 1
+                            ? "F"
+                            : project.complexity === 2
+                            ? "M"
+                            : "D"}
+                        </p>
                       </div>
                       <p className="category">{project.category}</p>
                     </div>
