@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Filters } from "../components/Filters";
+import { Selects} from "../components/Selects";
 import { Header } from "../components/Header";
 import { getAvgRatings } from "../http/projectsService";
 import { SimpleRating } from "../components/Rating";
@@ -16,18 +16,6 @@ import {
 import { Footer } from "../components/Footer";
 
 export function User() {
-  const categories = [
-    "Todas",
-    "Blog",
-    "Corporativa",
-    "e-Commerce",
-    "e-Learning",
-    "Noticias",
-    "Wikis"
-  ];
-
-  const complexities = ["Todas", "Fácil", "Medio", "Difícil"];
-
   const userId = window.location.href.split("/")[4];
   const [user, setUser] = useState(undefined);
   const [isOrgProfile, setIsOrgProfile] = useState(undefined);
@@ -44,7 +32,7 @@ export function User() {
   const [buttonSelected, setButtonSelected] = useState(true);
 
   //filters
-  const [filtersState, setFiltersState] = useState({
+  const [selectsState, setSelectsState] = useState({
     category: "",
     complexity: ""
   });
@@ -53,16 +41,16 @@ export function User() {
 
   let historyQuery = "";
   const updateQuery = () => {
-    console.log(filtersState);
-    if (filtersState.category !== "") {
-      historyQuery += `/?category=${filtersState.category}`;
+    console.log(selectsState);
+    if (selectsState.category !== "") {
+      historyQuery += `/?category=${selectsState.category}`;
     }
 
-    if (filtersState.complexity !== "") {
+    if (selectsState.complexity !== "") {
       if (historyQuery === "") {
-        historyQuery += `/?complexity=${filtersState.complexity}`;
+        historyQuery += `/?complexity=${selectsState.complexity}`;
       } else {
-        historyQuery += `&complexity=${filtersState.complexity}`;
+        historyQuery += `&complexity=${selectsState.complexity}`;
       }
     }
 
@@ -94,7 +82,7 @@ export function User() {
         setContributedProjects(response.data)
       );
     }
-  }, [isOrgProfile, filtersState, buttonSelected]);
+  }, [isOrgProfile, selectsState, buttonSelected]);
 
   if (
     user !== undefined &&
@@ -154,9 +142,10 @@ export function User() {
             </section>
           </div>
           <section className="projects">
-            <Filters
-              filtersState={filtersState}
-              setFiltersState={setFiltersState}
+            <Selects
+            isFilters={true} 
+              selectsState={selectsState}
+              setSelectsState={setSelectsState}
             />
             {isOrgProfile ? (
               <MyProjectsOrg

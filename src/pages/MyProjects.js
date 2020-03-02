@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Filters } from "../components/Filters";
+import { Selects } from "../components/Selects";
 import { useAuth } from "../context/authContext";
 import { Header } from "../components/Header";
 import { MyProjectsOrg } from "../components/MyProjectsOrg";
@@ -21,18 +21,6 @@ export function MyProjects() {
 
 	let isOrgProfile = jwt.role === "org";
 
-	const categories = [
-		"Todas",
-		"Blog",
-		"Corporativa",
-		"e-Commerce",
-		"e-Learning",
-		"Noticias",
-		"Wikis",
-	];
-
-	const complexities = ["Todas", "Fácil", "Medio", "Difícil"];
-
 	const userId = window.location.href.split("/")[4];
 
 	//IsOrgProfile = true
@@ -47,7 +35,7 @@ export function MyProjects() {
 	const [buttonSelected, setButtonSelected] = useState(true);
 
 	//filters
-	const [filtersState, setFiltersState] = useState({
+	const [selectsState, setSelectsState] = useState({
 		category: '',
 		complexity: '',
 	  });
@@ -56,16 +44,16 @@ export function MyProjects() {
 
 	let historyQuery = "";
 	const updateQuery = () => {
-		console.log(filtersState);
-		  if (filtersState.category !== '') {
-			historyQuery += `/?category=${filtersState.category}`;
+		console.log(selectsState);
+		  if (selectsState.category !== '') {
+			historyQuery += `/?category=${selectsState.category}`;
 		  }
 	  
-		  if (filtersState.complexity !== '') {
+		  if (selectsState.complexity !== '') {
 			if (historyQuery === "") {
-			  historyQuery += `/?complexity=${filtersState.complexity}`;
+			  historyQuery += `/?complexity=${selectsState.complexity}`;
 			} else {
-			  historyQuery += `&complexity=${filtersState.complexity}`;
+			  historyQuery += `&complexity=${selectsState.complexity}`;
 			}
 		  }
 	  
@@ -93,7 +81,7 @@ export function MyProjects() {
 		getNumberOfContributions(userId).then((response) => {
 			setNumberOfContributions(response.data);
 		});
-	}, [filtersState, buttonSelected]);
+	}, [selectsState, buttonSelected]);
 
 	if (
 		orgProjects !== undefined &&
@@ -105,7 +93,7 @@ export function MyProjects() {
 			<section id='myProjects' className='container'>
 				<Header isAccessWindow={false} />
 				<main className='body'>
-					<Filters filtersState={filtersState} setFiltersState={setFiltersState}/>
+					<Selects isFilters={true} selectsState={selectsState} setSelectsState={setSelectsState}/>
 					{isOrgProfile ? (
 						<section className='projects-container'>
 							<div className='centered-container' id='new-project-button'>

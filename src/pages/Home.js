@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 
 import { Header } from "../components/Header";
-import { Filters } from "../components/Filters";
+import { Selects } from "../components/Selects";
 import { ProjectList } from "../components/ProjectList";
 
 import { getHomeProjects } from "../http/homeService";
@@ -12,7 +12,7 @@ const MOST_RECENT_BUTTON = true;
 const MOST_FOLLOWED_BUTTON = false;
 
 export function Home() {
-  const [filtersState, setFiltersState] = useState({
+  const [selectsState, setselectsState] = useState({
     category: '',
     complexity: '',
   });
@@ -25,16 +25,16 @@ export function Home() {
 
   let historyQuery = "";
   const updateQuery = () => {
-    console.log(filtersState);
-      if (filtersState.category !== '') {
-        historyQuery += `/?category=${filtersState.category}`;
+    console.log(selectsState);
+      if (selectsState.category !== '') {
+        historyQuery += `/?category=${selectsState.category}`;
       }
   
-      if (filtersState.complexity !== '') {
+      if (selectsState.complexity !== '') {
         if (historyQuery === "") {
-          historyQuery += `/?complexity=${filtersState.complexity}`;
+          historyQuery += `/?complexity=${selectsState.complexity}`;
         } else {
-          historyQuery += `&complexity=${filtersState.complexity}`;
+          historyQuery += `&complexity=${selectsState.complexity}`;
         }
       }
   
@@ -44,7 +44,7 @@ export function Home() {
   useEffect(() => {
     updateQuery();
     getHomeProjects(historyQuery).then(response => setProjects(response.data));
-  }, [filtersState, buttonSelected]);
+  }, [selectsState, buttonSelected]);
 
   if (projects !== undefined) {
     return (
@@ -62,7 +62,7 @@ export function Home() {
             </p>
           </section>
           <main className="projects">
-            <Filters filtersState={filtersState} setFiltersState={setFiltersState}/>
+            <Selects isFilters={true} selectsState={selectsState} setSelectsState={setselectsState}/>
             <section className="projects-container">
               <section className="selectors">
                 <button

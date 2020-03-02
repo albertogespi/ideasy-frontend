@@ -20,10 +20,18 @@ import { Link } from "react-router-dom";
 import { SimpleRating } from "../components/Rating";
 import { Footer } from "../components/Footer";
 import { convertISOtoDate } from "../functions/convertISOtoDate";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { withStyles } from '@material-ui/core/styles';
 
 const DEVELOPER_VIEW = 2;
 const OWNER_VIEW = 1;
 const ONLY_READ_VIEW = 0;
+
+const ColorCircularProgress = withStyles({
+	root: {
+	  color: '#fd151b',
+	},
+  })(CircularProgress);
 
 export function Project() {
 	const { register, formState, handleSubmit } = useForm({
@@ -253,7 +261,7 @@ export function Project() {
 											>
 												Subir archivo
 											</button>
-											{isCharging && <div id='spinner'></div>}
+											{isCharging && <div><ColorCircularProgress size={30}/></div>}
 										</form>
 									)}
 								</section>

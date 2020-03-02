@@ -28,45 +28,46 @@ const categories = [
 
 const complexities = ["Fácil", "Medio", "Difícil"];
 
-export function Filters({filtersState, setFiltersState}){
+export function Selects({isFilters, selectsState, setSelectsState}){
   const classes = useStyles();
 
   const handleChange = name => event => {
-    console.log(event.target.value);
-    setFiltersState({
-      ...filtersState,
+    setSelectsState({
+      ...selectsState,
       [name]: event.target.value,
     });
   };
 
   return (
-    <section className="filters">
-        <h2>Filtrar proyectos por</h2>
+    <section className={isFilters ? "filters" : ""}>
+        {isFilters && <h2>Filtrar proyectos por</h2>}
         <section id="filters-selects">
           <FormControl className={classes.formControl}>
-            <InputLabel id="categoría" htmlFor="category-native-helper">Categoría</InputLabel>
+            <InputLabel id="category" htmlFor="category-native-helper">Categoría</InputLabel>
             <Select
-            labelId="categoría"
-              value={filtersState.category}
+            labelId="category"
+              value={selectsState.category}
               onChange={handleChange('category')}
             >
-              <MenuItem value={''}>Todas</MenuItem>
+              {isFilters && <MenuItem value={''}>Todas</MenuItem>}
               {categories.map((cat, index) =>( <MenuItem key={index} value={cat}>{cat}</MenuItem>))}
             </Select>
-            <FormHelperText>Selecciona una categoría</FormHelperText>
+            {isFilters && <FormHelperText>Selecciona una categoría</FormHelperText>}
+            {selectsState.category === null && <FormHelperText error>La categoría es obligatoria</FormHelperText>}
           </FormControl>
 
           <FormControl className={classes.formControl}>
-            <InputLabel id="complejidad" htmlFor="complexity-native-helper">Complejidad</InputLabel>
+            <InputLabel id="complexity" htmlFor="complexity-native-helper">Complejidad</InputLabel>
             <Select
-            labelId="complejidad"
-              value={filtersState.complexity}
+            labelId="complexity"
+              value={selectsState.complexity}
               onChange={handleChange('complexity')}
             >
-              <MenuItem value={''}>Todas</MenuItem>
+              {isFilters && <MenuItem value={''}>Todas</MenuItem>}
               {complexities.map((com, index) =>( <MenuItem key={index} value={index+1}>{com}</MenuItem>))}
             </Select>
-            <FormHelperText>Selecciona una complejidad</FormHelperText>
+            {isFilters && <FormHelperText>Selecciona una complejidad</FormHelperText>}
+            {selectsState.complexity === null && <FormHelperText error>La complejidad es obligatoria</FormHelperText>}
           </FormControl>
         </section>
     </section>

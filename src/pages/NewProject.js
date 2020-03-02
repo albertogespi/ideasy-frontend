@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import { Header } from "../components/Header";
 import { createProject } from "../http/projectsService";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { Footer } from "../components/Footer";
+import { Selects } from "../components/Selects";
 
 export function NewProject() {
   const { jwt } = useAuth();
@@ -22,8 +23,26 @@ export function NewProject() {
 
   const history = useHistory();
 
+  const [selectsState, setSelectsState] = useState({
+    category: '',
+    complexity: '',
+  });
+
   const handleNewProyect = formData => {
-    return createProject(formData)
+    if(selectsState.category === ''){
+      setSelectsState({...selectsState,
+        ['category']: null})
+        return;
+    }
+
+    if(selectsState.complexity === ''){
+      setSelectsState({...selectsState,
+        ['complexity']: null})
+        return;
+    }
+
+    const fullForm = {...formData, ...selectsState};
+    return createProject(fullForm)
       .then(response => {
         history.push(`/my-projects/${jwt.userId}`);
       })
@@ -91,53 +110,7 @@ export function NewProject() {
             </ul>
           </fieldset>
           <fieldset>
-            <ul>
-              <li>
-                <label for="category">Categoría</label>
-                <select
-                  className="select-css"
-                  name="category"
-                  id="category"
-                  ref={register({
-                    required: "La categoría es obligatoria"
-                  })}
-                >
-                  <option value="">Selecciona...</option>
-                  <option value="Blog">Blog</option>
-                  <option value="e-Commerce">e-Commerce</option>
-                  <option value="e-Learning">e-Learning</option>
-                  <option value="Corporativa">Corporativa</option>
-                  <option value="Noticias">Noticias</option>
-                  <option value="Wikis">Wikis</option>
-                </select>
-                {errors.category && (
-                  <span className="errorMessage">
-                    {errors.category.message}
-                  </span>
-                )}
-              </li>
-              <li>
-                <label for="complexity">Complejidad</label>
-                <select
-                  className="select-css"
-                  name="complexity"
-                  id="complexity"
-                  ref={register({
-                    required: "La complejidad es obligatoria"
-                  })}
-                >
-                  <option value="">Selecciona...</option>
-                  <option value="1">Fácil</option>
-                  <option value="2">Medio</option>
-                  <option value="3">Difícil</option>
-                </select>
-                {errors.complexity && (
-                  <span className="errorMessage">
-                    {errors.complexity.message}
-                  </span>
-                )}
-              </li>
-            </ul>
+            <Selects isFilters={false} selectsState={selectsState} setSelectsState={setSelectsState} />
           </fieldset>
           <div>
             <button

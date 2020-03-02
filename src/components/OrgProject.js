@@ -1,26 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import { updateProject } from "../http/projectService";
 import { convertISOtoDate } from "../functions/convertISOtoDate";
+import { Selects } from "./Selects";
 
 export function OrgProject({ project }) {
-  const categories = [
-    "Blog",
-    "e-Commerce",
-    "e-Learning",
-    "Corporativa",
-    "Noticias",
-    "Wikis"
-  ];
-
-  const complexities = ["Fácil", "Medio", "Difícil"];
-
   const { register, formState, handleSubmit } = useForm({
     mode: "onBlur"
   });
 
+  const [selectsState, setSelectsState] = useState({
+    category: project.category,
+    complexity: project.complexity,
+  });
+
   const handleUpdateProject = formData => {
-    updateProject(formData, project.project_id);
+    const fullForm = {...formData, ...selectsState};
+    updateProject(fullForm, project.project_id);
   };
 
   return (
@@ -67,46 +63,7 @@ export function OrgProject({ project }) {
               </p>
             </li>
             <li id="selects">
-              <label for="category">Categoría</label>
-              <select
-                className="select-css"
-                name="category"
-                id="category"
-                ref={register({
-                  required: "La categoría es obligatoria"
-                })}
-              >
-                <option>Selecciona...</option>
-                {categories.map((category, index) => (
-                  <option
-                    selected={project.category === category}
-                    value={category}
-                  >
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </li>
-            <li id="selects">
-              <label for="complexity">Complejidad</label>
-              <select
-                className="select-css"
-                name="complexity"
-                id="complexity"
-                ref={register({
-                  required: "La complejidad es obligatoria"
-                })}
-              >
-                <option>Selecciona...</option>
-                {complexities.map((complexity, index) => (
-                  <option
-                    selected={project.complexity === index + 1}
-                    value={index + 1}
-                  >
-                    {complexity}
-                  </option>
-                ))}
-              </select>
+                <Selects isFilters={false} selectsState={selectsState} setSelectsState={setSelectsState}/>
             </li>
           </ul>
         </section>
