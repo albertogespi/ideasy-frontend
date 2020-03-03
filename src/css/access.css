@@ -7,12 +7,14 @@
 
 #accessWindow .home-body > .centered-container{
   height: 100%;
+  justify-content: stretch;
 }
 
 #access-form {
   border-radius: 10px;
   background-color: var(--color-dark);
   width: 400px;
+  margin: auto auto;
 }
 
 #access-form header {
@@ -51,6 +53,8 @@ input#org {
 .errorMessage {
   color: red;
   display: block;
+  word-wrap: break-word;
+  max-width: 250px;
 }
 
 div#access {
