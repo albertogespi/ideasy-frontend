@@ -8,15 +8,15 @@ import { ProjectList } from "../components/ProjectList";
 import { getHomeProjects } from "../http/homeService";
 import { Footer } from "../components/Footer";
 
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const MOST_RECENT_BUTTON = true;
 const MOST_FOLLOWED_BUTTON = false;
 
 export function Home() {
   const [selectsState, setselectsState] = useState({
-    category: '',
-    complexity: '',
+    category: "",
+    complexity: ""
   });
 
   const [projects, setProjects] = useState(undefined);
@@ -28,20 +28,20 @@ export function Home() {
   let historyQuery = "";
   const updateQuery = () => {
     console.log(selectsState);
-      if (selectsState.category !== '') {
-        historyQuery += `/?category=${selectsState.category}`;
+    if (selectsState.category !== "") {
+      historyQuery += `/?category=${selectsState.category}`;
+    }
+
+    if (selectsState.complexity !== "") {
+      if (historyQuery === "") {
+        historyQuery += `/?complexity=${selectsState.complexity}`;
+      } else {
+        historyQuery += `&complexity=${selectsState.complexity}`;
       }
-  
-      if (selectsState.complexity !== '') {
-        if (historyQuery === "") {
-          historyQuery += `/?complexity=${selectsState.complexity}`;
-        } else {
-          historyQuery += `&complexity=${selectsState.complexity}`;
-        }
-      }
-  
-      history.push(historyQuery);
-    };
+    }
+
+    history.push(historyQuery);
+  };
 
   useEffect(() => {
     updateQuery();
@@ -65,7 +65,11 @@ export function Home() {
             </p>
           </section>
           <main className="projects">
-            <Selects isFilters={true} selectsState={selectsState} setSelectsState={setselectsState}/>
+            <Selects
+              isFilters={true}
+              selectsState={selectsState}
+              setSelectsState={setselectsState}
+            />
             <section className="projects-container">
               <section className="selectors">
                 <button
@@ -107,7 +111,11 @@ export function Home() {
       </section>
     );
   } else {
-    return <div className="centered-container" id="spinner"><CircularProgress size={60}/></div>
+    return (
+      <div className="centered-container" id="spinner">
+        <CircularProgress size={60} />
+      </div>
+    );
   }
 }
 
