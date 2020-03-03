@@ -129,10 +129,19 @@ form#org-view-project {
 
 #bottom {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 1rem;
+}
+
+#project #bottom #spinner {
+  margin: 0.5em;
+}
+
+#project #bottom p{
+  color: var(--color-medium);
+  font-size: var(--font-sm);
 }
 
 .contributions-title {

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { updateProject } from "../http/projectService";
 import { convertISOtoDate } from "../functions/convertISOtoDate";
 import { Selects } from "./Selects";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export function OrgProject({ project }) {
   const { register, formState, handleSubmit } = useForm({
@@ -13,10 +14,12 @@ export function OrgProject({ project }) {
     category: project.category,
     complexity: project.complexity,
   });
+  const [isCharging, setIsCharging] = useState(undefined);
 
   const handleUpdateProject = formData => {
     const fullForm = {...formData, ...selectsState};
-    updateProject(fullForm, project.project_id);
+    setIsCharging(true);
+    updateProject(fullForm, project.project_id).finally(() => setIsCharging(false));
   };
 
   return (
@@ -91,6 +94,8 @@ export function OrgProject({ project }) {
         >
           Guardar cambios
         </button>
+        {isCharging && <div id="spinner"><CircularProgress size={30}/></div>}
+        {isCharging === false && <p>¡Cambios guardados!</p>}
       </section>
     </form>
   );
