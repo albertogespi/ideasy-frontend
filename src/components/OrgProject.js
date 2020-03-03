@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { updateProject } from "../http/projectService";
 import { convertISOtoDate } from "../functions/convertISOtoDate";
@@ -11,11 +11,11 @@ export function OrgProject({ project }) {
 
   const [selectsState, setSelectsState] = useState({
     category: project.category,
-    complexity: project.complexity,
+    complexity: project.complexity
   });
 
   const handleUpdateProject = formData => {
-    const fullForm = {...formData, ...selectsState};
+    const fullForm = { ...formData, ...selectsState };
     updateProject(fullForm, project.project_id);
   };
 
@@ -30,6 +30,7 @@ export function OrgProject({ project }) {
                 type="text"
                 id="title"
                 name="title"
+                maxLength="45"
                 defaultValue={project.title}
                 ref={register({
                   required: "El título es obligatorio"
@@ -41,6 +42,7 @@ export function OrgProject({ project }) {
               <textarea
                 id="description"
                 name="description"
+                maxLength="255"
                 defaultValue={project.description}
                 ref={register({
                   required: "El resumen es obligatorio"
@@ -63,7 +65,11 @@ export function OrgProject({ project }) {
               </p>
             </li>
             <li>
-                <Selects isFilters={false} selectsState={selectsState} setSelectsState={setSelectsState}/>
+              <Selects
+                isFilters={false}
+                selectsState={selectsState}
+                setSelectsState={setSelectsState}
+              />
             </li>
           </ul>
         </section>
