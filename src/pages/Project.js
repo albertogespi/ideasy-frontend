@@ -152,9 +152,10 @@ export function Project() {
 		isFollower !== undefined
 	) {
 		return (
-			<section className='container'>
+			<section className='container' id='project'>
 				<Header isAccessWindow={false} />
-				<section className='project'>
+				<section className='home-body'>
+					<section className="centered-container">
 					<ul>
 						<li id='org-name-label'>
 							<Link to={`/user/${project.user_id}`}>
@@ -329,6 +330,7 @@ export function Project() {
 							)}
 						</li>
 					</ul>
+					</section>
 				</section>
 				<Footer />
 			</section>
