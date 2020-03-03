@@ -155,10 +155,7 @@ section.projectList .project-miniature div#complexity-category {
   width: 1.5rem;
   text-align: center;
 }
-.projectList .project-miniature div#medium p {
-  height: 25px;
-  width: 25px;
-}
+
 .project-miniature div#easy,
 .project-miniature div#medium,
 .project-miniature div#hard {
