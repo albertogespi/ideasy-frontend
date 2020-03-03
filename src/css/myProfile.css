@@ -27,7 +27,7 @@ section form#profile {
 
 #myProfile #myProfile-top,
 form#profile {
-  width: 500px;
+  width: 30rem;
   padding: 1rem 0 1rem 0;
 }
 
@@ -61,7 +61,7 @@ fieldset.profile ul li {
 
 #upload-profile-photo{
   display: grid;
-  grid-template-columns: 165px 130px 35px;
+  grid-template-columns: 10.5rem 8rem 2.5rem;
 }
 
 input#input-avatar {
@@ -78,7 +78,7 @@ label#select-avatar {
   display: inline-block;
   /* margin-right: 1.5rem; */
   word-wrap: break-word;
-  width: 140px;
+  width: 8.5rem;
   justify-self: end;
 }
 label#select-avatar:hover {

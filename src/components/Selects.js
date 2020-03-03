@@ -69,7 +69,7 @@ export function Selects({isFilters, selectsState, setSelectsState}){
             {isFilters && <FormHelperText>Selecciona una complejidad</FormHelperText>}
             {selectsState.complexity === null && <FormHelperText error>La complejidad es obligatoria</FormHelperText>}
           </FormControl>
-        </section>
+          </section>
     </section>
   );
 }

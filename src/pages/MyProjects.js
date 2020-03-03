@@ -138,6 +138,6 @@ export function MyProjects() {
 			</section>
 		);
 	} else {
-		return <div className="centered-container" id="spinner"><CircularProgress size={60}/></div>;
+		return <div className="centered-container" id="spinner"><CircularProgress size={'4rem'}/></div>;
 	}
 }

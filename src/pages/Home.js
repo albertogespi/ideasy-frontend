@@ -51,7 +51,7 @@ export function Home() {
   if (projects !== undefined) {
     console.log(projects);
     return (
-      <section className="container">
+      <section className="container" id="home">
         <Header isAccessWindow={false} />
         <section className="home-body">
           <section className="home-image">
@@ -113,7 +113,7 @@ export function Home() {
   } else {
     return (
       <div className="centered-container" id="spinner">
-        <CircularProgress size={60} />
+        <CircularProgress size={'4rem'} />
       </div>
     );
   }

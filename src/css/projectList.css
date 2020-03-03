@@ -26,7 +26,7 @@
   background-color: var(--color-superlight);
   margin: 0.5rem;
 
-  height: 280px;
+  height: 17.5rem;
   overflow: hidden;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -39,7 +39,7 @@
 .project-miniature > :first-child {
   align-items: center;
   justify-content: space-between;
-  height: 280px;
+  height: 17.5rem;
 }
 
 .project-miniature > div {
@@ -121,7 +121,7 @@
 
 section.projectList p#org-name {
   padding: 0.1rem;
-  width: 125px;
+  width: 9rem;
 }
 
 section.projectList .project-miniature div#complexity-category {
@@ -151,8 +151,8 @@ section.projectList .project-miniature div#complexity-category {
   padding: 0;
   border-radius: 50%;
   margin-right: 0.5rem;
-  height: 23px;
-  width: 23px;
+  height: 1.5rem;
+  width: 1.5rem;
   text-align: center;
 }
 .projectList .project-miniature div#medium p {

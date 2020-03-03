@@ -114,7 +114,7 @@ export function MyProfile() {
 							>
 								Cambiar foto
 							</button>
-							{isCharging && <div id="spinner"><CircularProgress size={30}/></div>}
+							{isCharging && <div id="spinner"><CircularProgress size={'2rem'}/></div>}
 						</div>
 					</div>
 				</section>

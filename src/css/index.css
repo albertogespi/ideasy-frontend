@@ -125,3 +125,21 @@ button {
 .select-css option {
   font-weight: normal;
 }
+
+@media (max-width: 835px) {
+  html{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 740px) {
+  html{
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  html{
+    font-size: 10px;
+  }
+}

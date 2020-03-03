@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lemonada&display=swap");
 
-.access-header {
-  padding: 0.5rem;
-}
-
 #logo-access {
   background-image: url("../images/white-logo.jpg");
   background-size: cover;
@@ -19,47 +15,48 @@
   background-color: transparent;
 }
 
-div.header {
-  width: 470px;
-}
-
-input.search {
-  height: 2.2rem;
-  width: 250px;
-  border: 1px solid var(--color-superdark);
-  margin: 0 1rem 0 2rem;
+.access-header {
+  padding: 0.5rem;
 }
 
 .main-header {
-  display: flex;
   position: relative;
   width: 100%;
   box-shadow: 0 4px 12px 0 rgba(10, 10, 10, 0.5);
   background-color: var(--color-superlight);
-  justify-content: space-between;
   padding: 0.5rem;
+}
 
-  /*background: linear-gradient(-0.25turn, rgb(255, 116, 2), rgb(180, 0, 111));*/
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .main-header div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
 }
 
+input.search {
+  height: 2.2rem;
+  width: 16rem;
+  border: 1px solid var(--color-superdark);
+  margin: 0 1rem;
+}
+
+.header > nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .nav-row {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  width: 360px;
-}
-
-.nav-row li {
-  margin: 1.5rem 0 0 0;
-  padding: 0;
+  min-width: 23rem;
 }
 
 .nav-row li button {
@@ -74,6 +71,28 @@ input.search {
 .nav-row p {
   padding-bottom: 0;
   font-size: var(--font-sm);
+}
+
+.search-bar-mobile{
+  margin: 1rem 0 0 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid var(--color-light);
+}
+
+.search-results {
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-results > section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  padding: 1rem;
 }
 
 button#logout,
@@ -91,19 +110,6 @@ button#my-profile:hover {
 p.separator {
   padding: 0;
   color: var(--color-superdark);
-}
-
-.search-results {
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-}
-
-.search-results > section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 100%;
-  padding: 1rem;
 }
 
 section#projects-results,
@@ -127,7 +133,7 @@ button#search:hover {
 }
 
 button#search-result {
-  height: 60px;
+  height: 5rem;
   display: flex;
   flex-direction: row;
   background-color: transparent;
@@ -138,7 +144,14 @@ button#search-result:hover {
 }
 button#search-result p {
   padding-left: 0.5rem;
+  text-align: start;
 }
 button#access-button {
   background-color: var(--color-dark);
+}
+
+@media (max-width: 630px) {
+  .header > nav{
+    justify-content: flex-end;
+  }
 }

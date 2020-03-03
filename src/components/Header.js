@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Search } from "./Search";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import {useMatchMedia} from "../hooks/useMatchMedia";
 
 export function Header({ isAccessWindow }) {
+  const isMobile = useMatchMedia("(max-width:630px)");
+
   const [searchResults, setSearchResults] = useState(undefined);
 
   const { jwt, isAuth } = useAuth();
@@ -11,8 +14,8 @@ export function Header({ isAccessWindow }) {
   return (
     <header>
       <section className={isAccessWindow ? "access-header" : "main-header"}>
-        <div className="header">
-          <div id="logo"></div>
+        <section className="header">
+        <div>
           <a href="/">
             <button
               id={isAccessWindow ? "logo-access" : "logo-home"}
@@ -20,7 +23,7 @@ export function Header({ isAccessWindow }) {
             ></button>
           </a>
 
-          {!isAccessWindow && (
+          {!isAccessWindow && !isMobile && (
             <Search
               onSearch={results => setSearchResults(results)}
               onEmpty={value => {
@@ -80,6 +83,17 @@ export function Header({ isAccessWindow }) {
             </Link>
           </div>
         )}
+        </section>
+        {!isAccessWindow && isMobile && <section className="search-bar-mobile">
+            <Search
+              onSearch={results => setSearchResults(results)}
+              onEmpty={value => {
+                if (value === "") {
+                  setSearchResults(undefined);
+                }
+              }}
+            />
+      </section>}
       </section>
       {searchResults !== undefined && (
         <section className="search-results">

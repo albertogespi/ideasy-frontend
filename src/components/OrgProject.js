@@ -100,7 +100,7 @@ export function OrgProject({ project }) {
         >
           Guardar cambios
         </button>
-        {isCharging && <div id="spinner"><CircularProgress size={30}/></div>}
+        {isCharging && <div id="spinner"><CircularProgress size={'2rem'}/></div>}
         {isCharging === false && <p>¡Cambios guardados!</p>}
       </section>
     </form>

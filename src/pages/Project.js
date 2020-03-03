@@ -255,7 +255,7 @@ export function Project() {
 											>
 												Subir archivo
 											</button>
-											{isCharging && <div id="spinner"><CircularProgress size={30}/></div>}
+											{isCharging && <div id="spinner"><CircularProgress size={'2rem'}/></div>}
 										</form>
 									)}
 								</section>
@@ -336,6 +336,6 @@ export function Project() {
 			</section>
 		);
 	} else {
-		return <div className="centered-container" id="spinner"><CircularProgress size={60}/></div>;
+		return <div className="centered-container" id="spinner"><CircularProgress size={'4rem'}/></div>;
 	}
 }
