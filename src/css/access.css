@@ -13,7 +13,7 @@
 #access-form {
   border-radius: 10px;
   background-color: var(--color-dark);
-  width: 28rem;
+  width: 25rem;
   margin: auto auto;
 }
 
@@ -28,7 +28,7 @@
 #access-form fieldset#roles {
   background-color: var(--color-dark);
   margin-top: 1.2rem;
-  width: 28rem;
+  width: 25rem;
 }
 
 #access-form fieldset#roles ul {

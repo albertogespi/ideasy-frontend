@@ -42,7 +42,7 @@ h2 {
   width: 100%;
   /* min-width: 1134px; */
   height: 100%;
-  min-height: 700px;
+  /* min-height: 700px; */
   display: flex;
   flex-direction: row;
 }
@@ -50,11 +50,12 @@ h2 {
 .projects-container {
   height: 100%;
   width: 100%;
-  min-height: 700px;
+  /* min-height: 700px; */
   /* min-width: 852px; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 img {
@@ -136,25 +137,34 @@ button.delete-document {
   max-height: 2.2rem;
 }
 
-button.follow-button {
+button.follow-button, button.unfollow-button {
   background-color: transparent;
-
-  /* background: url("../images/icons8-plus-24.png") no-repeat;
-	float: left;
-	height: 25px; */
   padding: 0;
   display: flex;
+  min-width: 2rem;
 }
 
-button.follow-button > img {
+button.follow-button > img, button.unfollow-button > img  {
   height: 16px;
   width: 16px;
 }
+
 button.follow-button > p {
   margin: 0;
   padding: 0;
   font-size: var(--font-m);
   font-weight: bold;
+  color: var(--color-green2);
+  text-align: start;
+}
+
+button.unfollow-button > p {
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-m);
+  font-weight: bold;
+  color: var(--color-red);
+  text-align: start;
 }
 
 button.delete-document,
@@ -172,7 +182,7 @@ button.close-project:active {
 button#org-name {
   background-color: var(--color-light);
   font-size: 1.2rem;
-  height: 60px;
+  height: 4rem;
   margin-left: 0;
 }
 

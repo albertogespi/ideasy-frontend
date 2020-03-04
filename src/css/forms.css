@@ -32,7 +32,7 @@ fieldset ul li {
 
 fieldset label {
   display: inline-block;
-  width: 110px;
+  width: 8rem;
   text-align: center;
   font-size: var(--font-m);
 }

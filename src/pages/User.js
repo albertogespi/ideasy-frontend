@@ -95,7 +95,7 @@ export function User() {
   ) {
     console.log(userId);
     return (
-      <section className="container">
+      <section className="container" id="user">
         <Header isAccessWindow={false} />
         <section className="body">
           <div className="header-user">
@@ -105,6 +105,8 @@ export function User() {
                   ? "Perfil Desarrollador"
                   : "Perfil Organización"}
               </p>
+              <section>
+              <div className="centered-container">
               <div className="profile-photo" id="big-icon">
                 <img
                   src={
@@ -133,6 +135,7 @@ export function User() {
                   </div>
                 )}
               </div>
+              </div>
               <div className="centered-container" id="contact">
                 <h2>Contacto</h2>
                 <p>{user.contactEmail || user.email}</p>
@@ -140,6 +143,7 @@ export function User() {
                   <a href={user.contactWeb}>Sitio web</a>
                 )}
               </div>
+              </section>
             </section>
           </div>
           <section className="projects">

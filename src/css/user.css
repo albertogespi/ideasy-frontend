@@ -3,15 +3,15 @@ div#rating {
 }
 div.header-user {
   height: 100%;
-  min-height: 700px;
-  min-width: 470px;
+  min-height: 100%;
+  min-width: 29rem;
 }
 
 section#user-container {
   background-color: var(--color-light);
   height: 100%;
   padding: 1rem;
-  border-right: 2px solid black;
+  border-right: 0.15rem solid black;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,7 +24,7 @@ section#user-container h1 {
 #contact {
   margin-top: 3rem;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 0.15rem solid black;
   padding: 1rem;
 }
 #contact * {
@@ -59,4 +59,54 @@ section.projects section.filters {
 
 section.projects section.filters section#category {
   margin-top: 1.5rem;
+}
+
+section#user-container > section{
+  margin: 1rem;
+}
+
+@media (max-width: 1160px) {
+	#user .projects{
+		flex-direction: column;
+  }
+
+  #user .filters{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#user .filters > section{
+		padding-bottom: 1rem;
+		border-bottom: 2px solid var(--color-light);
+	}
+}
+
+@media (max-width: 740px) {
+  #user .body{
+    flex-direction: column;
+  }
+
+  div.header-user {
+    min-height: auto;
+    height: auto;
+    min-width: 100%;
+}
+
+section#user-container{
+  height: auto;
+  border-right: 0;
+  border-bottom: 0.15rem solid black;
+}
+
+section#user-container > section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#contact{
+  margin: 0 0 0 2rem;
+}
 }

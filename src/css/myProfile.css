@@ -27,12 +27,8 @@ section form#profile {
 
 #myProfile #myProfile-top,
 form#profile {
-  width: 30rem;
+  width: 25rem;
   padding: 1rem 0 1rem 0;
-}
-
-#myProfile form fieldset {
-  width: 250px;
 }
 
 h1.profile-name {

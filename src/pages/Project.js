@@ -155,7 +155,7 @@ export function Project() {
 			<section className='container' id='project'>
 				<Header isAccessWindow={false} />
 				<section className='home-body'>
-					<section className="centered-container">
+					<section>
 					<ul>
 						<li id='org-name-label'>
 							<Link to={`/user/${project.user_id}`}>
@@ -173,7 +173,7 @@ export function Project() {
 							</Link>
 							{typeOfProfile === DEVELOPER_VIEW &&
 								(isFollower ? (
-									<button className='follow-button' onClick={handleFollow}>
+									<button className='unfollow-button' onClick={handleFollow}>
 										<img src={require("../images/icons8-minus-24.png")} alt='' />
 										<p>Dejar de seguir proyecto</p>
 									</button>
