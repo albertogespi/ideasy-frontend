@@ -38,7 +38,7 @@ export function DevProject({ project }) {
 			</section>
 			<section id='middle'>
 				<h2>Descripción detallada</h2>
-				<p>{project.details}</p>
+				<pre>{project.details}</pre>
 			</section>
 		</section>
 	);

@@ -88,6 +88,12 @@ input.search {
   flex-direction: column;
 }
 
+
+.search-results > p {
+  color: var(--color-medium);
+  margin: auto auto;
+}
+
 .search-results > section {
   display: grid;
   grid-template-columns: 1fr 1fr;

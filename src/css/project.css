@@ -131,9 +131,11 @@ form#org-view-project {
   height: 15rem;
 }
 
-#project section#middle p {
+#project section#middle pre {
   margin-bottom: 1rem;
+  white-space: pre-wrap;
 }
+
 #project section#middle h2 {
   font-size: 1.3rem;
   margin-top: 1rem;
@@ -312,7 +314,7 @@ p#closed-project {
 p#empty-text {
   font-size: var(--font-sm);
   color: var(--color-medium);
-  margin: 0;
+  margin: 1rem;
   width: 100%;
 }
 
