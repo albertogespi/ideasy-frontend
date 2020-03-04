@@ -93,6 +93,7 @@ export function MyProjects() {
 		contributedProjects !== undefined &&
 		rating !== undefined
 	) {
+		console.log(jwt);
 		return (
 			<section id='myProjects' className='container'>
 				<Header isAccessWindow={false} />
@@ -109,12 +110,8 @@ export function MyProjects() {
 								<SimpleRating readOnly={true} value={rating} id='stars' />
 								<p>Mi puntuación media</p>
 								{rating
-									? `${rating} ${
-											rating === 1 ? "estrella" : "estrellas"
-									  } / ${numberOfContributions} ${
-											numberOfContributions === 1 ? "contribución" : "contribuciones"
-									  }`
-									: "Este usuario aún no ha recibido puntuaciones"}
+									? getRatingFormattedLine(rating, numberOfContributions)
+									: getNoRatingFormattedLine(jwt, userId)}
 							</div>))}
 					<Selects isFilters={true} selectsState={selectsState} setSelectsState={setSelectsState}/>
 					{isOrgProfile ? (
@@ -140,12 +137,8 @@ export function MyProjects() {
 								<SimpleRating readOnly={true} value={rating} id='stars' />
 								<p>Mi puntuación media</p>
 								{rating
-									? `${rating} ${
-											rating === 1 ? "estrella" : "estrellas"
-									  } / ${numberOfContributions} ${
-											numberOfContributions === 1 ? "contribución" : "contribuciones"
-									  }`
-									: "Este usuario aún no ha recibido puntuaciones"}
+									? getRatingFormattedLine(rating, numberOfContributions)
+									: getNoRatingFormattedLine(jwt, userId)}
 							</div>}
 							<MyProjectsDev
 								followedProjects={followedProjects}
@@ -161,5 +154,21 @@ export function MyProjects() {
 		);
 	} else {
 		return <div className="centered-container" id="spinner"><CircularProgress size={'4rem'}/></div>;
+	}
+}
+
+function getRatingFormattedLine(rating, numberOfContributions){
+	return `${rating} ${
+		rating === 1 ? "estrella" : "estrellas"
+  } / ${numberOfContributions} ${
+		numberOfContributions === 1 ? "contribución" : "contribuciones"
+  }`;
+}
+
+function getNoRatingFormattedLine(jwt, userId){
+	if(jwt.userId === userId){
+		return "Aún no has recibido puntuaciones";
+	} else {
+		return "Este usuario aún no ha recibido puntuaciones"
 	}
 }
