@@ -115,7 +115,7 @@ export function Header({ isAccessWindow }) {
                               alt=""
                             />
                           </div>
-                          <p>{user.name}</p>
+                          <p>{user.name} {user.role === 'dev' && user.surname}</p>
                         </button>
                       </a>
                     </li>

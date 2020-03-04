@@ -116,7 +116,7 @@ export function User() {
                   name="profile photo"
                 ></img>
               </div>
-              <h1>{user.name}</h1>
+              <h1>{user.name} {user.role === 'dev' && user.surname}</h1>
 
               <div className="centered-container" id="rating">
                 {user.role === "dev" && (
