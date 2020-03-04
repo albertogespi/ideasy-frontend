@@ -84,3 +84,7 @@ label#select-avatar:hover {
 label#select-avatar:active {
   background-color: var(--color-medium);
 }
+
+#myProfile #profile-form #spinner{
+  margin-top: 1rem;
+}

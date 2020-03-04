@@ -121,7 +121,7 @@
 
 section.projectList p#org-name {
   padding: 0.1rem;
-  width: 9rem;
+  /* width: 9rem; */
 }
 
 section.projectList .project-miniature div#complexity-category {

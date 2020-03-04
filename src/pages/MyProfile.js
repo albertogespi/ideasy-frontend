@@ -12,7 +12,8 @@ export function MyProfile() {
 	//esta parte gestiona cambiar el avatar
 	const [file, setFile] = useState();
 	const [isEmpty, setIsEmpty] = useState(true);
-	const [isCharging, setIsCharging] = useState(false);
+	const [isChargingPhoto, setIsChargingPhoto] = useState(undefined);
+	const [isChargingForm, setIsChargingForm] = useState(undefined);
 
 	const handleChange = (e) => {
 		console.log(e.target.files);
@@ -27,7 +28,7 @@ export function MyProfile() {
 
 		const data = new FormData();
 		data.append("avatar", file[0]);
-		setIsCharging(true);
+		setIsChargingPhoto(true);
 		uploadAvatar(data)
 			.then((response) => {
 				setFile(null);
@@ -36,7 +37,7 @@ export function MyProfile() {
 					localStorage.setItem("profileUser", JSON.stringify(response.data));
 					window.location.reload();
 				});
-				setIsCharging(false);
+				setIsChargingPhoto(false);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -63,6 +64,7 @@ export function MyProfile() {
 	const [user, setUser] = useState(storedUser || currentUser);
 
 	const handleUpdate = (formData) => {
+		setIsChargingForm(true);
 		return updateProfile(formData)
 			.then((response) => {
 				getProfile().then((response) => {
@@ -70,6 +72,7 @@ export function MyProfile() {
 					localStorage.setItem("profileUser", JSON.stringify(response.data));
 					window.location.reload();
 				});
+				setIsChargingForm(false);
 			})
 			.catch((error) => {
 				setValue("password", "");
@@ -114,7 +117,7 @@ export function MyProfile() {
 							>
 								Cambiar foto
 							</button>
-							{isCharging && <div id="spinner"><CircularProgress size={'2rem'}/></div>}
+							{isChargingPhoto && <div id="spinner"><CircularProgress size={'2rem'}/></div>}
 						</div>
 					</div>
 				</section>
@@ -228,6 +231,8 @@ export function MyProfile() {
 						<button className='form' type='submit' disabled={formState.isSubmitting}>
 							Modificar mis datos
 						</button>
+						{isChargingForm && <div id="spinner"><CircularProgress size={'2rem'}/></div>}
+						{isChargingForm === false && <p>¡Cambios guardados!</p>}
 					</form>
 				</section>
 			</section>

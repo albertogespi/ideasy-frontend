@@ -42,7 +42,7 @@ body {
 
 footer {
   background-color: var(--color-superdark);
-  min-height: 35px;
+  min-height: 2rem;
 }
 
 footer p {

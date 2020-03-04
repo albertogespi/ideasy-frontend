@@ -83,7 +83,7 @@ input.search {
 }
 
 .search-results {
-  height: 280px;
+  height: 20rem;
   display: flex;
   flex-direction: column;
 }
@@ -113,7 +113,20 @@ p.separator {
 }
 
 section#projects-results,
-section#users-results {
+section#users-results{
+  height: 100%;
+  overflow: hidden;
+}
+
+section#projects-results > p,
+section#users-results > p {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+section#projects-results ul,
+section#users-results ul {
+  height: 90%;
   overflow: auto;
 }
 

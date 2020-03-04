@@ -16,8 +16,11 @@ import {
 } from "../http/projectsService";
 import { SimpleRating } from "../components/Rating";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import {useMatchMedia} from "../hooks/useMatchMedia";
 
 export function MyProjects() {
+	const isMobile = useMatchMedia("(max-width:1110px)");
+
 	const { jwt } = useAuth();
 
 	let isOrgProfile = jwt.role === "org";
@@ -94,10 +97,7 @@ export function MyProjects() {
 			<section id='myProjects' className='container'>
 				<Header isAccessWindow={false} />
 				<main className='body'>
-					<Selects isFilters={true} selectsState={selectsState} setSelectsState={setSelectsState}/>
-					{isOrgProfile ? (
-						<section className='projects-container'>
-							<div className='centered-container' id='new-project-button'>
+					{isMobile && (isOrgProfile ? (<div className='centered-container' id='new-project-button'>
 								<Link to='/new-project'>
 									<button
 										id='new-project'
@@ -105,16 +105,7 @@ export function MyProjects() {
 									></button>
 								</Link>
 								<p>Nuevo proyecto</p>
-							</div>
-							<MyProjectsOrg
-								projects={orgProjects}
-								buttonSelected={buttonSelected}
-								setButtonSelected={setButtonSelected}
-							/>
-						</section>
-					) : (
-						<section className='projects-container'>
-							<div className='centered-container' id='my-projects-rating'>
+							</div>) : (<div className='centered-container' id='my-projects-rating'>
 								<SimpleRating readOnly={true} value={rating} id='stars' />
 								<p>Mi puntuación media</p>
 								{rating
@@ -124,7 +115,38 @@ export function MyProjects() {
 											numberOfContributions === 1 ? "contribución" : "contribuciones"
 									  }`
 									: "Este usuario aún no ha recibido puntuaciones"}
-							</div>
+							</div>))}
+					<Selects isFilters={true} selectsState={selectsState} setSelectsState={setSelectsState}/>
+					{isOrgProfile ? (
+						<section className='projects-container'>
+							{!isMobile && <div className='centered-container' id='new-project-button'>
+								<Link to='/new-project'>
+									<button
+										id='new-project'
+										aria-label='Click para crear un nuevo proyecto.'
+									></button>
+								</Link>
+								<p>Nuevo proyecto</p>
+							</div>}
+							<MyProjectsOrg
+								projects={orgProjects}
+								buttonSelected={buttonSelected}
+								setButtonSelected={setButtonSelected}
+							/>
+						</section>
+					) : (
+						<section className='projects-container'>
+							{!isMobile && <div className='centered-container' id='my-projects-rating'>
+								<SimpleRating readOnly={true} value={rating} id='stars' />
+								<p>Mi puntuación media</p>
+								{rating
+									? `${rating} ${
+											rating === 1 ? "estrella" : "estrellas"
+									  } / ${numberOfContributions} ${
+											numberOfContributions === 1 ? "contribución" : "contribuciones"
+									  }`
+									: "Este usuario aún no ha recibido puntuaciones"}
+							</div>}
 							<MyProjectsDev
 								followedProjects={followedProjects}
 								contributedProjects={contributedProjects}
