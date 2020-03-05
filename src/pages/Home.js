@@ -56,7 +56,7 @@ export function Home() {
         <section className="home-body">
           <section className="home-image">
             <p className="first">
-              Únete ya a Ideasy, el portal de ideas de software
+              Únete ya a Ideasy, el portal de ideas de software y diseño
             </p>
             <p className="second">
               Regístrate como desarrollador u organización, participa en
@@ -113,7 +113,7 @@ export function Home() {
   } else {
     return (
       <div className="centered-container" id="spinner">
-        <CircularProgress size={'4rem'} />
+        <CircularProgress size={"4rem"} />
       </div>
     );
   }
