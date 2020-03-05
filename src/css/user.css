@@ -1,6 +1,12 @@
 div#rating {
   margin-top: 1rem;
 }
+
+#ratingLine{
+  font-size: var(--font-sm);
+  text-align: center;
+}
+
 div.header-user {
   height: 100%;
   min-height: 100%;
@@ -9,7 +15,7 @@ div.header-user {
 
 section#user-container {
   background-color: var(--color-light);
-  height: 100%;
+  min-height: 100%;
   padding: 1rem;
   border-right: 0.15rem solid black;
   display: flex;
@@ -19,6 +25,7 @@ section#user-container {
 section#user-container h1 {
   font-size: 2rem;
   margin-top: 0.5rem;
+  text-align: center;
 }
 
 #contact {

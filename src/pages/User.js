@@ -123,7 +123,7 @@ export function User() {
                   <div className="centered-container">
                     <SimpleRating readOnly={true} value={rating} id="stars" />
                     <p>Puntuación media</p>
-                    {rating
+                    <p id="ratingLine">{rating
                       ? `${rating} ${
                           rating === 1 ? "estrella" : "estrellas"
                         } / ${numberOfContributions} ${
@@ -131,7 +131,7 @@ export function User() {
                             ? "contribución"
                             : "contribuciones"
                         }`
-                      : "Este usuario aún no ha recibido puntuaciones"}
+                      : "Este usuario aún no ha recibido puntuaciones"}</p>
                   </div>
                 )}
               </div>
